@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_OBTAIN_ORGANIZE_ACCOUNT_ASSIGNABLE_PERMISSIONS",
+  "name":"FLOW_OBTAIN_ORGANIZE_ACCOUNT_ASSIGNABLE_PERMISSIONS",
+  "type":"flow",
+  "title":"获取组织账户可分配权限",
+  "params":[
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"组织内账户的权限列表", "name":"permissionListForAccountsWithinOrganize", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":true, "defaultValue":{} },
+    { "title":"组织权限model列表", "name":"organizePermissionModelList", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ORGANIZE_ACCOUNT_ASSIGNABLE_PERMISSIONS",
+      "type":"event",
+      "title":"获取组织账户可分配权限",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_OBTAIN_ORGANIZE_ACCOUNT_ASSIGNABLE_PERMISSIONS",
+      "params":[
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"组织内账户的权限列表", "name":"permissionListForAccountsWithinOrganize", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":true, "defaultValue":{} },
+        { "title":"组织权限model列表", "name":"organizePermissionModelList", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ORGANIZE_ACCOUNT_ASSIGNABLE_PERMISSIONS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ORGANIZE_ACCOUNT_ASSIGNABLE_PERMISSIONS", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_DELETE_CONVERSATION_BASED_ON_ID",
+  "name":"FLOW_DELETE_CONVERSATION_BASED_ON_ID",
+  "type":"flow",
+  "title":"根据ID删除对话",
+  "params":[
+    { "title":"对话ID", "name":"conversationId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DELETE_CONVERSATION_BASED_ON_ID",
+      "type":"event",
+      "title":"根据ID删除对话",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_DELETE_CONVERSATION_BASED_ON_ID",
+      "params":[
+        { "title":"对话ID", "name":"conversationId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DELETE_CONVERSATION_BASED_ON_ID", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DELETE_CONVERSATION_BASED_ON_ID", "target":"end", "condition":"true" }
+  ]
+}

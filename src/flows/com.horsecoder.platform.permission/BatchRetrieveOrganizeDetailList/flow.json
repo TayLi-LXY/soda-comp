@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_BATCH_RETRIEVE_ORGANIZE_DETAIL_LIST",
+  "name":"FLOW_BATCH_RETRIEVE_ORGANIZE_DETAIL_LIST",
+  "type":"flow",
+  "title":"批量获取组织详情列表",
+  "params":[
+    { "title":"组织筛选实体", "name":"organizeFiltering", "type":"com.horsecoder.platform.permission.flow.GetOrganizeViewAndOrganizeListByDepth.model.OrganizeFiltering", "notnull":true, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"组织详情列表", "name":"organizeDetailList", "type":"List(com.horsecoder.platform.permission.flow.BatchRetrieveOrganizeDetailList.model.OrganizeDetail)", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_RETRIEVE_ORGANIZE_DETAIL_LIST",
+      "type":"event",
+      "title":"批量获取组织详情列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_BATCH_RETRIEVE_ORGANIZE_DETAIL_LIST",
+      "params":[
+        { "title":"组织筛选实体", "name":"organizeFiltering", "type":"com.horsecoder.platform.permission.flow.GetOrganizeViewAndOrganizeListByDepth.model.OrganizeFiltering", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"组织详情列表", "name":"organizeDetailList", "type":"List(com.horsecoder.platform.permission.flow.BatchRetrieveOrganizeDetailList.model.OrganizeDetail)", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_RETRIEVE_ORGANIZE_DETAIL_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_RETRIEVE_ORGANIZE_DETAIL_LIST", "target":"end", "condition":"true" }
+  ]
+}

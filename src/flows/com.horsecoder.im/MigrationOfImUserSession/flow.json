@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.im/FLOW_MIGRATION_OF_IM_USER_SESSION",
+  "name":"FLOW_MIGRATION_OF_IM_USER_SESSION",
+  "type":"flow",
+  "title":"迁移IM用户会话",
+  "params":[
+    { "title":"临时用户ID", "name":"temporaryUserId", "type":"String", "notnull":true },
+    { "title":"新用户ID", "name":"newUserId", "type":"String", "notnull":true },
+    { "title":"IM会话ID", "name":"conversationId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_MIGRATION_OF_IM_USER_SESSION",
+      "type":"event",
+      "title":"迁移IM用户会话",
+      "reference":"@com.horsecoder.im/FLOW_CODE_MIGRATION_OF_IM_USER_SESSION",
+      "params":[
+        { "title":"临时用户ID", "name":"temporaryUserId", "type":"String", "notnull":true },
+        { "title":"新用户ID", "name":"newUserId", "type":"String", "notnull":true },
+        { "title":"IM会话ID", "name":"conversationId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_MIGRATION_OF_IM_USER_SESSION", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_MIGRATION_OF_IM_USER_SESSION", "target":"end", "condition":"true" }
+  ]
+}

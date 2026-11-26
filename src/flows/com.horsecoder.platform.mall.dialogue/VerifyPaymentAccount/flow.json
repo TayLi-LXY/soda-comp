@@ -1,0 +1,18 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_VERIFY_PAYMENT_ACCOUNT",
+  "name":"FLOW_VERIFY_PAYMENT_ACCOUNT",
+  "type":"flow",
+  "title":"验证支付账户",
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_VERIFY_PAYMENT_ACCOUNT",
+      "type":"event",
+      "title":"验证支付账户",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_VERIFY_PAYMENT_ACCOUNT"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_VERIFY_PAYMENT_ACCOUNT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_VERIFY_PAYMENT_ACCOUNT", "target":"end", "condition":"true" }
+  ]
+}

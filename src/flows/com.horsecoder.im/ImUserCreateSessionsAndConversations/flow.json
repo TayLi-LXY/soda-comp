@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.im/FLOW_IM_USER_CREATE_SESSIONS_AND_CONVERSATIONS",
+  "name":"FLOW_IM_USER_CREATE_SESSIONS_AND_CONVERSATIONS",
+  "type":"flow",
+  "title":"IM用户创建会话和对话",
+  "params":[
+    { "title":"IM发送用户ID", "name":"imUserId", "type":"String", "notnull":true },
+    { "title":"接收人ID列表", "name":"recipientIdList", "type":"List(String)", "notnull":true },
+    { "title":"对话类型", "name":"type", "type":"Integer", "notnull":false, "defaultValue":1 },
+    { "title":"状态", "name":"status", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"名字", "name":"name", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"IM用户对话ID", "name":"imUserConversationId", "type":"String", "notnull":true },
+    { "title":"IM会话Id", "name":"imConversationId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_IM_USER_CREATE_SESSIONS_AND_CONVERSATIONS",
+      "type":"event",
+      "title":"IM用户创建会话和对话",
+      "reference":"@com.horsecoder.im/FLOW_CODE_IM_USER_CREATE_SESSIONS_AND_CONVERSATIONS",
+      "params":[
+        { "title":"IM发送用户ID", "name":"imUserId", "type":"String", "notnull":true },
+        { "title":"接收人ID列表", "name":"recipientIdList", "type":"List(String)", "notnull":true },
+        { "title":"对话类型", "name":"type", "type":"Integer", "notnull":false, "defaultValue":1 },
+        { "title":"状态", "name":"status", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"名字", "name":"name", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"IM用户对话ID", "name":"imUserConversationId", "type":"String", "notnull":true },
+        { "title":"IM会话Id", "name":"imConversationId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_IM_USER_CREATE_SESSIONS_AND_CONVERSATIONS", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_IM_USER_CREATE_SESSIONS_AND_CONVERSATIONS", "target":"end", "condition":"true" }
+  ]
+}

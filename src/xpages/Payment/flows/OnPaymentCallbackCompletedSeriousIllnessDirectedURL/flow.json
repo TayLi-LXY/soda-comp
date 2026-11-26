@@ -1,0 +1,35 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/payment/FLOW_ON_PAYMENT_CALLBACK_COMPLETED_SERIOUS_ILLNESS_DIRECTED_U_R_L",
+  "name":"FLOW_ON_PAYMENT_CALLBACK_COMPLETED_SERIOUS_ILLNESS_DIRECTED_U_R_L",
+  "type":"flow",
+  "title":"已完成支付回调病重定向到url",
+  "params":[
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"重定向url", "name":"redirectURL", "type":"Object", "notnull":true },
+    { "title":"订单号", "name":"orderNumber", "type":"Object", "notnull":true },
+    { "title":"是否选择支付方式", "name":"selectPaymentMethod", "type":"Object", "notnull":true },
+    { "title":"支付完成回调", "name":"paymentCompletionCallback", "type":"Object", "notnull":true },
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"支付账户ID", "name":"paymentAccountId", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_PAYMENT_CALLBACK_COMPLETED_SERIOUS_ILLNESS_DIRECTED_U_R_L",
+      "type":"event",
+      "title":"已完成支付回调病重定向到url",
+      "reference":"Payment/OnPaymentCallbackCompletedSeriousIllnessDirectedURL/FLOW_CODE_ON_PAYMENT_CALLBACK_COMPLETED_SERIOUS_ILLNESS_DIRECTED_U_R_L",
+      "params":[
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"重定向url", "name":"redirectURL", "type":"Object", "notnull":true },
+        { "title":"订单号", "name":"orderNumber", "type":"Object", "notnull":true },
+        { "title":"是否选择支付方式", "name":"selectPaymentMethod", "type":"Object", "notnull":true },
+        { "title":"支付完成回调", "name":"paymentCompletionCallback", "type":"Object", "notnull":true },
+        { "title":"支付账户ID", "name":"paymentAccountId", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_PAYMENT_CALLBACK_COMPLETED_SERIOUS_ILLNESS_DIRECTED_U_R_L", "condition":"true" },
+    { "source":"FLOW_NODE_ON_PAYMENT_CALLBACK_COMPLETED_SERIOUS_ILLNESS_DIRECTED_U_R_L", "target":"end", "condition":"true" }
+  ]
+}

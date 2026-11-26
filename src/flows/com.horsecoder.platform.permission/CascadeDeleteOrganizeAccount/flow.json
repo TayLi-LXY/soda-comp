@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_CASCADE_DELETE_ORGANIZE_ACCOUNT",
+  "name":"FLOW_CASCADE_DELETE_ORGANIZE_ACCOUNT",
+  "type":"flow",
+  "title":"级联删除组织账户",
+  "params":[
+    { "title":"组织账户ID", "name":"organizeAccountId", "type":"String", "notnull":true },
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_CASCADE_DELETE_ORGANIZE_ACCOUNT",
+      "type":"event",
+      "title":"级联删除组织账户",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_CASCADE_DELETE_ORGANIZE_ACCOUNT",
+      "params":[
+        { "title":"组织账户ID", "name":"organizeAccountId", "type":"String", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_CASCADE_DELETE_ORGANIZE_ACCOUNT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_CASCADE_DELETE_ORGANIZE_ACCOUNT", "target":"end", "condition":"true" }
+  ]
+}

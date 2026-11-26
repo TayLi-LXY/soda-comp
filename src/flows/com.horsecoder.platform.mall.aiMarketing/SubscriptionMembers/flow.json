@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_SUBSCRIPTION_MEMBERS",
+  "name":"FLOW_SUBSCRIPTION_MEMBERS",
+  "type":"flow",
+  "title":"订阅会员",
+  "params":[
+    { "title":"对话账户ID", "name":"dialogueAccountId", "type":"String", "notnull":true },
+    { "title":"订阅时间", "name":"subscriptionTime", "type":"Date", "notnull":true },
+    { "title":"会员类型", "name":"memberType", "type":"Integer", "notnull":true },
+    { "title":"有效期", "name":"periodOfValidity", "type":"Integer", "notnull":true },
+    { "title":"新增的积分", "name":"addPoints", "type":"Integer", "notnull":false },
+    { "title":"积分变化详情", "name":"detailsOfPointsChanges", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"订阅结果", "name":"subscriptionResults", "type":"Boolean", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_SUBSCRIPTION_MEMBERS",
+      "type":"event",
+      "title":"订阅会员",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_SUBSCRIPTION_MEMBERS",
+      "params":[
+        { "title":"对话账户ID", "name":"dialogueAccountId", "type":"String", "notnull":true },
+        { "title":"订阅时间", "name":"subscriptionTime", "type":"Date", "notnull":true },
+        { "title":"会员类型", "name":"memberType", "type":"Integer", "notnull":true },
+        { "title":"有效期", "name":"periodOfValidity", "type":"Integer", "notnull":true },
+        { "title":"新增的积分", "name":"addPoints", "type":"Integer", "notnull":false },
+        { "title":"积分变化详情", "name":"detailsOfPointsChanges", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"订阅结果", "name":"subscriptionResults", "type":"Boolean", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_SUBSCRIPTION_MEMBERS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_SUBSCRIPTION_MEMBERS", "target":"end", "condition":"true" }
+  ]
+}

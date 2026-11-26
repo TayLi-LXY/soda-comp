@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/taskList/FLOW_ON_INITIALIZE_TASK",
+  "name":"FLOW_ON_INITIALIZE_TASK",
+  "type":"flow",
+  "title":"初始化任务",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_INITIALIZE_TASK",
+      "type":"event",
+      "title":"初始化任务",
+      "reference":"TaskList/OnInitializeTask/FLOW_CODE_ON_INITIALIZE_TASK",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_INITIALIZE_TASK", "condition":"true" },
+    { "source":"FLOW_NODE_ON_INITIALIZE_TASK", "target":"end", "condition":"true" }
+  ]
+}

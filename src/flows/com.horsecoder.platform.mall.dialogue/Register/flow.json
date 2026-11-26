@@ -1,0 +1,44 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_REGISTER",
+  "name":"FLOW_REGISTER",
+  "type":"flow",
+  "title":"注册",
+  "params":[
+    { "title":"密码", "name":"password", "type":"String", "notnull":true },
+    { "title":"手机号", "name":"phone", "type":"String", "notnull":true },
+    { "title":"昵称", "name":"nickname", "type":"String", "notnull":true },
+    { "title":"邮箱", "name":"email", "type":"String", "notnull":true },
+    { "title":"用户名", "name":"userName", "type":"String", "notnull":true },
+    { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"验证码", "name":"captcha", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+    { "title":"用户名", "name":"userName", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_REGISTER",
+      "type":"event",
+      "title":"注册",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_REGISTER",
+      "params":[
+        { "title":"密码", "name":"password", "type":"String", "notnull":true },
+        { "title":"手机号", "name":"phone", "type":"String", "notnull":true },
+        { "title":"昵称", "name":"nickname", "type":"String", "notnull":true },
+        { "title":"邮箱", "name":"email", "type":"String", "notnull":true },
+        { "title":"用户名", "name":"userName", "type":"String", "notnull":true },
+        { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"验证码", "name":"captcha", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+        { "title":"用户名", "name":"userName", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_REGISTER", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_REGISTER", "target":"end", "condition":"true" }
+  ]
+}

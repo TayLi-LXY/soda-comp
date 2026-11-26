@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.im/FLOW_BATCH_UPDATE_IM_CALLBACK_INFORMATION",
+  "name":"FLOW_BATCH_UPDATE_IM_CALLBACK_INFORMATION",
+  "type":"flow",
+  "title":"批量更新Im回调信息",
+  "params":[
+    { "title":"批量更新im实体", "name":"batchUpdateIMEntities", "type":"List(com.horsecoder.im.flow.BatchUpdateImCallbackInformation.model.BatchUpdateIMEntities)", "notnull":false, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_BATCH_UPDATE_IM_CALLBACK_INFORMATION",
+      "type":"event",
+      "title":"批量更新Im回调信息",
+      "reference":"@com.horsecoder.im/FLOW_CODE_BATCH_UPDATE_IM_CALLBACK_INFORMATION",
+      "params":[
+        { "title":"批量更新im实体", "name":"batchUpdateIMEntities", "type":"List(com.horsecoder.im.flow.BatchUpdateImCallbackInformation.model.BatchUpdateIMEntities)", "notnull":false, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_BATCH_UPDATE_IM_CALLBACK_INFORMATION", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_BATCH_UPDATE_IM_CALLBACK_INFORMATION", "target":"end", "condition":"true" }
+  ]
+}

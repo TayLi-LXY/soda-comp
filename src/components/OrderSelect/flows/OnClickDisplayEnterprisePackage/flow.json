@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/orderSelect/FLOW_ON_CLICK_DISPLAY_ENTERPRISE_PACKAGE",
+  "name":"FLOW_ON_CLICK_DISPLAY_ENTERPRISE_PACKAGE",
+  "type":"flow",
+  "title":"点击显示企业套餐",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_DISPLAY_ENTERPRISE_PACKAGE",
+      "type":"event",
+      "title":"点击显示企业套餐",
+      "reference":"OrderSelect/OnClickDisplayEnterprisePackage/FLOW_CODE_ON_CLICK_DISPLAY_ENTERPRISE_PACKAGE",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_DISPLAY_ENTERPRISE_PACKAGE", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_DISPLAY_ENTERPRISE_PACKAGE", "target":"end", "condition":"true" }
+  ]
+}

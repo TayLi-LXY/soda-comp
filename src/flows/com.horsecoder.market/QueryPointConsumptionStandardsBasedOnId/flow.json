@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.market/FLOW_QUERY_POINT_CONSUMPTION_STANDARDS_BASED_ON_ID",
+  "name":"FLOW_QUERY_POINT_CONSUMPTION_STANDARDS_BASED_ON_ID",
+  "type":"flow",
+  "title":"根据ID查询积分消耗规范",
+  "params":[
+    { "title":"规范ID", "name":"standardizedId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"规范详情", "name":"specificationDetails", "type":"com.horsecoder.market.flow.QueryPointConsumptionStandardsBasedOnId.model.SpecificationDetails", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_QUERY_POINT_CONSUMPTION_STANDARDS_BASED_ON_ID",
+      "type":"event",
+      "title":"根据ID查询积分消耗规范",
+      "reference":"@com.horsecoder.market/FLOW_CODE_QUERY_POINT_CONSUMPTION_STANDARDS_BASED_ON_ID",
+      "params":[
+        { "title":"规范ID", "name":"standardizedId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"规范详情", "name":"specificationDetails", "type":"com.horsecoder.market.flow.QueryPointConsumptionStandardsBasedOnId.model.SpecificationDetails", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_QUERY_POINT_CONSUMPTION_STANDARDS_BASED_ON_ID", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_QUERY_POINT_CONSUMPTION_STANDARDS_BASED_ON_ID", "target":"end", "condition":"true" }
+  ]
+}

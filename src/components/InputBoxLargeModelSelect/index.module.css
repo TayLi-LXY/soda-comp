@@ -1,0 +1,50 @@
+.div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  align-items: center;
+}
+
+.divDiv0 {
+}
+
+.divDiv0AlertOutlined0 {
+  margin-right: 5px;
+}
+
+.divDiv1 {
+  width: 120px;
+  margin-right: 5px;
+}
+
+.inputBoxLargeModelSelectComponent {
+  width: 120px;
+}
+
+.divDiv2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.divDiv2Div0 {
+  width: 20px;
+  height: 20px;
+}
+
+.divDiv2Div0Progress0 {
+  width: 100%;
+  height: 100%;
+  margin-right: 5px;
+}
+
+.divDiv2P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  margin-left: 5px;
+  font-size: 10px;
+}
+

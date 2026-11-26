@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.market/FLOW_CREATE_EDIT_POINTS_CONSUMPTION_SPECIFICATION",
+  "name":"FLOW_CREATE_EDIT_POINTS_CONSUMPTION_SPECIFICATION",
+  "type":"flow",
+  "title":"创建编辑积分消耗规范",
+  "params":[
+    { "title":"积分消耗实体", "name":"pointsConsumptionEntity", "type":"com.horsecoder.market.flow.CreateEditPointsConsumptionSpecification.model.PointsConsumptionEntity", "notnull":false }
+  ],
+  "results":[
+    { "title":"规范ID", "name":"standardizedId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_CREATE_EDIT_POINTS_CONSUMPTION_SPECIFICATION",
+      "type":"event",
+      "title":"创建编辑积分消耗规范",
+      "reference":"@com.horsecoder.market/FLOW_CODE_CREATE_EDIT_POINTS_CONSUMPTION_SPECIFICATION",
+      "params":[
+        { "title":"积分消耗实体", "name":"pointsConsumptionEntity", "type":"com.horsecoder.market.flow.CreateEditPointsConsumptionSpecification.model.PointsConsumptionEntity", "notnull":false }
+      ],
+      "results":[
+        { "title":"规范ID", "name":"standardizedId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_CREATE_EDIT_POINTS_CONSUMPTION_SPECIFICATION", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_CREATE_EDIT_POINTS_CONSUMPTION_SPECIFICATION", "target":"end", "condition":"true" }
+  ]
+}

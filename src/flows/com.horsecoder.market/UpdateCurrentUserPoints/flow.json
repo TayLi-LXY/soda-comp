@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.market/FLOW_UPDATE_CURRENT_USER_POINTS",
+  "name":"FLOW_UPDATE_CURRENT_USER_POINTS",
+  "type":"flow",
+  "title":"更新当前用户积分",
+  "params":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_UPDATE_CURRENT_USER_POINTS",
+      "type":"event",
+      "title":"更新当前用户积分",
+      "reference":"@com.horsecoder.market/FLOW_CODE_UPDATE_CURRENT_USER_POINTS",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_UPDATE_CURRENT_USER_POINTS", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_UPDATE_CURRENT_USER_POINTS", "target":"end", "condition":"true" }
+  ]
+}

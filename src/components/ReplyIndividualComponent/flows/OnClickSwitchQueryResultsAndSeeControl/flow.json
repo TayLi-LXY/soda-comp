@@ -1,0 +1,29 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/replyIndividualComponent/FLOW_ON_CLICK_SWITCH_QUERY_RESULTS_AND_SEE_CONTROL",
+  "name":"FLOW_ON_CLICK_SWITCH_QUERY_RESULTS_AND_SEE_CONTROL",
+  "type":"flow",
+  "title":"点击开关查询结果可见控制",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"查询结果展示可见控制", "name":"queryResultsDisplayVisibleControls", "type":"Object", "notnull":true },
+    { "title":"聊天记录列表控制单项", "name":"entity", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_SWITCH_QUERY_RESULTS_AND_SEE_CONTROL",
+      "type":"event",
+      "title":"点击开关查询结果可见控制",
+      "reference":"ReplyIndividualComponent/OnClickSwitchQueryResultsAndSeeControl/FLOW_CODE_ON_CLICK_SWITCH_QUERY_RESULTS_AND_SEE_CONTROL",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"查询结果展示可见控制", "name":"queryResultsDisplayVisibleControls", "type":"Object", "notnull":true },
+        { "title":"聊天记录列表控制单项", "name":"entity", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_SWITCH_QUERY_RESULTS_AND_SEE_CONTROL", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_SWITCH_QUERY_RESULTS_AND_SEE_CONTROL", "target":"end", "condition":"true" }
+  ]
+}

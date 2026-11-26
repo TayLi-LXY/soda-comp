@@ -1,0 +1,67 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/logIn/FLOW_ON_REFRESH_GRAPHIC_CAPTCHA",
+  "name":"FLOW_ON_REFRESH_GRAPHIC_CAPTCHA",
+  "type":"flow",
+  "title":"刷新图形验证码",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"图形验证码刷新信号", "name":"graphicCaptchaRefreshSignal", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_OBTAIN_IMAGE_VERIFICATION_CODE",
+      "type":"flow",
+      "title":"获取图片验证码",
+      "reference":"@com.horsecoder.identity/FLOW_OBTAIN_IMAGE_VERIFICATION_CODE",
+      "params":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"图片base64", "name":"imageBase64", "type":"String", "notnull":true },
+        { "title":"验证码文本", "name":"verificationCodeText", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_GRAPHIC_CAPTCHA_BASE_IMAGE",
+      "type":"event",
+      "title":"设置数据:图形验证码base64",
+      "reference":"LogIn/OnRefreshGraphicCaptcha/FLOW_CODE_SET_GRAPHIC_CAPTCHA_BASE_IMAGE",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"图形验证码base64", "name":"graphicCaptchaBaseImage", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_GRAPHIC_CAPTCHA_TEXT",
+      "type":"event",
+      "title":"设置数据:图形验证码文本",
+      "reference":"LogIn/OnRefreshGraphicCaptcha/FLOW_CODE_SET_GRAPHIC_CAPTCHA_TEXT",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"图形验证码文本", "name":"graphicCaptchaText", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_CONVERT_GRAPHIC_CAPTCHA_DATA",
+      "type":"event",
+      "title":"转换图形验证码数据",
+      "reference":"LogIn/OnRefreshGraphicCaptcha/FLOW_CODE_CONVERT_GRAPHIC_CAPTCHA_DATA",
+      "params":[
+        { "title":"图片base64", "name":"imageBase64", "type":"String", "notnull":true },
+        { "title":"验证码文本", "name":"verificationCodeText", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"图形验证码base64", "name":"graphicCaptchaBaseImage", "type":"Object", "notnull":true },
+        { "title":"图形验证码文本", "name":"graphicCaptchaText", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_OBTAIN_IMAGE_VERIFICATION_CODE", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_OBTAIN_IMAGE_VERIFICATION_CODE", "target":"FLOW_NODE_CONVERT_GRAPHIC_CAPTCHA_DATA", "condition":"true" },
+    { "source":"FLOW_NODE_CONVERT_GRAPHIC_CAPTCHA_DATA", "target":"FLOW_NODE_SET_GRAPHIC_CAPTCHA_BASE_IMAGE", "condition":"true" },
+    { "source":"FLOW_NODE_SET_GRAPHIC_CAPTCHA_BASE_IMAGE", "target":"FLOW_NODE_SET_GRAPHIC_CAPTCHA_TEXT", "condition":"true" },
+    { "source":"FLOW_NODE_SET_GRAPHIC_CAPTCHA_TEXT", "target":"end", "condition":"true" }
+  ]
+}

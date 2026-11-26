@@ -1,0 +1,48 @@
+{
+  "id":"@com.horsecoder.model/FLOW_CREATE_MODEL_JSON_BASED_ON_URL",
+  "name":"FLOW_CREATE_MODEL_JSON_BASED_ON_URL",
+  "type":"flow",
+  "title":"根据模型文件Url新建模型文件",
+  "params":[
+    { "title":"类型", "name":"type", "type":"String", "notnull":true },
+    { "title":"子类型", "name":"subType", "type":"String", "notnull":true },
+    { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true },
+    { "title":"子模型ID", "name":"subModelId", "type":"String", "notnull":true },
+    { "title":"标题", "name":"title", "type":"String", "notnull":true },
+    { "title":"名称", "name":"name", "type":"String", "notnull":true },
+    { "title":"模型文件url", "name":"jsonPath", "type":"String", "notnull":true },
+    { "title":"锁持有对象", "name":"lockedBy", "type":"String", "notnull":false },
+    { "title":"模型引用ID列表", "name":"refs", "type":"List(String)", "notnull":false },
+    { "title":"需求文件url", "name":"demandPath", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"新模型文件模型", "name":"newModelJsonModel", "type":"com.horsecoder.model.flow.NewModelJson.model.ModelJsonModel", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_CREATE_MODEL_JSON_BASED_ON_URL",
+      "type":"event",
+      "title":"根据模型文件Url新建模型文件",
+      "reference":"@com.horsecoder.model/FLOW_CODE_CREATE_MODEL_JSON_BASED_ON_URL",
+      "params":[
+        { "title":"类型", "name":"type", "type":"String", "notnull":true },
+        { "title":"子类型", "name":"subType", "type":"String", "notnull":true },
+        { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true },
+        { "title":"子模型ID", "name":"subModelId", "type":"String", "notnull":true },
+        { "title":"标题", "name":"title", "type":"String", "notnull":true },
+        { "title":"名称", "name":"name", "type":"String", "notnull":true },
+        { "title":"模型文件url", "name":"jsonPath", "type":"String", "notnull":true },
+        { "title":"锁持有对象", "name":"lockedBy", "type":"String", "notnull":false },
+        { "title":"模型引用ID列表", "name":"refs", "type":"List(String)", "notnull":false },
+        { "title":"需求文件url", "name":"demandPath", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"新模型文件模型", "name":"newModelJsonModel", "type":"com.horsecoder.model.flow.NewModelJson.model.ModelJsonModel", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_CREATE_MODEL_JSON_BASED_ON_URL", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_CREATE_MODEL_JSON_BASED_ON_URL", "target":"end", "condition":"true" }
+  ]
+}

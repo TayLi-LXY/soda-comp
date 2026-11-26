@@ -1,0 +1,168 @@
+import React from 'react';
+import Image from 'next/image';
+import { Button } from 'antd';
+import DroppedUploadInputWrapper from '@/components/DroppedUploadInput/wrapper';
+import styles from './index.module.css';
+import type { IndexProps } from './types';
+
+/**
+ * 组件布局: 落地页
+ */
+const IndexPage: React.FC<IndexProps> = (props) => {
+
+  return (
+    <>
+      <div
+        className={styles.div}
+      >
+        <div
+          className={styles.divDiv0}
+        >
+          <div
+            className={styles.divDiv0Div0}
+          >
+            <Image
+              className={styles.divDiv0Div0Image0}
+              src="https://beta.horsecoder.com/remote-storage/api/sys/storage/file/preview?fileName=MkE3QzdDQkMxRkExQTc4NjU0MTlFMkM5NTRGNUYxMkUucG5n&user=prod"
+              alt=""
+              width="36"
+              height="36"
+            />
+            <p
+              className={styles.divDiv0Div0P1}
+            >
+              {`HorseData`}
+            </p>
+          </div>
+          <div
+            className={styles.divDiv0Div1}
+          >
+            <Button
+              className={styles.divDiv0Div1Button0}
+              type="text"
+            >
+              {`产品功能`}
+            </Button>
+            <Button
+              className={styles.divDiv0Div1Button1}
+              type="text"
+            >
+              {`数据连接`}
+            </Button>
+            <Button
+              className={styles.divDiv0Div1Button2}
+              type="text"
+            >
+              {`定价`}
+            </Button>
+            <Button
+              className={styles.divDiv0Div1Button3}
+              type="text"
+            >
+              {`文档`}
+            </Button>
+            <Button
+              className={styles.divDiv0Div1Button4}
+              type="default"
+            >
+              {`EN`}
+            </Button>
+            <Button
+              className={styles.divDiv0Div1Button5}
+              type="text"
+            >
+              {`登录`}
+            </Button>
+            <Button
+              className={styles.divDiv0Div1Button6}
+              type="primary"
+            >
+              {`免费开始`}
+            </Button>
+          </div>
+        </div>
+        <div
+          className={styles.divDiv1}
+        />
+        <div
+          className={styles.divDiv2}
+        >
+          <div
+            className={styles.divDiv2Div0}
+          >
+            <div
+              className={styles.divDiv2Div0Div0}
+            >
+              <p
+                className={styles.divDiv2Div0Div0P0}
+              >
+                {`用自然语言对话`}
+              </p>
+            </div>
+            <div
+              className={styles.divDiv2Div0Div1}
+            >
+              <p
+                className={styles.divDiv2Div0Div1P0}
+              >
+                {`驱动数据分析与决策`}
+              </p>
+            </div>
+            <div
+              className={styles.divDiv2Div0Div2}
+            >
+              <p
+                className={styles.divDiv2Div0Div2P0}
+              >
+                {`上传 Excel / CSV / PDF 或连接数据库,AI 自动分析、可视化、生成报告。无需代码,无需 SQL,开箱即用。`}
+              </p>
+            </div>
+          </div>
+          <div
+            className={styles.divDiv2Div1}
+          >
+            <DroppedUploadInputWrapper
+              value={props.value}
+              placeholder={props.placeholder}
+              autoSize={props.autoSize}
+            />
+          </div>
+        </div>
+        <div
+          className={styles.divDiv3}
+        >
+          <div
+            className={styles.divDiv3Div0}
+          >
+            <p
+              className={styles.divDiv3Div0P0}
+            >
+              {`© 2026 HorseData`}
+            </p>
+          </div>
+          <div
+            className={styles.divDiv3Div1}
+          >
+            <p
+              className={styles.divDiv3Div1P0}
+            >
+              {`Github`}
+            </p>
+            <p
+              className={styles.divDiv3Div1P1}
+            >
+              {`Google`}
+            </p>
+            <p
+              className={styles.divDiv3Div1P2}
+            >
+              {`Discord`}
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default IndexPage;

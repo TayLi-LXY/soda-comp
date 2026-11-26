@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.im/FLOW_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST",
+  "name":"FLOW_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST",
+  "type":"flow",
+  "title":"根据用户ID列表查询用户对话列表",
+  "params":[
+    { "title":"用户ID列表", "name":"userIdList", "type":"List(String)", "notnull":true },
+    { "title":"page", "name":"page", "type":"Integer", "notnull":true },
+    { "title":"rows", "name":"rows", "type":"Integer", "notnull":true }
+  ],
+  "results":[
+    { "title":"用户对话详情", "name":"userConversationDetail", "type":"List(com.horsecoder.im.flow.QueryUserConversationListBasedOnUserIdList.model.UserConversationDetail)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST",
+      "type":"event",
+      "title":"根据用户ID列表查询用户对话列表",
+      "reference":"@com.horsecoder.im/FLOW_CODE_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST",
+      "params":[
+        { "title":"用户ID列表", "name":"userIdList", "type":"List(String)", "notnull":true },
+        { "title":"page", "name":"page", "type":"Integer", "notnull":true },
+        { "title":"rows", "name":"rows", "type":"Integer", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户对话详情", "name":"userConversationDetail", "type":"List(com.horsecoder.im.flow.QueryUserConversationListBasedOnUserIdList.model.UserConversationDetail)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST", "target":"end", "condition":"true" }
+  ]
+}

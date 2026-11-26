@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_DETERMINE_WHETHER_THE_ROLE_BELONGS_TO_THE_CURRENT_ORGANIZATION",
+  "name":"FLOW_DETERMINE_WHETHER_THE_ROLE_BELONGS_TO_THE_CURRENT_ORGANIZATION",
+  "type":"flow",
+  "title":"判断角色是否属于当前组织",
+  "params":[
+    { "title":"角色ID", "name":"roleId", "type":"String", "notnull":true },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"角色是否属于组织", "name":"isRoleBelongToOrganization", "type":"Boolean", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_DETERMINE_WHETHER_THE_ROLE_BELONGS_TO_THE_CURRENT_ORGANIZATION",
+      "type":"event",
+      "title":"判断角色是否属于当前组织",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_DETERMINE_WHETHER_THE_ROLE_BELONGS_TO_THE_CURRENT_ORGANIZATION",
+      "params":[
+        { "title":"角色ID", "name":"roleId", "type":"String", "notnull":true },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"角色是否属于组织", "name":"isRoleBelongToOrganization", "type":"Boolean", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_DETERMINE_WHETHER_THE_ROLE_BELONGS_TO_THE_CURRENT_ORGANIZATION", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_DETERMINE_WHETHER_THE_ROLE_BELONGS_TO_THE_CURRENT_ORGANIZATION", "target":"end", "condition":"true" }
+  ]
+}

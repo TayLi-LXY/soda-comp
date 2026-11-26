@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.im/FLOW_SAVE_IM_MESSAGE",
+  "name":"FLOW_SAVE_IM_MESSAGE",
+  "type":"flow",
+  "title":"保存IM消息",
+  "params":[
+    { "title":"发送人ID", "name":"senderId", "type":"String", "notnull":true },
+    { "title":"会话ID", "name":"conversationId", "type":"String", "notnull":true },
+    { "title":"消息", "name":"message", "type":"com.horsecoder.im.flow.QueryUserConversationListBasedOnUserIdList.model.MessageEntity", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_SAVE_IM_MESSAGE",
+      "type":"event",
+      "title":"保存IM消息",
+      "reference":"@com.horsecoder.im/FLOW_CODE_SAVE_IM_MESSAGE",
+      "params":[
+        { "title":"发送人ID", "name":"senderId", "type":"String", "notnull":true },
+        { "title":"会话ID", "name":"conversationId", "type":"String", "notnull":true },
+        { "title":"消息", "name":"message", "type":"com.horsecoder.im.flow.QueryUserConversationListBasedOnUserIdList.model.MessageEntity", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_SAVE_IM_MESSAGE", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_SAVE_IM_MESSAGE", "target":"end", "condition":"true" }
+  ]
+}

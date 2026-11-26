@@ -1,0 +1,68 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/orderSelect/FLOW_ON_CLICK_CANCEL_ORDER",
+  "name":"FLOW_ON_CLICK_CANCEL_ORDER",
+  "type":"flow",
+  "title":"点击取消订单",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+    { "title":"支付订单号", "name":"paymentOrderNumber", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_CANCEL_ORDER",
+      "type":"event",
+      "title":"点击取消订单",
+      "reference":"OrderSelect/OnClickCancelOrder/FLOW_CODE_ON_CLICK_CANCEL_ORDER",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+        { "title":"支付订单号", "name":"paymentOrderNumber", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.pay/FLOW_CANCEL_PAYMENT_ORDER",
+      "type":"flow",
+      "title":"取消支付订单",
+      "reference":"@com.horsecoder.pay/FLOW_CANCEL_PAYMENT_ORDER",
+      "params":[
+        { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"取消结果", "name":"cancelResult", "type":"Boolean", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_VERIFY_CANCELLATION_PROCESSING_RESULT_OF_ORDER",
+      "type":"event",
+      "title":"验证订单取消处理结果",
+      "reference":"OrderSelect/OnClickCancelOrder/FLOW_CODE_VERIFY_CANCELLATION_PROCESSING_RESULT_OF_ORDER",
+      "params":[
+        { "title":"取消结果", "name":"cancelResult", "type":"Boolean", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_DISABLE_ORDER_PROMPT_VISIBLE_CONTROL",
+      "type":"event",
+      "title":"设置订单提示可见控制不可见",
+      "reference":"OrderSelect/OnClickCancelOrder/FLOW_CODE_DISABLE_ORDER_PROMPT_VISIBLE_CONTROL",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_CANCEL_ORDER", "condition":"true" },
+    { "source":"FLOW_NODE_DISABLE_ORDER_PROMPT_VISIBLE_CONTROL", "target":"end", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_CANCEL_ORDER", "target":"@com.horsecoder.pay/FLOW_CANCEL_PAYMENT_ORDER", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_CANCEL_PAYMENT_ORDER", "target":"FLOW_NODE_VERIFY_CANCELLATION_PROCESSING_RESULT_OF_ORDER", "condition":"true" },
+    { "source":"FLOW_NODE_VERIFY_CANCELLATION_PROCESSING_RESULT_OF_ORDER", "target":"FLOW_NODE_DISABLE_ORDER_PROMPT_VISIBLE_CONTROL", "condition":"true" }
+  ]
+}

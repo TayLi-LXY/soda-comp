@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS",
+  "name":"FLOW_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS",
+  "type":"flow",
+  "title":"根据ID查询数据智能账户状态",
+  "params":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"数据智能账户", "name":"dataSmartAccountMember", "type":"com.horsecoder.platform.dialogue.flow.CreateDataSmartAccountMembership.model.DataSmartAccountMember", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS",
+      "type":"event",
+      "title":"根据ID查询数据智能账户状态",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"数据智能账户", "name":"dataSmartAccountMember", "type":"com.horsecoder.platform.dialogue.flow.CreateDataSmartAccountMembership.model.DataSmartAccountMember", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS", "target":"end", "condition":"true" }
+  ]
+}

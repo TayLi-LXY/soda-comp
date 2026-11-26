@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.demand/FLOW_OPENING_GIT_WAREHOUSE_PERMISSIONS",
+  "name":"FLOW_OPENING_GIT_WAREHOUSE_PERMISSIONS",
+  "type":"flow",
+  "title":"开通git仓库权限流程",
+  "params":[
+    { "title":"用户id", "name":"userId", "type":"String", "notnull":true },
+    { "title":"仓库id", "name":"repositoryId", "type":"String", "notnull":true },
+    { "title":"项目id", "name":"projectId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.demand/FLOW_NODE_OPENING_GIT_WAREHOUSE_PERMISSIONS",
+      "type":"event",
+      "title":"开通git仓库权限流程",
+      "reference":"@com.horsecoder.demand/FLOW_CODE_OPENING_GIT_WAREHOUSE_PERMISSIONS",
+      "params":[
+        { "title":"用户id", "name":"userId", "type":"String", "notnull":true },
+        { "title":"仓库id", "name":"repositoryId", "type":"String", "notnull":true },
+        { "title":"项目id", "name":"projectId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.demand/FLOW_NODE_OPENING_GIT_WAREHOUSE_PERMISSIONS", "condition":"true" },
+    { "source":"@com.horsecoder.demand/FLOW_NODE_OPENING_GIT_WAREHOUSE_PERMISSIONS", "target":"end", "condition":"true" }
+  ]
+}

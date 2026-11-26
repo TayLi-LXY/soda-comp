@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.im/FLOW_RETRIEVE_CONVERSATION_INFORMATION_AND_LAST_MESSAGE_BASED_ON_CONVERSATION_ID",
+  "name":"FLOW_RETRIEVE_CONVERSATION_INFORMATION_AND_LAST_MESSAGE_BASED_ON_CONVERSATION_ID",
+  "type":"flow",
+  "title":"根据对话id查询对话信息及最后一条消息",
+  "params":[
+    { "title":"对话id列表", "name":"dialogueIdList", "type":"List(String)", "notnull":false }
+  ],
+  "results":[
+    { "title":"IM会话消息详情", "name":"iMConversationMessageDetails", "type":"List(com.horsecoder.im.flow.RetrieveConversationInformationAndLastMessageBasedOnConversationId.model.IMConversationMessage)", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_RETRIEVE_CONVERSATION_INFORMATION_AND_LAST_MESSAGE_BASED_ON_CONVERSATION_ID",
+      "type":"event",
+      "title":"根据对话id查询对话信息及最后一条消息",
+      "reference":"@com.horsecoder.im/FLOW_CODE_RETRIEVE_CONVERSATION_INFORMATION_AND_LAST_MESSAGE_BASED_ON_CONVERSATION_ID",
+      "params":[
+        { "title":"对话id列表", "name":"dialogueIdList", "type":"List(String)", "notnull":false }
+      ],
+      "results":[
+        { "title":"IM会话消息详情", "name":"iMConversationMessageDetails", "type":"List(com.horsecoder.im.flow.RetrieveConversationInformationAndLastMessageBasedOnConversationId.model.IMConversationMessage)", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_RETRIEVE_CONVERSATION_INFORMATION_AND_LAST_MESSAGE_BASED_ON_CONVERSATION_ID", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_RETRIEVE_CONVERSATION_INFORMATION_AND_LAST_MESSAGE_BASED_ON_CONVERSATION_ID", "target":"end", "condition":"true" }
+  ]
+}

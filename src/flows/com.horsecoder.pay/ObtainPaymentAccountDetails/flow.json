@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_OBTAIN_PAYMENT_ACCOUNT_DETAILS",
+  "name":"FLOW_OBTAIN_PAYMENT_ACCOUNT_DETAILS",
+  "type":"flow",
+  "title":"获取支付账户详情",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"账户钱包", "name":"accountWallet", "type":"com.horsecoder.pay.model.exp.Wallet", "notnull":true },
+    { "title":"支付账户", "name":"paymentAccount", "type":"com.horsecoder.pay.model.exp.Account", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_OBTAIN_PAYMENT_ACCOUNT_DETAILS",
+      "type":"event",
+      "title":"获取支付账户详情",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_OBTAIN_PAYMENT_ACCOUNT_DETAILS",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"账户钱包", "name":"accountWallet", "type":"com.horsecoder.pay.model.exp.Wallet", "notnull":true },
+        { "title":"支付账户", "name":"paymentAccount", "type":"com.horsecoder.pay.model.exp.Account", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_OBTAIN_PAYMENT_ACCOUNT_DETAILS", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_OBTAIN_PAYMENT_ACCOUNT_DETAILS", "target":"end", "condition":"true" }
+  ]
+}

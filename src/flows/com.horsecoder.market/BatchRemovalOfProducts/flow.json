@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.market/FLOW_BATCH_REMOVAL_OF_PRODUCTS",
+  "name":"FLOW_BATCH_REMOVAL_OF_PRODUCTS",
+  "type":"flow",
+  "title":"批量下架产品",
+  "params":[
+    { "title":"下架产品ID列表", "name":"removedProductIds", "type":"List(String)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_BATCH_REMOVAL_OF_PRODUCTS",
+      "type":"event",
+      "title":"批量下架产品",
+      "reference":"@com.horsecoder.market/FLOW_CODE_BATCH_REMOVAL_OF_PRODUCTS",
+      "params":[
+        { "title":"下架产品ID列表", "name":"removedProductIds", "type":"List(String)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_BATCH_REMOVAL_OF_PRODUCTS", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_BATCH_REMOVAL_OF_PRODUCTS", "target":"end", "condition":"true" }
+  ]
+}

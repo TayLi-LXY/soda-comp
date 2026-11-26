@@ -1,0 +1,28 @@
+.div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.panelContainer {
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  background-size: auto, 36px 36px, 36px 36px;
+  overflow: hidden;
+  justify-content: flex-start;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.panelContainerDiv0 {
+}
+
+.panelContainerDiv1 {
+  flex: 1;
+}
+

@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_TEMPORARY_USER",
+  "name":"FLOW_CREATE_TEMPORARY_USER",
+  "type":"flow",
+  "title":"创建临时用户",
+  "params":[
+    { "title":"注册IM用户信息实体", "name":"registerIMUserInformationEntity", "type":"com.horsecoder.im.flow.domain.FacadeRegisterAndSaveIMUserInformation.model.RegisterIMUserInformationEntity", "notnull":true, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"返回IM账户", "name":"returnIMAccount", "type":"com.horsecoder.im.flow.domain.FacadeRegisterAndSaveIMUserInformation.model.RegisterReturnUserEntity", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_CREATE_TEMPORARY_USER",
+      "type":"event",
+      "title":"创建临时用户",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_CREATE_TEMPORARY_USER",
+      "params":[
+        { "title":"注册IM用户信息实体", "name":"registerIMUserInformationEntity", "type":"com.horsecoder.im.flow.domain.FacadeRegisterAndSaveIMUserInformation.model.RegisterIMUserInformationEntity", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"返回IM账户", "name":"returnIMAccount", "type":"com.horsecoder.im.flow.domain.FacadeRegisterAndSaveIMUserInformation.model.RegisterReturnUserEntity", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_CREATE_TEMPORARY_USER", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_CREATE_TEMPORARY_USER", "target":"end", "condition":"true" }
+  ]
+}

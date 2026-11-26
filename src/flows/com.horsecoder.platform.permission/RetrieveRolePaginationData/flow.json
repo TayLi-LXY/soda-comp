@@ -1,0 +1,38 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_RETRIEVE_ROLE_PAGINATION_DATA",
+  "name":"FLOW_RETRIEVE_ROLE_PAGINATION_DATA",
+  "type":"flow",
+  "title":"获取角色分页数据",
+  "params":[
+    { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true },
+    { "title":"上级深度", "name":"superiorDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"下级深度", "name":"lowerDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"角色分页Filter", "name":"rolePaginationFilter", "type":"com.horsecoder.platform.permission.flow.RetrieveRolePaginationData.model.RolePaginationFilter", "notnull":true, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"角色分页实体", "name":"rolePaginationEntity", "type":"List(com.horsecoder.platform.permission.flow.RetrieveRolePaginationData.model.RolePaginationEntity)", "notnull":true, "defaultValue":[] },
+    { "title":"分页数量", "name":"numberOfPages", "type":"Long", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_RETRIEVE_ROLE_PAGINATION_DATA",
+      "type":"event",
+      "title":"获取角色分页数据",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_RETRIEVE_ROLE_PAGINATION_DATA",
+      "params":[
+        { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true },
+        { "title":"上级深度", "name":"superiorDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"下级深度", "name":"lowerDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"角色分页Filter", "name":"rolePaginationFilter", "type":"com.horsecoder.platform.permission.flow.RetrieveRolePaginationData.model.RolePaginationFilter", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"角色分页实体", "name":"rolePaginationEntity", "type":"List(com.horsecoder.platform.permission.flow.RetrieveRolePaginationData.model.RolePaginationEntity)", "notnull":true, "defaultValue":[] },
+        { "title":"分页数量", "name":"numberOfPages", "type":"Long", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_RETRIEVE_ROLE_PAGINATION_DATA", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_RETRIEVE_ROLE_PAGINATION_DATA", "target":"end", "condition":"true" }
+  ]
+}

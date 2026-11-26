@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.market/FLOW_STANDARD_PAGINATION_QUERY_FOR_POINT_CONSUMPTION",
+  "name":"FLOW_STANDARD_PAGINATION_QUERY_FOR_POINT_CONSUMPTION",
+  "type":"flow",
+  "title":"积分消耗规范分页查询",
+  "params":[
+    { "title":"规范Filter", "name":"standardizeFilter", "type":"com.horsecoder.market.flow.StandardPaginationQueryForPointConsumption.model.StandardizeFilter", "notnull":false }
+  ],
+  "results":[
+    { "title":"规范分页数量", "name":"standardizeNumberOfPaginationPages", "type":"Long", "notnull":false, "defaultValue":0 },
+    { "title":"规范分页实体列表", "name":"standardizePaginationEntityList", "type":"List(com.horsecoder.market.flow.StandardPaginationQueryForPointConsumption.model.StandardizePaginationEntities)", "notnull":false, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_STANDARD_PAGINATION_QUERY_FOR_POINT_CONSUMPTION",
+      "type":"event",
+      "title":"积分消耗规范分页查询",
+      "reference":"@com.horsecoder.market/FLOW_CODE_STANDARD_PAGINATION_QUERY_FOR_POINT_CONSUMPTION",
+      "params":[
+        { "title":"规范Filter", "name":"standardizeFilter", "type":"com.horsecoder.market.flow.StandardPaginationQueryForPointConsumption.model.StandardizeFilter", "notnull":false }
+      ],
+      "results":[
+        { "title":"规范分页数量", "name":"standardizeNumberOfPaginationPages", "type":"Long", "notnull":false, "defaultValue":0 },
+        { "title":"规范分页实体列表", "name":"standardizePaginationEntityList", "type":"List(com.horsecoder.market.flow.StandardPaginationQueryForPointConsumption.model.StandardizePaginationEntities)", "notnull":false, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_STANDARD_PAGINATION_QUERY_FOR_POINT_CONSUMPTION", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_STANDARD_PAGINATION_QUERY_FOR_POINT_CONSUMPTION", "target":"end", "condition":"true" }
+  ]
+}

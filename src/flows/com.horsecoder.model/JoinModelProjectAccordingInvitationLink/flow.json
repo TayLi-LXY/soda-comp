@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.model/FLOW_JOIN_MODEL_PROJECT_ACCORDING_INVITATION_LINK",
+  "name":"FLOW_JOIN_MODEL_PROJECT_ACCORDING_INVITATION_LINK",
+  "type":"flow",
+  "title":"根据邀请链接加入模型项目",
+  "params":[
+    { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true },
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_JOIN_MODEL_PROJECT_ACCORDING_INVITATION_LINK",
+      "type":"event",
+      "title":"根据邀请链接加入模型项目",
+      "reference":"@com.horsecoder.model/FLOW_CODE_JOIN_MODEL_PROJECT_ACCORDING_INVITATION_LINK",
+      "params":[
+        { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_JOIN_MODEL_PROJECT_ACCORDING_INVITATION_LINK", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_JOIN_MODEL_PROJECT_ACCORDING_INVITATION_LINK", "target":"end", "condition":"true" }
+  ]
+}

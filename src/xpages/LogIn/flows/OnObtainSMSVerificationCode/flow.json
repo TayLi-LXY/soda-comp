@@ -1,0 +1,51 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/logIn/FLOW_ON_OBTAIN_S_M_S_VERIFICATION_CODE",
+  "name":"FLOW_ON_OBTAIN_S_M_S_VERIFICATION_CODE",
+  "type":"flow",
+  "title":"获取短信验证码",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"验证码登录表单", "name":"verificationCodeLoginForm", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_OBTAIN_S_M_S_VERIFICATION_CODE",
+      "type":"event",
+      "title":"获取短信验证码",
+      "reference":"LogIn/OnObtainSMSVerificationCode/FLOW_CODE_ON_OBTAIN_S_M_S_VERIFICATION_CODE",
+      "params":[
+        { "title":"验证码登录表单", "name":"verificationCodeLoginForm", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+        { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_VERIFICATION_CODE_BUTTON_COUNTDOWN_AND_CLICKABLE",
+      "type":"event",
+      "title":"设置验证码按钮倒计时和可点击",
+      "reference":"LogIn/OnObtainSMSVerificationCode/FLOW_CODE_SET_VERIFICATION_CODE_BUTTON_COUNTDOWN_AND_CLICKABLE",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.identity/FLOW_OBTAIN_LOGIN_VERIFICATION_CODE",
+      "type":"flow",
+      "title":"获取登录验证码",
+      "reference":"@com.horsecoder.identity/FLOW_OBTAIN_LOGIN_VERIFICATION_CODE",
+      "params":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+        { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_OBTAIN_S_M_S_VERIFICATION_CODE", "condition":"true" },
+    { "source":"FLOW_NODE_SET_VERIFICATION_CODE_BUTTON_COUNTDOWN_AND_CLICKABLE", "target":"end", "condition":"true" },
+    { "source":"FLOW_NODE_ON_OBTAIN_S_M_S_VERIFICATION_CODE", "target":"@com.horsecoder.identity/FLOW_OBTAIN_LOGIN_VERIFICATION_CODE", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_OBTAIN_LOGIN_VERIFICATION_CODE", "target":"FLOW_NODE_SET_VERIFICATION_CODE_BUTTON_COUNTDOWN_AND_CLICKABLE", "condition":"true" }
+  ]
+}

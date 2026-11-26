@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_ADD_OR_GET_ACCOUNT",
+  "name":"FLOW_ADD_OR_GET_ACCOUNT",
+  "type":"flow",
+  "title":"新增或获取账户",
+  "params":[
+    { "title":"账户Id", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"账户标题", "name":"title", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"账户", "name":"account", "type":"com.horsecoder.platform.permission.flow.AddOrGetAccount.model.AccountTO", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_ADD_OR_GET_ACCOUNT",
+      "type":"event",
+      "title":"新增或获取账户",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_ADD_OR_GET_ACCOUNT",
+      "params":[
+        { "title":"账户Id", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"账户标题", "name":"title", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"账户", "name":"account", "type":"com.horsecoder.platform.permission.flow.AddOrGetAccount.model.AccountTO", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_ADD_OR_GET_ACCOUNT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_ADD_OR_GET_ACCOUNT", "target":"end", "condition":"true" }
+  ]
+}

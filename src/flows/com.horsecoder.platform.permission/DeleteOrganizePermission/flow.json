@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_DELETE_ORGANIZE_PERMISSION",
+  "name":"FLOW_DELETE_ORGANIZE_PERMISSION",
+  "type":"flow",
+  "title":"删除组织权限",
+  "params":[
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+    { "title":"权限ID", "name":"permissionId", "type":"String", "notnull":true },
+    { "title":"分配人账户ID", "name":"assignPersonAccountId", "type":"String", "notnull":true },
+    { "title":"授权组织ID", "name":"authorizeOrganizeId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ORGANIZE_PERMISSION",
+      "type":"event",
+      "title":"删除组织权限",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_DELETE_ORGANIZE_PERMISSION",
+      "params":[
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+        { "title":"权限ID", "name":"permissionId", "type":"String", "notnull":true },
+        { "title":"分配人账户ID", "name":"assignPersonAccountId", "type":"String", "notnull":true },
+        { "title":"授权组织ID", "name":"authorizeOrganizeId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ORGANIZE_PERMISSION", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ORGANIZE_PERMISSION", "target":"end", "condition":"true" }
+  ]
+}

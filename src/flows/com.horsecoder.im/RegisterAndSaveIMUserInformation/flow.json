@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.im/FLOW_REGISTER_AND_SAVE_I_M_USER_INFORMATION",
+  "name":"FLOW_REGISTER_AND_SAVE_I_M_USER_INFORMATION",
+  "type":"flow",
+  "title":"注册保存IM用户信息",
+  "params":[
+    { "title":"注册IM用户信息实体", "name":"registerIMUserInformationEntity", "type":"com.horsecoder.im.flow.RegisterAndSaveIMUserInformation.model.RegisterIMUserInformationEntity", "notnull":true, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"返回IM账户", "name":"returnIMAccount", "type":"com.horsecoder.im.flow.RegisterAndSaveIMUserInformation.model.RegisterReturnUserEntity", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_REGISTER_AND_SAVE_I_M_USER_INFORMATION",
+      "type":"event",
+      "title":"注册保存IM用户信息",
+      "reference":"@com.horsecoder.im/FLOW_CODE_REGISTER_AND_SAVE_I_M_USER_INFORMATION",
+      "params":[
+        { "title":"注册IM用户信息实体", "name":"registerIMUserInformationEntity", "type":"com.horsecoder.im.flow.RegisterAndSaveIMUserInformation.model.RegisterIMUserInformationEntity", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"返回IM账户", "name":"returnIMAccount", "type":"com.horsecoder.im.flow.RegisterAndSaveIMUserInformation.model.RegisterReturnUserEntity", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_REGISTER_AND_SAVE_I_M_USER_INFORMATION", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_REGISTER_AND_SAVE_I_M_USER_INFORMATION", "target":"end", "condition":"true" }
+  ]
+}

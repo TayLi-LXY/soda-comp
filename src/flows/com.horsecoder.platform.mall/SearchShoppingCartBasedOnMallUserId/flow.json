@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall/FLOW_SEARCH_SHOPPING_CART_BASED_ON_MALL_USER_ID",
+  "name":"FLOW_SEARCH_SHOPPING_CART_BASED_ON_MALL_USER_ID",
+  "type":"flow",
+  "title":"根据商城用户ID查询购物车",
+  "params":[
+    { "title":"商城账户ID", "name":"mallAccountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"购物车", "name":"cart", "type":"com.horsecoder.platform.mall.model.sys.Cart", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall/FLOW_NODE_SEARCH_SHOPPING_CART_BASED_ON_MALL_USER_ID",
+      "type":"event",
+      "title":"根据商城用户ID查询购物车",
+      "reference":"@com.horsecoder.platform.mall/FLOW_CODE_SEARCH_SHOPPING_CART_BASED_ON_MALL_USER_ID",
+      "params":[
+        { "title":"商城账户ID", "name":"mallAccountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"购物车", "name":"cart", "type":"com.horsecoder.platform.mall.model.sys.Cart", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall/FLOW_NODE_SEARCH_SHOPPING_CART_BASED_ON_MALL_USER_ID", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall/FLOW_NODE_SEARCH_SHOPPING_CART_BASED_ON_MALL_USER_ID", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id":"@com.horsecoder.platform.mall/FLOW_LISTING_PRODUCT",
+  "name":"FLOW_LISTING_PRODUCT",
+  "type":"flow",
+  "title":"上架商品",
+  "params":[
+    { "title":"商品名称", "name":"productName", "type":"String", "notnull":true },
+    { "title":"展示图片url", "name":"displayImageUrl", "type":"String", "notnull":true },
+    { "title":"分类ID", "name":"classificationId", "type":"String", "notnull":true },
+    { "title":"产品列表", "name":"productList", "type":"List(com.horsecoder.market.flow.domain.FacadeBatchCreationOfProductsAndirDependencies.model.ProductWithDependencies)", "notnull":true },
+    { "title":"上架用户ID", "name":"userIdForListing", "type":"String", "notnull":true },
+    { "title":"商品详情新增列表", "name":"productDetailsList", "type":"List(com.horsecoder.platform.mall.flow.domain.FacadeListingProduct.model.ProductDetailsAdd)", "notnull":true },
+    { "title":"商品简介", "name":"productIntroduction", "type":"String", "notnull":true },
+    { "title":"商品编号", "name":"productNumber", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall/FLOW_NODE_LISTING_PRODUCT",
+      "type":"event",
+      "title":"上架商品",
+      "reference":"@com.horsecoder.platform.mall/FLOW_CODE_LISTING_PRODUCT",
+      "params":[
+        { "title":"商品名称", "name":"productName", "type":"String", "notnull":true },
+        { "title":"展示图片url", "name":"displayImageUrl", "type":"String", "notnull":true },
+        { "title":"分类ID", "name":"classificationId", "type":"String", "notnull":true },
+        { "title":"产品列表", "name":"productList", "type":"List(com.horsecoder.market.flow.domain.FacadeBatchCreationOfProductsAndirDependencies.model.ProductWithDependencies)", "notnull":true },
+        { "title":"上架用户ID", "name":"userIdForListing", "type":"String", "notnull":true },
+        { "title":"商品详情新增列表", "name":"productDetailsList", "type":"List(com.horsecoder.platform.mall.flow.domain.FacadeListingProduct.model.ProductDetailsAdd)", "notnull":true },
+        { "title":"商品简介", "name":"productIntroduction", "type":"String", "notnull":true },
+        { "title":"商品编号", "name":"productNumber", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall/FLOW_NODE_LISTING_PRODUCT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall/FLOW_NODE_LISTING_PRODUCT", "target":"end", "condition":"true" }
+  ]
+}

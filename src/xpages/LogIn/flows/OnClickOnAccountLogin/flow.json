@@ -1,0 +1,86 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/logIn/FLOW_ON_CLICK_ON_ACCOUNT_LOGIN",
+  "name":"FLOW_ON_CLICK_ON_ACCOUNT_LOGIN",
+  "type":"flow",
+  "title":"点击账号登录",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"登录表单", "name":"loginForm", "type":"Object", "notnull":true },
+    { "title":"图形验证码文本", "name":"graphicCaptchaText", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_ON_ACCOUNT_LOGIN",
+      "type":"event",
+      "title":"点击账号登录",
+      "reference":"LogIn/OnClickOnAccountLogin/FLOW_CODE_ON_CLICK_ON_ACCOUNT_LOGIN",
+      "params":[
+        { "title":"登录表单", "name":"loginForm", "type":"Object", "notnull":true },
+        { "title":"图形验证码文本", "name":"graphicCaptchaText", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户名", "name":"username", "type":"String", "notnull":true },
+        { "title":"密码", "name":"password", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.identity/FLOW_LOGIN",
+      "type":"flow",
+      "title":"登录",
+      "reference":"@com.horsecoder.identity/FLOW_LOGIN",
+      "params":[
+        { "title":"用户名", "name":"username", "type":"String", "notnull":true },
+        { "title":"密码", "name":"password", "type":"String", "notnull":true },
+        { "title":"验证码", "name":"captcha", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"用户信息", "name":"userInfo", "type":"com.horsecoder.identity.flow.domain.FacadeLogin.model.UserLoginResult", "notnull":true },
+        { "title":"token", "name":"token", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_RETURN_INFORMATION_AFTER_PROCESSING_LOGIN",
+      "type":"event",
+      "title":"处理登陆后返回信息",
+      "reference":"LogIn/OnClickOnAccountLogin/FLOW_CODE_RETURN_INFORMATION_AFTER_PROCESSING_LOGIN",
+      "params":[
+        { "title":"用户信息", "name":"userInfo", "type":"com.horsecoder.identity.flow.domain.FacadeLogin.model.UserLoginResult", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_LOGIN_SUCCESSFUL_REDIRECT_HOMEPAGE",
+      "type":"event",
+      "title":"登录成功跳转首页",
+      "reference":"LogIn/OnClickOnAccountLogin/FLOW_CODE_LOGIN_SUCCESSFUL_REDIRECT_HOMEPAGE",
+      "params":[
+        { "title":"用户信息", "name":"userInfo", "type":"com.horsecoder.identity.flow.domain.FacadeLogin.model.UserLoginResult", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"数据智能账户", "name":"dataSmartAccountMember", "type":"com.horsecoder.platform.dialogue.flow.domain.FacadeCreateDataSmartAccountMembership.model.DataSmartAccountMember", "notnull":false }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_DATA_SMART_ACCOUNT_MEMBERSHIP",
+      "type":"flow",
+      "title":"创建数据智能账户会员",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_DATA_SMART_ACCOUNT_MEMBERSHIP",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"数据智能账户", "name":"dataSmartAccountMember", "type":"com.horsecoder.platform.dialogue.flow.domain.FacadeCreateDataSmartAccountMembership.model.DataSmartAccountMember", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_ON_ACCOUNT_LOGIN", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_ON_ACCOUNT_LOGIN", "target":"@com.horsecoder.identity/FLOW_LOGIN", "condition":"true" },
+    { "source":"FLOW_NODE_LOGIN_SUCCESSFUL_REDIRECT_HOMEPAGE", "target":"end", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_LOGIN", "target":"FLOW_NODE_RETURN_INFORMATION_AFTER_PROCESSING_LOGIN", "condition":"true" },
+    { "source":"FLOW_NODE_RETURN_INFORMATION_AFTER_PROCESSING_LOGIN", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_DATA_SMART_ACCOUNT_MEMBERSHIP", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_DATA_SMART_ACCOUNT_MEMBERSHIP", "target":"FLOW_NODE_LOGIN_SUCCESSFUL_REDIRECT_HOMEPAGE", "condition":"true" }
+  ]
+}

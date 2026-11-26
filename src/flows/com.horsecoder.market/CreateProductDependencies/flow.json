@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.market/FLOW_CREATE_PRODUCT_DEPENDENCIES",
+  "name":"FLOW_CREATE_PRODUCT_DEPENDENCIES",
+  "type":"flow",
+  "title":"创建产品依赖",
+  "params":[
+    { "title":"产品ID", "name":"productId", "type":"String", "notnull":true },
+    { "title":"依赖的产品ID列表", "name":"listOfDependentProductIds", "type":"List(String)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_CREATE_PRODUCT_DEPENDENCIES",
+      "type":"event",
+      "title":"创建产品依赖",
+      "reference":"@com.horsecoder.market/FLOW_CODE_CREATE_PRODUCT_DEPENDENCIES",
+      "params":[
+        { "title":"产品ID", "name":"productId", "type":"String", "notnull":true },
+        { "title":"依赖的产品ID列表", "name":"listOfDependentProductIds", "type":"List(String)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_CREATE_PRODUCT_DEPENDENCIES", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_CREATE_PRODUCT_DEPENDENCIES", "target":"end", "condition":"true" }
+  ]
+}

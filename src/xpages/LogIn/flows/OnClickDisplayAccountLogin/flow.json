@@ -1,0 +1,35 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/logIn/FLOW_ON_CLICK_DISPLAY_ACCOUNT_LOGIN",
+  "name":"FLOW_ON_CLICK_DISPLAY_ACCOUNT_LOGIN",
+  "type":"flow",
+  "title":"点击显示账号登录",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ENABLE_ACCOUNT_LOGIN_VISIBLE_CONTROL",
+      "type":"event",
+      "title":"设置账号登录可见控制可见",
+      "reference":"LogIn/OnClickDisplayAccountLogin/FLOW_CODE_ENABLE_ACCOUNT_LOGIN_VISIBLE_CONTROL",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_DISABLE_VERIFICATION_CODE_LOGIN_VISIBLE_CONTROL",
+      "type":"event",
+      "title":"设置验证码登录可见控制不可见",
+      "reference":"LogIn/OnClickDisplayAccountLogin/FLOW_CODE_DISABLE_VERIFICATION_CODE_LOGIN_VISIBLE_CONTROL",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ENABLE_ACCOUNT_LOGIN_VISIBLE_CONTROL", "condition":"true" },
+    { "source":"FLOW_NODE_ENABLE_ACCOUNT_LOGIN_VISIBLE_CONTROL", "target":"FLOW_NODE_DISABLE_VERIFICATION_CODE_LOGIN_VISIBLE_CONTROL", "condition":"true" },
+    { "source":"FLOW_NODE_DISABLE_VERIFICATION_CODE_LOGIN_VISIBLE_CONTROL", "target":"end", "condition":"true" }
+  ]
+}

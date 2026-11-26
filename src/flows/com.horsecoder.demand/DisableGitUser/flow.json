@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.demand/FLOW_DISABLE_GIT_USER",
+  "name":"FLOW_DISABLE_GIT_USER",
+  "type":"flow",
+  "title":"禁用git用户",
+  "params":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.demand/FLOW_NODE_DISABLE_GIT_USER",
+      "type":"event",
+      "title":"禁用git用户",
+      "reference":"@com.horsecoder.demand/FLOW_CODE_DISABLE_GIT_USER",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.demand/FLOW_NODE_DISABLE_GIT_USER", "condition":"true" },
+    { "source":"@com.horsecoder.demand/FLOW_NODE_DISABLE_GIT_USER", "target":"end", "condition":"true" }
+  ]
+}

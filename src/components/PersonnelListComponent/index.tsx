@@ -1,0 +1,162 @@
+import React from 'react';
+import { Tag, Input, Select, Button } from 'antd';
+import PersonnelListSingleItemWrapper from '@/components/PersonnelListSingleItem/wrapper';
+import styles from './index.module.css';
+import type { PersonnelListComponentProps } from './types';
+
+/**
+ * 组件布局: 人员列表组件
+ */
+const PersonnelListComponentComponent: React.FC<PersonnelListComponentProps> = (props) => {
+
+  return (
+    <>
+      <div
+        className={styles.div}
+      >
+        <div
+          className={styles.divDiv0}
+        >
+          <div
+            className={styles.divDiv0Div0}
+          >
+            <div
+              className={styles.divDiv0Div0Div0}
+            >
+              <div
+                className={styles.divDiv0Div0Div0Div0}
+              >
+                <div
+                  className={styles.divDiv0Div0Div0Div0Div0}
+                >
+                  <p
+                    className={styles.divDiv0Div0Div0Div0Div0P0}
+                  >
+                    {`我`}
+                  </p>
+                </div>
+                <div
+                  className={styles.divDiv0Div0Div0Div0Div1}
+                >
+                  <p
+                    className={styles.divDiv0Div0Div0Div0Div1P0}
+                  >
+                    {`我`}
+                  </p>
+                  <div
+                    className={styles.divDiv0Div0Div0Div0Div1Div1}
+                  >
+                    <div
+                      className={styles.divDiv0Div0Div0Div0Div1Div1Div0}
+                    >
+                      <p
+                        className={styles.divDiv0Div0Div0Div0Div1Div1Div0P0}
+                      >
+                        {`项目角色：`}
+                      </p>
+                      <p
+                        className={styles.divDiv0Div0Div0Div0Div1Div1Div0P1}
+                      >
+                        {`管理员`}
+                      </p>
+                    </div>
+                    <div
+                      className={styles.divDiv0Div0Div0Div0Div1Div1Div1}
+                    >
+                      <p
+                        className={styles.divDiv0Div0Div0Div0Div1Div1Div1P0}
+                      >
+                        {`空间角色：`}
+                      </p>
+                      <p
+                        className={styles.divDiv0Div0Div0Div0Div1Div1Div1P1}
+                      >
+                        {`创建者`}
+                      </p>
+                    </div>
+                    <div
+                      className={styles.divDiv0Div0Div0Div0Div1Div1Div2}
+                    >
+                      <p
+                        className={styles.divDiv0Div0Div0Div0Div1Div1Div2P0}
+                      >
+                        {`绑定AI：`}
+                      </p>
+                      <p
+                        className={styles.divDiv0Div0Div0Div0Div1Div1Div2P1}
+                      >
+                        {`总裁AI助手`}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className={styles.divDiv0Div0Div0Div1}
+              >
+                <Tag
+                  className={styles.divDiv0Div0Div0Div1Tag0}
+                  color="magenta"
+                >
+                  {`开发`}
+                </Tag>
+              </div>
+            </div>
+          </div>
+          <div
+            className={styles.divDiv0Div1}
+          >
+            { props.personnelList.map((entity, index) => (<PersonnelListSingleItemWrapper
+              entity={entity}
+              index={index}
+            />))}
+          </div>
+        </div>
+        <div
+          className={styles.divDiv1}
+        >
+          <p
+            className={styles.divDiv1P0}
+          >
+            {`邀请新成员`}
+          </p>
+          <div
+            className={styles.divDiv1Div1}
+          >
+            <Input
+              className={styles.divDiv1Div1Input0}
+              placeholder="请输入文本"
+            />
+            <div
+              className={styles.divDiv1Div1Div1}
+            >
+              <Select
+                className={styles.invitePersonnelPermissionsSelectComponent}
+                allowClear
+                showSearch
+                optionFilterProp="label"
+                options={props.invitePersonnelPermissionsSelectComponentOptions}
+              />
+            </div>
+            <Button
+              className={styles.divDiv1Div1Button2}
+              type="primary"
+            >
+              {`邀请`}
+            </Button>
+          </div>
+          <p
+            className={styles.divDiv1P2}
+          >
+            {`正文段落`}
+          </p>
+          <div
+            className={styles.divDiv1Div3}
+          />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default PersonnelListComponentComponent;

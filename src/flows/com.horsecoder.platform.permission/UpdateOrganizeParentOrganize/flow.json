@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_UPDATE_ORGANIZE_PARENT_ORGANIZE",
+  "name":"FLOW_UPDATE_ORGANIZE_PARENT_ORGANIZE",
+  "type":"flow",
+  "title":"更新组织父组织",
+  "params":[
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+    { "title":"父组织ID", "name":"parentOrganizeId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_UPDATE_ORGANIZE_PARENT_ORGANIZE",
+      "type":"event",
+      "title":"更新组织父组织",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_UPDATE_ORGANIZE_PARENT_ORGANIZE",
+      "params":[
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+        { "title":"父组织ID", "name":"parentOrganizeId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_UPDATE_ORGANIZE_PARENT_ORGANIZE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_UPDATE_ORGANIZE_PARENT_ORGANIZE", "target":"end", "condition":"true" }
+  ]
+}

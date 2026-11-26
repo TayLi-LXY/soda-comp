@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/dialogue/FLOW_ON_DETERMINE_WHETHER_CONVERSATION_COMPLETED_BASED_ON_CONVERSATION_ID",
+  "name":"FLOW_ON_DETERMINE_WHETHER_CONVERSATION_COMPLETED_BASED_ON_CONVERSATION_ID",
+  "type":"flow",
+  "title":"根据对话id判断对话是否完成",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true },
+    { "title":"isConversationComplete", "name":"isConversationComplete", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_DETERMINE_WHETHER_CONVERSATION_COMPLETED_BASED_ON_CONVERSATION_ID",
+      "type":"event",
+      "title":"根据对话id判断对话是否完成",
+      "reference":"Dialogue/OnDetermineWhetherConversationCompletedBasedOnConversationId/FLOW_CODE_ON_DETERMINE_WHETHER_CONVERSATION_COMPLETED_BASED_ON_CONVERSATION_ID"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_DETERMINE_WHETHER_CONVERSATION_COMPLETED_BASED_ON_CONVERSATION_ID", "condition":"true" },
+    { "source":"FLOW_NODE_ON_DETERMINE_WHETHER_CONVERSATION_COMPLETED_BASED_ON_CONVERSATION_ID", "target":"end", "condition":"true" }
+  ]
+}

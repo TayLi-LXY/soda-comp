@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_TERMINATION_OF_ALIPAY",
+  "name":"FLOW_TERMINATION_OF_ALIPAY",
+  "type":"flow",
+  "title":"支付宝解约",
+  "params":[
+    { "title":"协议编号", "name":"agreementNumber", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"解约结果", "name":"terminationResult", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_TERMINATION_OF_ALIPAY",
+      "type":"event",
+      "title":"支付宝解约",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_TERMINATION_OF_ALIPAY",
+      "params":[
+        { "title":"协议编号", "name":"agreementNumber", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"解约结果", "name":"terminationResult", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_TERMINATION_OF_ALIPAY", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_TERMINATION_OF_ALIPAY", "target":"end", "condition":"true" }
+  ]
+}

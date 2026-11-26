@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_VERIFY_ORGANIZATION_EXISTS",
+  "name":"FLOW_VERIFY_ORGANIZATION_EXISTS",
+  "type":"flow",
+  "title":"校验组织是否存在",
+  "params":[
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.model.sys.Organize", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_VERIFY_ORGANIZATION_EXISTS",
+      "type":"event",
+      "title":"校验组织是否存在",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_VERIFY_ORGANIZATION_EXISTS",
+      "params":[
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.model.sys.Organize", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_VERIFY_ORGANIZATION_EXISTS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_VERIFY_ORGANIZATION_EXISTS", "target":"end", "condition":"true" }
+  ]
+}

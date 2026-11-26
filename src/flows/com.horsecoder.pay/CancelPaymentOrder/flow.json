@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_CANCEL_PAYMENT_ORDER",
+  "name":"FLOW_CANCEL_PAYMENT_ORDER",
+  "type":"flow",
+  "title":"取消支付订单",
+  "params":[
+    { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true },
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"取消结果", "name":"cancelResult", "type":"Boolean", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_CANCEL_PAYMENT_ORDER",
+      "type":"event",
+      "title":"取消支付订单",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_CANCEL_PAYMENT_ORDER",
+      "params":[
+        { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"取消结果", "name":"cancelResult", "type":"Boolean", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_CANCEL_PAYMENT_ORDER", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_CANCEL_PAYMENT_ORDER", "target":"end", "condition":"true" }
+  ]
+}

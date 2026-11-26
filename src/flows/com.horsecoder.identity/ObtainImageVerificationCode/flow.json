@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_OBTAIN_IMAGE_VERIFICATION_CODE",
+  "name":"FLOW_OBTAIN_IMAGE_VERIFICATION_CODE",
+  "type":"flow",
+  "title":"获取图片验证码",
+  "params":[
+    { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"图片base64", "name":"imageBase64", "type":"String", "notnull":true },
+    { "title":"验证码文本", "name":"verificationCodeText", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_IMAGE_VERIFICATION_CODE",
+      "type":"event",
+      "title":"获取图片验证码",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_OBTAIN_IMAGE_VERIFICATION_CODE",
+      "params":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"图片base64", "name":"imageBase64", "type":"String", "notnull":true },
+        { "title":"验证码文本", "name":"verificationCodeText", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_IMAGE_VERIFICATION_CODE", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_IMAGE_VERIFICATION_CODE", "target":"end", "condition":"true" }
+  ]
+}

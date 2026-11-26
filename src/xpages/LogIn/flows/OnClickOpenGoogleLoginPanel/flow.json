@@ -1,0 +1,35 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/logIn/FLOW_ON_CLICK_OPEN_GOOGLE_LOGIN_PANEL",
+  "name":"FLOW_ON_CLICK_OPEN_GOOGLE_LOGIN_PANEL",
+  "type":"flow",
+  "title":"点击打开google登录面板",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_DISABLE_VISIBLE_CONTROL_IN_LOGIN_PANEL",
+      "type":"event",
+      "title":"设置登录面板可见控制不可见",
+      "reference":"LogIn/OnClickOpenGoogleLoginPanel/FLOW_CODE_DISABLE_VISIBLE_CONTROL_IN_LOGIN_PANEL",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_ENABLE_GOOGLE_LOGIN_PANEL_VISIBLE_CONTROLS",
+      "type":"event",
+      "title":"设置google登录面板可见控制可见",
+      "reference":"LogIn/OnClickOpenGoogleLoginPanel/FLOW_CODE_ENABLE_GOOGLE_LOGIN_PANEL_VISIBLE_CONTROLS",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_DISABLE_VISIBLE_CONTROL_IN_LOGIN_PANEL", "condition":"true" },
+    { "source":"FLOW_NODE_DISABLE_VISIBLE_CONTROL_IN_LOGIN_PANEL", "target":"FLOW_NODE_ENABLE_GOOGLE_LOGIN_PANEL_VISIBLE_CONTROLS", "condition":"true" },
+    { "source":"FLOW_NODE_ENABLE_GOOGLE_LOGIN_PANEL_VISIBLE_CONTROLS", "target":"end", "condition":"true" }
+  ]
+}

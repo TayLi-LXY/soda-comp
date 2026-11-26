@@ -1,0 +1,158 @@
+.div {
+  width: 180px;
+  height: 100%;
+  padding: 5px;
+  gap: 3px;
+}
+
+.settingsButton {
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.settingsButtonDiv0 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.settingsButtonDiv0SettingOutlined0 {
+  color: #000;
+}
+
+.settingsButtonP1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.divDiv1 {
+}
+
+.usageButton {
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.usageButtonDiv0 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.usageButtonDiv0DatabaseOutlined0 {
+  color: #000;
+}
+
+.usageButtonP1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.costButton {
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.costButtonDiv0 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.costButtonDiv0MoneyCollectOutlined0 {
+  color: #000;
+}
+
+.costButtonP1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.divDiv3 {
+}
+
+.helpButton {
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.helpButtonDiv0 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.helpButtonDiv0QuestionCircleOutlined0 {
+  color: #000;
+}
+
+.helpButtonP1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.exitButton {
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.exitButtonDiv0 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.exitButtonDiv0LogoutOutlined0 {
+  color: #000;
+}
+
+.exitButtonP1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+
+.settingsButton:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+.usageButton:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+.costButton:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+.helpButton:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+.exitButton:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}

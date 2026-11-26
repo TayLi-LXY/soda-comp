@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.market/FLOW_CREATE_MARKETING_ACCOUNT_AND_OPEN_PAYMENT_ACCOUNT",
+  "name":"FLOW_CREATE_MARKETING_ACCOUNT_AND_OPEN_PAYMENT_ACCOUNT",
+  "type":"flow",
+  "title":"创建营销账户并开通支付账户",
+  "params":[
+    { "title":"名称", "name":"name", "type":"String", "notnull":true },
+    { "title":"类型", "name":"type", "type":"Integer", "notnull":true },
+    { "title":"营销账户ID", "name":"marketingAccountId", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"支付账户实体", "name":"paymentAccountEntity", "type":"com.horsecoder.pay.model.exp.Account", "notnull":true },
+    { "title":"营销账户实体", "name":"marketAccountEntity", "type":"com.horsecoder.market.model.exp.Account", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_CREATE_MARKETING_ACCOUNT_AND_OPEN_PAYMENT_ACCOUNT",
+      "type":"event",
+      "title":"创建营销账户并开通支付账户",
+      "reference":"@com.horsecoder.market/FLOW_CODE_CREATE_MARKETING_ACCOUNT_AND_OPEN_PAYMENT_ACCOUNT",
+      "params":[
+        { "title":"名称", "name":"name", "type":"String", "notnull":true },
+        { "title":"类型", "name":"type", "type":"Integer", "notnull":true },
+        { "title":"营销账户ID", "name":"marketingAccountId", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"支付账户实体", "name":"paymentAccountEntity", "type":"com.horsecoder.pay.model.exp.Account", "notnull":true },
+        { "title":"营销账户实体", "name":"marketAccountEntity", "type":"com.horsecoder.market.model.exp.Account", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_CREATE_MARKETING_ACCOUNT_AND_OPEN_PAYMENT_ACCOUNT", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_CREATE_MARKETING_ACCOUNT_AND_OPEN_PAYMENT_ACCOUNT", "target":"end", "condition":"true" }
+  ]
+}

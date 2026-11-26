@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_ENTERING_SPACE",
+  "name":"FLOW_ENTERING_SPACE",
+  "type":"flow",
+  "title":"进入空间",
+  "params":[
+    { "title":"账户Id", "name":"accountId", "type":"String", "notnull":false },
+    { "title":"空间ID", "name":"spaceId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_ENTERING_SPACE",
+      "type":"event",
+      "title":"进入空间",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_ENTERING_SPACE",
+      "params":[
+        { "title":"账户Id", "name":"accountId", "type":"String", "notnull":false },
+        { "title":"空间ID", "name":"spaceId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_ENTERING_SPACE", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_ENTERING_SPACE", "target":"end", "condition":"true" }
+  ]
+}

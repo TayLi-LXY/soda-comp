@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_WE_CHAT_CALLBACK_RETRIEVE_USER_INFORMATION",
+  "name":"FLOW_WE_CHAT_CALLBACK_RETRIEVE_USER_INFORMATION",
+  "type":"flow",
+  "title":"微信回调获取用户信息",
+  "params":[
+    { "title":"code", "name":"code", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"临时token", "name":"tempToken", "type":"String", "notnull":false },
+    { "title":"是否注册过", "name":"ifRegistered", "type":"Boolean", "notnull":true },
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_WE_CHAT_CALLBACK_RETRIEVE_USER_INFORMATION",
+      "type":"event",
+      "title":"微信回调获取用户信息",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_WE_CHAT_CALLBACK_RETRIEVE_USER_INFORMATION",
+      "params":[
+        { "title":"code", "name":"code", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"临时token", "name":"tempToken", "type":"String", "notnull":false },
+        { "title":"是否注册过", "name":"ifRegistered", "type":"Boolean", "notnull":true },
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_WE_CHAT_CALLBACK_RETRIEVE_USER_INFORMATION", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_WE_CHAT_CALLBACK_RETRIEVE_USER_INFORMATION", "target":"end", "condition":"true" }
+  ]
+}

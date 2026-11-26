@@ -1,0 +1,38 @@
+{
+  "id":"@com.horsecoder.storage/FLOW_STREAMING_FILE_UPLOAD",
+  "name":"FLOW_STREAMING_FILE_UPLOAD",
+  "type":"flow",
+  "title":"流媒体文件上传m3u8",
+  "params":[
+    { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+    { "title":"文件名", "name":"fileName", "type":"String", "notnull":false },
+    { "title":"文件", "name":"file", "type":"org.springframework.web.multipart.MultipartFile", "notnull":true },
+    { "title":"文件用户", "name":"user", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"文件url", "name":"url", "type":"String", "notnull":true },
+    { "title":"流媒体m3u8文件url", "name":"streamingM3u8FileUrl", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.storage/FLOW_NODE_STREAMING_FILE_UPLOAD",
+      "type":"event",
+      "title":"流媒体文件上传m3u8",
+      "reference":"@com.horsecoder.storage/FLOW_CODE_STREAMING_FILE_UPLOAD",
+      "params":[
+        { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+        { "title":"文件名", "name":"fileName", "type":"String", "notnull":false },
+        { "title":"文件", "name":"file", "type":"org.springframework.web.multipart.MultipartFile", "notnull":true },
+        { "title":"文件用户", "name":"user", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"文件url", "name":"url", "type":"String", "notnull":true },
+        { "title":"流媒体m3u8文件url", "name":"streamingM3u8FileUrl", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.storage/FLOW_NODE_STREAMING_FILE_UPLOAD", "condition":"true" },
+    { "source":"@com.horsecoder.storage/FLOW_NODE_STREAMING_FILE_UPLOAD", "target":"end", "condition":"true" }
+  ]
+}

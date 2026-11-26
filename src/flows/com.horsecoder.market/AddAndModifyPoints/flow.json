@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.market/FLOW_ADD_AND_MODIFY_POINTS",
+  "name":"FLOW_ADD_AND_MODIFY_POINTS",
+  "type":"flow",
+  "title":"新增修改积分",
+  "params":[
+    { "title":"新增积分实体", "name":"addIntegralEntity", "type":"com.horsecoder.market.flow.AddAndModifyPoints.model.AddIntegralEntity", "notnull":false }
+  ],
+  "results":[
+    { "title":"结果", "name":"result", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_ADD_AND_MODIFY_POINTS",
+      "type":"event",
+      "title":"新增修改积分",
+      "reference":"@com.horsecoder.market/FLOW_CODE_ADD_AND_MODIFY_POINTS",
+      "params":[
+        { "title":"新增积分实体", "name":"addIntegralEntity", "type":"com.horsecoder.market.flow.AddAndModifyPoints.model.AddIntegralEntity", "notnull":false }
+      ],
+      "results":[
+        { "title":"结果", "name":"result", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_ADD_AND_MODIFY_POINTS", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_ADD_AND_MODIFY_POINTS", "target":"end", "condition":"true" }
+  ]
+}

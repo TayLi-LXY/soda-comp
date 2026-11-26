@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_CREATE_PAYMENT_ORDER",
+  "name":"FLOW_CREATE_PAYMENT_ORDER",
+  "type":"flow",
+  "title":"创建支付订单",
+  "params":[
+    { "title":"支付订单实体", "name":"paymentOrder", "type":"com.horsecoder.pay.model.exp.Order", "notnull":true },
+    { "title":"订单明细", "name":"orderDetails", "type":"List(com.horsecoder.pay.flow.CreatePaymentOrder.model.OrderDetails)", "notnull":false }
+  ],
+  "results":[
+    { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_CREATE_PAYMENT_ORDER",
+      "type":"event",
+      "title":"创建支付订单",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_CREATE_PAYMENT_ORDER",
+      "params":[
+        { "title":"支付订单实体", "name":"paymentOrder", "type":"com.horsecoder.pay.model.exp.Order", "notnull":true },
+        { "title":"订单明细", "name":"orderDetails", "type":"List(com.horsecoder.pay.flow.CreatePaymentOrder.model.OrderDetails)", "notnull":false }
+      ],
+      "results":[
+        { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_CREATE_PAYMENT_ORDER", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_CREATE_PAYMENT_ORDER", "target":"end", "condition":"true" }
+  ]
+}

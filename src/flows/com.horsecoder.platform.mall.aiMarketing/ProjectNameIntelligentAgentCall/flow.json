@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_PROJECT_NAME_INTELLIGENT_AGENT_CALL",
+  "name":"FLOW_PROJECT_NAME_INTELLIGENT_AGENT_CALL",
+  "type":"flow",
+  "title":"项目名称智能体调用",
+  "params":[
+    { "title":"用户信息", "name":"userInformation", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"项目名称", "name":"projectName", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_PROJECT_NAME_INTELLIGENT_AGENT_CALL",
+      "type":"event",
+      "title":"项目名称智能体调用",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_PROJECT_NAME_INTELLIGENT_AGENT_CALL",
+      "params":[
+        { "title":"用户信息", "name":"userInformation", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"项目名称", "name":"projectName", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_PROJECT_NAME_INTELLIGENT_AGENT_CALL", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_PROJECT_NAME_INTELLIGENT_AGENT_CALL", "target":"end", "condition":"true" }
+  ]
+}

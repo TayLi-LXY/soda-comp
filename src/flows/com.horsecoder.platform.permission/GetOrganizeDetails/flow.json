@@ -1,0 +1,38 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_GET_ORGANIZE_DETAILS",
+  "name":"FLOW_GET_ORGANIZE_DETAILS",
+  "type":"flow",
+  "title":"获取组织详情",
+  "params":[
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"组织类型", "name":"organizeType", "type":"com.horsecoder.platform.permission.flow.FilterOrganizeTypeListBasedOnOrganizeTypeIdList.model.OrganizeTypeResult", "notnull":true, "defaultValue":{} },
+    { "title":"上级组织", "name":"parentOrganize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":false, "defaultValue":{} },
+    { "title":"管理员账户", "name":"adminAccount", "type":"com.horsecoder.platform.permission.flow.FilterAccountsListCanBoundToOrganize.model.AccountEntity", "notnull":true, "defaultValue":{} },
+    { "title":"组织人数", "name":"organizePersonNumber", "type":"Integer", "notnull":true },
+    { "title":"组织实体", "name":"resultOrganize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_GET_ORGANIZE_DETAILS",
+      "type":"event",
+      "title":"获取组织详情",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_GET_ORGANIZE_DETAILS",
+      "params":[
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"组织类型", "name":"organizeType", "type":"com.horsecoder.platform.permission.flow.FilterOrganizeTypeListBasedOnOrganizeTypeIdList.model.OrganizeTypeResult", "notnull":true, "defaultValue":{} },
+        { "title":"上级组织", "name":"parentOrganize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":false, "defaultValue":{} },
+        { "title":"管理员账户", "name":"adminAccount", "type":"com.horsecoder.platform.permission.flow.FilterAccountsListCanBoundToOrganize.model.AccountEntity", "notnull":true, "defaultValue":{} },
+        { "title":"组织人数", "name":"organizePersonNumber", "type":"Integer", "notnull":true },
+        { "title":"组织实体", "name":"resultOrganize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_GET_ORGANIZE_DETAILS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_GET_ORGANIZE_DETAILS", "target":"end", "condition":"true" }
+  ]
+}

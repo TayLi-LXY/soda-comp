@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_OBTAIN_CANDIDATE_LIST_OF_ORGANIZE_MANAGEMENT_ACCOUNTS",
+  "name":"FLOW_OBTAIN_CANDIDATE_LIST_OF_ORGANIZE_MANAGEMENT_ACCOUNTS",
+  "type":"flow",
+  "title":"获取组织管理账户候选列表",
+  "params":[
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"组织账户候选列表", "name":"organizeAccountCandidateList", "type":"List(com.horsecoder.platform.permission.flow.ObtainCandidateListOfOrganizeManagementAccounts.model.OrganizeAdministratorAccount)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_CANDIDATE_LIST_OF_ORGANIZE_MANAGEMENT_ACCOUNTS",
+      "type":"event",
+      "title":"获取组织管理账户候选列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_OBTAIN_CANDIDATE_LIST_OF_ORGANIZE_MANAGEMENT_ACCOUNTS",
+      "params":[
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"组织账户候选列表", "name":"organizeAccountCandidateList", "type":"List(com.horsecoder.platform.permission.flow.ObtainCandidateListOfOrganizeManagementAccounts.model.OrganizeAdministratorAccount)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_CANDIDATE_LIST_OF_ORGANIZE_MANAGEMENT_ACCOUNTS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_CANDIDATE_LIST_OF_ORGANIZE_MANAGEMENT_ACCOUNTS", "target":"end", "condition":"true" }
+  ]
+}

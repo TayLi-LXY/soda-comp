@@ -1,0 +1,30 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_DOWNLOAD_EXECUTION_DIAGRAM",
+  "name":"FLOW_DOWNLOAD_EXECUTION_DIAGRAM",
+  "type":"flow",
+  "title":"下载执行图",
+  "params":[
+    { "title":"执行图ID", "name":"executionGraphId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"执行图", "name":"executionGraph", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_DOWNLOAD_EXECUTION_DIAGRAM",
+      "type":"event",
+      "title":"下载执行图",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_DOWNLOAD_EXECUTION_DIAGRAM",
+      "params":[
+        { "title":"执行图ID", "name":"executionGraphId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"执行图", "name":"executionGraph", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_DOWNLOAD_EXECUTION_DIAGRAM", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_DOWNLOAD_EXECUTION_DIAGRAM", "target":"end", "condition":"true" }
+  ]
+}

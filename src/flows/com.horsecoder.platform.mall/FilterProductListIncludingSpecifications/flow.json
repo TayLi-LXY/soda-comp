@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.platform.mall/FLOW_FILTER_PRODUCT_LIST_INCLUDING_SPECIFICATIONS",
+  "name":"FLOW_FILTER_PRODUCT_LIST_INCLUDING_SPECIFICATIONS",
+  "type":"flow",
+  "title":"筛选商品列表（含规格）",
+  "params":[
+    { "title":"商品类型", "name":"productType", "type":"String", "notnull":false },
+    { "title":"商品上下架状态", "name":"ifListed", "type":"Integer", "notnull":false },
+    { "title":"商品名称like", "name":"productNameLike", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"商品列表", "name":"commodityList", "type":"List(com.horsecoder.platform.mall.flow.domain.FacadeFilterProductListIncludingSpecifications.model.CommodityWithSpecifications)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall/FLOW_NODE_FILTER_PRODUCT_LIST_INCLUDING_SPECIFICATIONS",
+      "type":"event",
+      "title":"筛选商品列表（含规格）",
+      "reference":"@com.horsecoder.platform.mall/FLOW_CODE_FILTER_PRODUCT_LIST_INCLUDING_SPECIFICATIONS",
+      "params":[
+        { "title":"商品类型", "name":"productType", "type":"String", "notnull":false },
+        { "title":"商品上下架状态", "name":"ifListed", "type":"Integer", "notnull":false },
+        { "title":"商品名称like", "name":"productNameLike", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"商品列表", "name":"commodityList", "type":"List(com.horsecoder.platform.mall.flow.domain.FacadeFilterProductListIncludingSpecifications.model.CommodityWithSpecifications)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall/FLOW_NODE_FILTER_PRODUCT_LIST_INCLUDING_SPECIFICATIONS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall/FLOW_NODE_FILTER_PRODUCT_LIST_INCLUDING_SPECIFICATIONS", "target":"end", "condition":"true" }
+  ]
+}

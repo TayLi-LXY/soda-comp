@@ -1,0 +1,269 @@
+import React from 'react';
+import { Form, Input, Button } from 'antd';
+import Image from 'next/image';
+import weChat from '@/assets/weChat.png';
+import google from '@/assets/google.png';
+import lark from '@/assets/lark.png';
+import weCom from '@/assets/weCom.png';
+import dingTalk from '@/assets/dingTalk.png';
+import styles from './index.module.css';
+import type { RegisterProps } from './types';
+
+/**
+ * 组件布局: 注册
+ */
+const RegisterPage: React.FC<RegisterProps> = (props) => {
+
+  return (
+    <>
+      <div
+        className={styles.registrationPage}
+      >
+        { props.visibleControlInLoginPanel && (<div
+          className={styles.registrationPageDiv0}
+        >
+          <div
+            className={styles.registrationPageDiv0Div0}
+          >
+            <h3
+              className={styles.registrationPageDiv0Div0H30}
+            >
+              {`创建账户`}
+            </h3>
+            <p
+              className={styles.registrationPageDiv0Div0P1}
+            >
+              {`使用手机号注册`}
+            </p>
+          </div>
+          <div
+            className={styles.registrationPageDiv0Div1}
+          >
+            <div
+              className={styles.registrationPageDiv0Div1Div0}
+            >
+              { props.mobileVerificationFormVisibleControl && (<div
+                className={styles.registrationPageDiv0Div1Div0Div0}
+              >
+                <Form
+                  className={styles.registrationMobileVerificationForm}
+                  form={props.registrationMobileVerificationForm}
+                  layout="vertical"
+                >
+                  <Form.Item
+                    className={styles.mobilePhoneNumber}
+                    key="mobilePhoneNumber"
+                    name="mobilePhoneNumber"
+                    label="手机号"
+                    rules={[{ required: false, message: "请输入手机号" }]}
+                  >
+                    <Input
+                      className={styles.mobilePhoneNumberInput0}
+                      placeholder="请输入手机号"
+                    />
+                  </Form.Item>
+                  <div
+                    className={styles.registrationMobileVerificationFormDiv1}
+                  >
+                    <Form.Item
+                      className={styles.graphicalVerificationCode}
+                      key="graphicalVerificationCode"
+                      name="graphicalVerificationCode"
+                      label="图形验证码"
+                      rules={[{ required: false, message: "请输入图形验证码" }]}
+                    >
+                      <Input
+                        className={styles.graphicalVerificationCodeInput0}
+                        placeholder="请输入图形验证码"
+                      />
+                    </Form.Item>
+                    <div
+                      className={styles.imageCaptchaButton}
+                      {...props.actions.eventsImageCaptchaButton}
+                    >
+                      <Image
+                        className={styles.imageCaptchaButtonImage0}
+                        width={20}
+                        height={10}
+                        src={props.graphicCaptchaImage}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className={styles.registrationMobileVerificationFormDiv2}
+                  >
+                    <Form.Item
+                      className={styles.registrationMobileVerificationFormDiv2FormItem0}
+                      key="verifyCode"
+                      name="verifyCode"
+                      label="验证码"
+                      rules={[{ required: false, message: "请输入验证码" }]}
+                    >
+                      <Input
+                        className={styles.registrationMobileVerificationFormDiv2FormItem0Input0}
+                        placeholder="请输入验证码"
+                      />
+                    </Form.Item>
+                    <div
+                      className={styles.registrationMobileVerificationFormDiv2Div1}
+                    >
+                      <Button
+                        className={styles.mobileVerificationCodeSendButton}
+                        {...props.actions.eventsMobileVerificationCodeSendButton}
+                        type="primary"
+                        disabled={props.buttonDisable}
+                      >
+                        {props.countdownData}
+                      </Button>
+                    </div>
+                  </div>
+                  <Form.Item
+                    className={styles.username}
+                    key="username"
+                    name="username"
+                    label="用户名"
+                    rules={[{ required: false, message: "请输入用户名" }]}
+                  >
+                    <Input
+                      className={styles.usernameInput0}
+                      placeholder="请输入用户名"
+                    />
+                  </Form.Item>
+                  <Form.Item
+                    className={styles.password}
+                    key="password"
+                    name="password"
+                    label="密码"
+                    rules={[{ required: false, message: "请输入密码" }]}
+                  >
+                    <Input.Password
+                      className={styles.passwordInputPassword0}
+                      placeholder="请输入密码"
+                    />
+                  </Form.Item>
+                  <Form.Item
+                    className={styles.confirmPassword}
+                    key="confirmPassword"
+                    name="confirmPassword"
+                    label="确认密码"
+                    rules={[{ required: false, message: "请输入确认密码" }]}
+                  >
+                    <Input.Password
+                      className={styles.confirmPasswordInputPassword0}
+                      placeholder="请输入密码"
+                    />
+                  </Form.Item>
+                </Form>
+                <Button
+                  className={styles.registerButton}
+                  {...props.actions.eventsRegisterButton}
+                  type="primary"
+                >
+                  {`注册`}
+                </Button>
+              </div>)}
+              <div
+                className={styles.registrationPageDiv0Div1Div0Div1}
+              >
+                <p
+                  className={styles.registrationPageDiv0Div1Div0Div1P0}
+                >
+                  {`注册即表示您同意我们的`}
+                </p>
+                <div
+                  className={styles.registrationPageDiv0Div1Div0Div1Div1}
+                >
+                  <Button
+                    className={styles.registrationPageDiv0Div1Div0Div1Div1Button0}
+                    type="link"
+                  >
+                    {`《服务条款》`}
+                  </Button>
+                  <Button
+                    className={styles.registrationPageDiv0Div1Div0Div1Div1Button1}
+                    type="link"
+                  >
+                    {`《隐私协议》`}
+                  </Button>
+                </div>
+              </div>
+              <div
+                className={styles.registrationPageDiv0Div1Div0Div2}
+              >
+                <Button
+                  className={styles.loginJumpButton}
+                  {...props.actions.eventsLoginJumpButton}
+                  type="link"
+                >
+                  {`已有账户？立即登录`}
+                </Button>
+              </div>
+              { props.otherLoginMethodsVisibleControl && (<div
+                className={styles.registrationPageDiv0Div1Div0Div3}
+              >
+                <div
+                  className={styles.weChatRegistrationButton}
+                  {...props.actions.eventsWeChatRegistrationButton}
+                >
+                  <Image
+                    className={styles.weChatRegistrationButtonImage0}
+                    src={weChat}
+                    alt=""
+                    width="28"
+                    height="28"
+                  />
+                </div>
+                <div
+                  className={styles.registrationPageDiv0Div1Div0Div3Div1}
+                >
+                  <Image
+                    className={styles.registrationPageDiv0Div1Div0Div3Div1Image0}
+                    src={google}
+                    alt=""
+                    width="28"
+                    height="28"
+                  />
+                </div>
+                <div
+                  className={styles.registrationPageDiv0Div1Div0Div3Div2}
+                >
+                  <Image
+                    className={styles.registrationPageDiv0Div1Div0Div3Div2Image0}
+                    src={lark}
+                    alt=""
+                    width="28"
+                    height="28"
+                  />
+                </div>
+                <div
+                  className={styles.registrationPageDiv0Div1Div0Div3Div3}
+                >
+                  <Image
+                    className={styles.registrationPageDiv0Div1Div0Div3Div3Image0}
+                    src={weCom}
+                    alt=""
+                    width="28"
+                    height="28"
+                  />
+                </div>
+                <div
+                  className={styles.registrationPageDiv0Div1Div0Div3Div4}
+                >
+                  <Image
+                    className={styles.registrationPageDiv0Div1Div0Div3Div4Image0}
+                    src={dingTalk}
+                    alt=""
+                    width="28"
+                    height="28"
+                  />
+                </div>
+              </div>)}
+            </div>
+          </div>
+        </div>)}
+      </div>
+    </>
+  );
+};
+
+export default RegisterPage;

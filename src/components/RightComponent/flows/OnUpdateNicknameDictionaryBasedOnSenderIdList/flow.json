@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/rightComponent/FLOW_ON_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST",
+  "name":"FLOW_ON_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST",
+  "type":"flow",
+  "title":"根据发送人ID列表更新昵称字典",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"发送人ID列表", "name":"senderIdList", "type":"Object", "notnull":true },
+    { "title":"发送人昵称字典", "name":"senderNicknameDictionary", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST",
+      "type":"event",
+      "title":"根据发送人ID列表更新昵称字典",
+      "reference":"RightComponent/OnUpdateNicknameDictionaryBasedOnSenderIdList/FLOW_CODE_ON_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_ON_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST", "target":"end", "condition":"true" }
+  ]
+}

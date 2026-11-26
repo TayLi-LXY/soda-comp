@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.im/FLOW_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID",
+  "name":"FLOW_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID",
+  "type":"flow",
+  "title":"根据用户ID查询用户对话列表",
+  "params":[
+    { "title":"IM用户ID", "name":"id", "type":"com.horsecoder.im.flow.QueryUserConversationListBasedOnUserId.model.Id", "notnull":false },
+    { "title":"IM分身用户ID", "name":"iMCloneUserId", "type":"com.horsecoder.im.flow.QueryUserConversationListBasedOnUserId.model.Id", "notnull":false }
+  ],
+  "results":[
+    { "title":"用户对话列表", "name":"userDialogueList", "type":"List(com.horsecoder.im.flow.QueryUserConversationListBasedOnUserId.model.ImConversationId)", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID",
+      "type":"event",
+      "title":"根据用户ID查询用户对话列表",
+      "reference":"@com.horsecoder.im/FLOW_CODE_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID",
+      "params":[
+        { "title":"IM用户ID", "name":"id", "type":"com.horsecoder.im.flow.QueryUserConversationListBasedOnUserId.model.Id", "notnull":false },
+        { "title":"IM分身用户ID", "name":"iMCloneUserId", "type":"com.horsecoder.im.flow.QueryUserConversationListBasedOnUserId.model.Id", "notnull":false }
+      ],
+      "results":[
+        { "title":"用户对话列表", "name":"userDialogueList", "type":"List(com.horsecoder.im.flow.QueryUserConversationListBasedOnUserId.model.ImConversationId)", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID", "target":"end", "condition":"true" }
+  ]
+}

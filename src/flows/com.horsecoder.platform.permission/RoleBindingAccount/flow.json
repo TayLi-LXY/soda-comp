@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_ROLE_BINDING_ACCOUNT",
+  "name":"FLOW_ROLE_BINDING_ACCOUNT",
+  "type":"flow",
+  "title":"角色绑定账户",
+  "params":[
+    { "title":"账户Id", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"角色Id", "name":"roleId", "type":"String", "notnull":true },
+    { "title":"添加/删除", "name":"addRemove", "type":"String", "notnull":true },
+    { "title":"组织Id", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_ROLE_BINDING_ACCOUNT",
+      "type":"event",
+      "title":"角色绑定账户",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_ROLE_BINDING_ACCOUNT",
+      "params":[
+        { "title":"账户Id", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"角色Id", "name":"roleId", "type":"String", "notnull":true },
+        { "title":"添加/删除", "name":"addRemove", "type":"String", "notnull":true },
+        { "title":"组织Id", "name":"organizeId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_ROLE_BINDING_ACCOUNT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_ROLE_BINDING_ACCOUNT", "target":"end", "condition":"true" }
+  ]
+}

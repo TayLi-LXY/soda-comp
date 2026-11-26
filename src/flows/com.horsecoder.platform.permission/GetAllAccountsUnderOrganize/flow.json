@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_GET_ALL_ACCOUNTS_UNDER_ORGANIZE",
+  "name":"FLOW_GET_ALL_ACCOUNTS_UNDER_ORGANIZE",
+  "type":"flow",
+  "title":"获取组织下所有账户",
+  "params":[
+    { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true },
+    { "title":"上级深度", "name":"superiorDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"下级深度", "name":"lowerDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"组织筛选实体", "name":"organizeFilterMapper", "type":"com.horsecoder.platform.permission.flow.GetOrganizeViewAndOrganizeListByDepth.model.OrganizeFiltering", "notnull":false, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"组织下账户列表", "name":"accountUnderOrganizeList", "type":"List(com.horsecoder.platform.permission.flow.GetAllAccountsUnderOrganize.model.AccountUnderOrganize)", "notnull":true, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_GET_ALL_ACCOUNTS_UNDER_ORGANIZE",
+      "type":"event",
+      "title":"获取组织下所有账户",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_GET_ALL_ACCOUNTS_UNDER_ORGANIZE",
+      "params":[
+        { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true },
+        { "title":"上级深度", "name":"superiorDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"下级深度", "name":"lowerDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"组织筛选实体", "name":"organizeFilterMapper", "type":"com.horsecoder.platform.permission.flow.GetOrganizeViewAndOrganizeListByDepth.model.OrganizeFiltering", "notnull":false, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"组织下账户列表", "name":"accountUnderOrganizeList", "type":"List(com.horsecoder.platform.permission.flow.GetAllAccountsUnderOrganize.model.AccountUnderOrganize)", "notnull":true, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_GET_ALL_ACCOUNTS_UNDER_ORGANIZE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_GET_ALL_ACCOUNTS_UNDER_ORGANIZE", "target":"end", "condition":"true" }
+  ]
+}

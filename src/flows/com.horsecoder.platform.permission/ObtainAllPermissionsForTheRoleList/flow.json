@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_OBTAIN_ALL_PERMISSIONS_FOR_THE_ROLE_LIST",
+  "name":"FLOW_OBTAIN_ALL_PERMISSIONS_FOR_THE_ROLE_LIST",
+  "type":"flow",
+  "title":"获取角色列表所有权限",
+  "params":[
+    { "title":"角色列表", "name":"roleList", "type":"List(com.horsecoder.platform.permission.flow.ObtainAllPermissionsForTheRoleList.model.CharacterEntity)", "notnull":true, "defaultValue":[] }
+  ],
+  "results":[
+    { "title":"角色权限ID列表", "name":"rolePermissionList", "type":"List(String)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ALL_PERMISSIONS_FOR_THE_ROLE_LIST",
+      "type":"event",
+      "title":"获取角色列表所有权限",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_OBTAIN_ALL_PERMISSIONS_FOR_THE_ROLE_LIST",
+      "params":[
+        { "title":"角色列表", "name":"roleList", "type":"List(com.horsecoder.platform.permission.flow.ObtainAllPermissionsForTheRoleList.model.CharacterEntity)", "notnull":true, "defaultValue":[] }
+      ],
+      "results":[
+        { "title":"角色权限ID列表", "name":"rolePermissionList", "type":"List(String)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ALL_PERMISSIONS_FOR_THE_ROLE_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ALL_PERMISSIONS_FOR_THE_ROLE_LIST", "target":"end", "condition":"true" }
+  ]
+}

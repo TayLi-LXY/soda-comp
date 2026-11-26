@@ -1,0 +1,52 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/dialogue/FLOW_ON_SUBMIT_TASK",
+  "name":"FLOW_ON_SUBMIT_TASK",
+  "type":"flow",
+  "title":"提交任务",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"输入内容", "name":"inputContent", "type":"String", "notnull":true },
+    { "title":"附件列表", "name":"attachmentList", "type":"List(Object)", "notnull":true },
+    { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+    { "title":"用户对话ID", "name":"userConversationId", "type":"Object", "notnull":true },
+    { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_SUBMIT_TASK_PREPARATION_PARAMETERS",
+      "type":"event",
+      "title":"提交任务准备参数",
+      "reference":"Dialogue/OnSubmitTask/FLOW_NODE_SUBMIT_TASK_PREPARATION_PARAMETERS",
+      "params":[
+        { "title":"输入内容", "name":"inputContent", "type":"String", "notnull":true },
+        { "title":"附件列表", "name":"attachmentList", "type":"List(Object)", "notnull":true },
+        { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"任务", "name":"task", "type":"String", "notnull":true },
+        { "title":"文件列表", "name":"fileList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeIntelligentDataQuery.model.DataFile)", "notnull":true },
+        { "title":"发送者ID", "name":"senderId", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_INTELLIGENT_DATA_QUERY",
+      "type":"flow",
+      "title":"智能数据查询",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_INTELLIGENT_DATA_QUERY",
+      "params":[
+        { "title":"任务", "name":"task", "type":"String", "notnull":true },
+        { "title":"文件列表", "name":"fileList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeIntelligentDataQuery.model.DataFile)", "notnull":true },
+        { "title":"发送者ID", "name":"senderId", "type":"String", "notnull":true },
+        { "title":"用户对话ID", "name":"userConversationId", "type":"String", "notnull":false },
+        { "title":"会话ID", "name":"conversationId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_SUBMIT_TASK_PREPARATION_PARAMETERS", "condition":"true" },
+    { "source":"FLOW_NODE_SUBMIT_TASK_PREPARATION_PARAMETERS", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_INTELLIGENT_DATA_QUERY", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_INTELLIGENT_DATA_QUERY", "target":"end", "condition":"true" }
+  ]
+}

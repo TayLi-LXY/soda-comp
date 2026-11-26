@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.model/FLOW_DOWNLOAD_MODEL",
+  "name":"FLOW_DOWNLOAD_MODEL",
+  "type":"flow",
+  "title":"下载模型",
+  "params":[
+    { "title":"模型id", "name":"modelId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"核心模型", "name":"coreModel", "type":"Map(String$Object)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_DOWNLOAD_MODEL",
+      "type":"event",
+      "title":"下载模型",
+      "reference":"@com.horsecoder.model/FLOW_CODE_DOWNLOAD_MODEL",
+      "params":[
+        { "title":"模型id", "name":"modelId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"核心模型", "name":"coreModel", "type":"Map(String$Object)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_DOWNLOAD_MODEL", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_DOWNLOAD_MODEL", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_SCHEDULING_FILE_PARSING_AGENTS_FOR_SPECIFIED_FILE_TYPES",
+  "name":"FLOW_SCHEDULING_FILE_PARSING_AGENTS_FOR_SPECIFIED_FILE_TYPES",
+  "type":"flow",
+  "title":"调度指定文件类型的文件解析智能体",
+  "params":[
+    { "title":"文件url", "name":"fileUrl", "type":"String", "notnull":true },
+    { "title":"智能体名称", "name":"agentGroupName", "type":"String", "notnull":true },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+    { "title":"任务描述", "name":"taskDescription", "type":"String", "notnull":true },
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+    { "title":"文件名", "name":"fileName", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"解析结果", "name":"analysisResults", "type":"StringBuilder", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_SCHEDULING_FILE_PARSING_AGENTS_FOR_SPECIFIED_FILE_TYPES",
+      "type":"event",
+      "title":"调度指定文件类型的文件解析智能体",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_SCHEDULING_FILE_PARSING_AGENTS_FOR_SPECIFIED_FILE_TYPES",
+      "params":[
+        { "title":"文件url", "name":"fileUrl", "type":"String", "notnull":true },
+        { "title":"智能体名称", "name":"agentGroupName", "type":"String", "notnull":true },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+        { "title":"任务描述", "name":"taskDescription", "type":"String", "notnull":true },
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+        { "title":"文件名", "name":"fileName", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"解析结果", "name":"analysisResults", "type":"StringBuilder", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_SCHEDULING_FILE_PARSING_AGENTS_FOR_SPECIFIED_FILE_TYPES", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_SCHEDULING_FILE_PARSING_AGENTS_FOR_SPECIFIED_FILE_TYPES", "target":"end", "condition":"true" }
+  ]
+}

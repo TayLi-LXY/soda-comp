@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_GET_USER_SPACE_LIST",
+  "name":"FLOW_GET_USER_SPACE_LIST",
+  "type":"flow",
+  "title":"获取用户空间列表",
+  "params":[
+    { "title":"用户Id", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"空间列表", "name":"spaceList", "type":"List(com.horsecoder.identity.flow.GetUserSpaceList.model.SpaceModel)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_GET_USER_SPACE_LIST",
+      "type":"event",
+      "title":"获取用户空间列表",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_GET_USER_SPACE_LIST",
+      "params":[
+        { "title":"用户Id", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"空间列表", "name":"spaceList", "type":"List(com.horsecoder.identity.flow.GetUserSpaceList.model.SpaceModel)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_GET_USER_SPACE_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_GET_USER_SPACE_LIST", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,155 @@
+import React from 'react';
+import { Form, Input, Button } from 'antd';
+import styles from './index.module.css';
+import type { FeedbackAndReportingComponentProps } from './types';
+
+/**
+ * 组件布局: 反馈与举报组件
+ */
+const FeedbackAndReportingComponentComponent: React.FC<FeedbackAndReportingComponentProps> = (props) => {
+
+  return (
+    <>
+      <div
+        className={styles.div}
+      >
+        <div
+          className={styles.divDiv0}
+        >
+          <Form
+            className={styles.feedbackForm}
+            form={props.feedbackForm}
+          >
+            <div
+              className={styles.feedbackFormDiv0}
+            >
+              <div
+                className={styles.feedbackFormDiv0Div0}
+              >
+                <Form.Item
+                  className={styles.feedbackType}
+                  key="feedbackType"
+                  name="feedbackType"
+                  label=""
+                  rules={[{ required: true, message: "请输入反馈类型" }]}
+                >
+                  <div
+                    className={styles.feedbackTypeDiv0}
+                  >
+                    <div
+                      className={styles.feedbackTypeDiv0Div0}
+                    >
+                      <p
+                        className={styles.feedbackTypeDiv0Div0P0}
+                      >
+                        {`有害/不安全`}
+                      </p>
+                    </div>
+                    <div
+                      className={styles.feedbackTypeDiv0Div1}
+                    >
+                      <p
+                        className={styles.feedbackTypeDiv0Div1P0}
+                      >
+                        {`色情低俗`}
+                      </p>
+                    </div>
+                    <div
+                      className={styles.feedbackTypeDiv0Div2}
+                    >
+                      <p
+                        className={styles.feedbackTypeDiv0Div2P0}
+                      >
+                        {`谩骂攻击`}
+                      </p>
+                    </div>
+                    <div
+                      className={styles.feedbackTypeDiv0Div3}
+                    >
+                      <p
+                        className={styles.feedbackTypeDiv0Div3P0}
+                      >
+                        {`违法犯罪`}
+                      </p>
+                    </div>
+                    <div
+                      className={styles.feedbackTypeDiv0Div4}
+                    >
+                      <p
+                        className={styles.feedbackTypeDiv0Div4P0}
+                      >
+                        {`隐私相关`}
+                      </p>
+                    </div>
+                    <div
+                      className={styles.feedbackTypeDiv0Div5}
+                    >
+                      <p
+                        className={styles.feedbackTypeDiv0Div5P0}
+                      >
+                        {`信息虚假`}
+                      </p>
+                    </div>
+                    <div
+                      className={styles.feedbackTypeDiv0Div6}
+                    >
+                      <p
+                        className={styles.feedbackTypeDiv0Div6P0}
+                      >
+                        {`侵犯我的著作权、名誉权等`}
+                      </p>
+                    </div>
+                    <div
+                      className={styles.feedbackTypeDiv0Div7}
+                    >
+                      <p
+                        className={styles.feedbackTypeDiv0Div7P0}
+                      >
+                        {`其他`}
+                      </p>
+                    </div>
+                  </div>
+                </Form.Item>
+              </div>
+              <div
+                className={styles.feedbackFormDiv0Div1}
+              >
+                <Form.Item
+                  className={styles.reasonForReporting}
+                  key="reasonForReporting"
+                  name="reasonForReporting"
+                  label=""
+                  rules={[{ required: true, message: "请输入举报原因" }]}
+                >
+                  <Input.TextArea
+                    className={styles.reasonForReportingInputTextArea0}
+                    placeholder="我们想知道你举报的原因,你可以描述你遇到的问题。"
+                    rows={5}
+                  />
+                </Form.Item>
+              </div>
+            </div>
+          </Form>
+        </div>
+        <div
+          className={styles.divDiv1}
+        >
+          <Button
+            className={styles.divDiv1Button0}
+            type="default"
+          >
+            {`取消`}
+          </Button>
+          <Button
+            className={styles.divDiv1Button1}
+            type="primary"
+          >
+            {`提交`}
+          </Button>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default FeedbackAndReportingComponentComponent;

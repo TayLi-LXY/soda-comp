@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_BATCH_OBTAIN_ORGANIZE_INFORMATION",
+  "name":"FLOW_BATCH_OBTAIN_ORGANIZE_INFORMATION",
+  "type":"flow",
+  "title":"批量获取组织信息",
+  "params":[
+    { "title":"组织ID列表", "name":"organizeIdList", "type":"List(String)", "notnull":true }
+  ],
+  "results":[
+    { "title":"组织信息Map", "name":"organizeInformationMap", "type":"Map(String$com.horsecoder.platform.permission.flow.BatchObtainOrganizeInformation.model.OrganizeInformation)", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_OBTAIN_ORGANIZE_INFORMATION",
+      "type":"event",
+      "title":"批量获取组织信息",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_BATCH_OBTAIN_ORGANIZE_INFORMATION",
+      "params":[
+        { "title":"组织ID列表", "name":"organizeIdList", "type":"List(String)", "notnull":true }
+      ],
+      "results":[
+        { "title":"组织信息Map", "name":"organizeInformationMap", "type":"Map(String$com.horsecoder.platform.permission.flow.BatchObtainOrganizeInformation.model.OrganizeInformation)", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_OBTAIN_ORGANIZE_INFORMATION", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_OBTAIN_ORGANIZE_INFORMATION", "target":"end", "condition":"true" }
+  ]
+}

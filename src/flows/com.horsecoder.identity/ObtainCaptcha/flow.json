@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_OBTAIN_CAPTCHA",
+  "name":"FLOW_OBTAIN_CAPTCHA",
+  "type":"flow",
+  "title":"获取验证码",
+  "params":[
+    { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+    { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_CAPTCHA",
+      "type":"event",
+      "title":"获取验证码",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_OBTAIN_CAPTCHA",
+      "params":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+        { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_CAPTCHA", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_CAPTCHA", "target":"end", "condition":"true" }
+  ]
+}

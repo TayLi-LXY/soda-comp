@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/payment/FLOW_ON_CLICK_RETURN",
+  "name":"FLOW_ON_CLICK_RETURN",
+  "type":"flow",
+  "title":"点击返回",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_RETURN",
+      "type":"event",
+      "title":"点击返回",
+      "reference":"Payment/OnClickReturn/FLOW_CODE_ON_CLICK_RETURN",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_RETURN", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_RETURN", "target":"end", "condition":"true" }
+  ]
+}

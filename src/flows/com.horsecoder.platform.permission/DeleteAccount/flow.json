@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_DELETE_ACCOUNT",
+  "name":"FLOW_DELETE_ACCOUNT",
+  "type":"flow",
+  "title":"删除账户",
+  "params":[
+    { "title":"目标账户ID", "name":"targetAccountId", "type":"String", "notnull":true },
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ACCOUNT",
+      "type":"event",
+      "title":"删除账户",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_DELETE_ACCOUNT",
+      "params":[
+        { "title":"目标账户ID", "name":"targetAccountId", "type":"String", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ACCOUNT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ACCOUNT", "target":"end", "condition":"true" }
+  ]
+}

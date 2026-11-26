@@ -1,0 +1,53 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/register/FLOW_ON_SEND_MOBILE_VERIFICATION_CODE",
+  "name":"FLOW_ON_SEND_MOBILE_VERIFICATION_CODE",
+  "type":"flow",
+  "title":"发送手机验证码",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"图形验证码", "name":"graphicalVerificationCode", "type":"Object", "notnull":true },
+    { "title":"注册手机验证表单", "name":"registrationMobileVerificationForm", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_SEND_MOBILE_VERIFICATION_CODE",
+      "type":"event",
+      "title":"发送手机验证码",
+      "reference":"Register/OnSendMobileVerificationCode/FLOW_CODE_ON_SEND_MOBILE_VERIFICATION_CODE",
+      "params":[
+        { "title":"注册手机验证表单", "name":"registrationMobileVerificationForm", "type":"Object", "notnull":true },
+        { "title":"图形验证码", "name":"graphicalVerificationCode", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+        { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.identity/FLOW_OBTAIN_CAPTCHA",
+      "type":"flow",
+      "title":"获取验证码",
+      "reference":"@com.horsecoder.identity/FLOW_OBTAIN_CAPTCHA",
+      "params":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+        { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_COUNTDOWN",
+      "type":"event",
+      "title":"设置倒计时",
+      "reference":"Register/OnSendMobileVerificationCode/FLOW_CODE_SET_COUNTDOWN",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_SEND_MOBILE_VERIFICATION_CODE", "condition":"true" },
+    { "source":"FLOW_NODE_ON_SEND_MOBILE_VERIFICATION_CODE", "target":"@com.horsecoder.identity/FLOW_OBTAIN_CAPTCHA", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_OBTAIN_CAPTCHA", "target":"FLOW_NODE_SET_COUNTDOWN", "condition":"true" },
+    { "source":"FLOW_NODE_SET_COUNTDOWN", "target":"end", "condition":"true" }
+  ]
+}

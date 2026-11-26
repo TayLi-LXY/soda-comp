@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/queryResultDataTable/FLOW_ON_INITIALIZE_TABLE_DATA",
+  "name":"FLOW_ON_INITIALIZE_TABLE_DATA",
+  "type":"flow",
+  "title":"初始化表格数据",
+  "params":[
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":false },
+    { "title":"文件链接", "name":"fileUrl", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_INITIALIZE_TABLE_DATA",
+      "type":"event",
+      "title":"初始化表格数据",
+      "reference":"QueryResultDataTable/OnInitializeTableData/FLOW_CODE_ON_INITIALIZE_TABLE_DATA",
+      "params":[
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":false },
+        { "title":"文件链接", "name":"fileUrl", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_INITIALIZE_TABLE_DATA", "condition":"true" },
+    { "source":"FLOW_NODE_ON_INITIALIZE_TABLE_DATA", "target":"end", "condition":"true" }
+  ]
+}

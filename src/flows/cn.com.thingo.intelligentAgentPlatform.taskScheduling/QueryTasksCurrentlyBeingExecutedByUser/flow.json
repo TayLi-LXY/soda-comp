@@ -1,0 +1,30 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_QUERY_TASKS_CURRENTLY_BEING_EXECUTED_BY_USER",
+  "name":"FLOW_QUERY_TASKS_CURRENTLY_BEING_EXECUTED_BY_USER",
+  "type":"flow",
+  "title":"查询当前用户正在执行的任务",
+  "params":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"正在执行的任务数量", "name":"numberOfRunningTask", "type":"Integer", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_TASKS_CURRENTLY_BEING_EXECUTED_BY_USER",
+      "type":"event",
+      "title":"查询当前用户正在执行的任务",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_QUERY_TASKS_CURRENTLY_BEING_EXECUTED_BY_USER",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"正在执行的任务数量", "name":"numberOfRunningTask", "type":"Integer", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_TASKS_CURRENTLY_BEING_EXECUTED_BY_USER", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_TASKS_CURRENTLY_BEING_EXECUTED_BY_USER", "target":"end", "condition":"true" }
+  ]
+}

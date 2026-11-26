@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/scaned/FLOW_ON_OBTAIN_WE_CHAT_USER_INFORMATION",
+  "name":"FLOW_ON_OBTAIN_WE_CHAT_USER_INFORMATION",
+  "type":"flow",
+  "title":"获取微信用户信息",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"微信code", "name":"code", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_WE_CHAT_CALLBACK_AND_SET_TEMPORARYKEN",
+      "type":"flow",
+      "title":"获取微信回调并设置临时token",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_WE_CHAT_CALLBACK_AND_SET_TEMPORARYKEN",
+      "params":[
+        { "title":"code", "name":"code", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"是否注册过", "name":"ifRegistered", "type":"Boolean", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_IF_ALREADY_REGISTERED_JUMP_DIRECTLY",
+      "type":"event",
+      "title":"如果已注册直接跳转",
+      "reference":"Scaned/OnObtainWeChatUserInformation/FLOW_CODE_IF_ALREADY_REGISTERED_JUMP_DIRECTLY",
+      "params":[
+        { "title":"是否注册过", "name":"ifRegistered", "type":"Boolean", "notnull":true },
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_WE_CHAT_CALLBACK_AND_SET_TEMPORARYKEN", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_WE_CHAT_CALLBACK_AND_SET_TEMPORARYKEN", "target":"FLOW_NODE_IF_ALREADY_REGISTERED_JUMP_DIRECTLY", "condition":"true" },
+    { "source":"FLOW_NODE_IF_ALREADY_REGISTERED_JUMP_DIRECTLY", "target":"end", "condition":"true" }
+  ]
+}

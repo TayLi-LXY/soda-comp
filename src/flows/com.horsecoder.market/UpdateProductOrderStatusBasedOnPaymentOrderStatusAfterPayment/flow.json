@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.market/FLOW_UPDATE_PRODUCT_ORDER_STATUS_BASED_ON_PAYMENT_ORDER_STATUS_AFTER_PAYMENT",
+  "name":"FLOW_UPDATE_PRODUCT_ORDER_STATUS_BASED_ON_PAYMENT_ORDER_STATUS_AFTER_PAYMENT",
+  "type":"flow",
+  "title":"支付后根据支付订单状态更新产品订单状态",
+  "params":[
+    { "title":"订单号", "name":"orderNumber", "type":"String", "notnull":true },
+    { "title":"营销账户ID", "name":"marketingAccountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"订单更新状态", "name":"updateStatus", "type":"Integer", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_UPDATE_PRODUCT_ORDER_STATUS_BASED_ON_PAYMENT_ORDER_STATUS_AFTER_PAYMENT",
+      "type":"event",
+      "title":"支付后根据支付订单状态更新产品订单状态",
+      "reference":"@com.horsecoder.market/FLOW_CODE_UPDATE_PRODUCT_ORDER_STATUS_BASED_ON_PAYMENT_ORDER_STATUS_AFTER_PAYMENT",
+      "params":[
+        { "title":"订单号", "name":"orderNumber", "type":"String", "notnull":true },
+        { "title":"营销账户ID", "name":"marketingAccountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"订单更新状态", "name":"updateStatus", "type":"Integer", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_UPDATE_PRODUCT_ORDER_STATUS_BASED_ON_PAYMENT_ORDER_STATUS_AFTER_PAYMENT", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_UPDATE_PRODUCT_ORDER_STATUS_BASED_ON_PAYMENT_ORDER_STATUS_AFTER_PAYMENT", "target":"end", "condition":"true" }
+  ]
+}

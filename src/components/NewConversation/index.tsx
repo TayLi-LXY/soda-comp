@@ -1,0 +1,157 @@
+import React from 'react';
+import Image from 'next/image';
+import horsecoderlogo from '@/assets/horsecoderlogo.png';
+import InputBoxWrapper from '@/components/InputBox/wrapper';
+import styles from './index.module.css';
+import type { NewConversationProps } from './types';
+
+/**
+ * 组件布局: 新建对话
+ */
+const NewConversationComponent: React.FC<NewConversationProps> = () => {
+
+  return (
+    <>
+      <div
+        className={styles.div}
+      >
+        <Image
+          className={styles.divImage0}
+          src={horsecoderlogo}
+          alt=""
+        />
+        <h1
+          className={styles.divH11}
+        >
+          {`开始创建企业级可控应用`}
+        </h1>
+        <div
+          className={styles.divDiv2}
+        >
+          <p
+            className={styles.divDiv2P0}
+          >
+            {`用一句话描述你想生成什么应用或功能，系统会自动识别并生成`}
+          </p>
+        </div>
+        <div
+          className={styles.divDiv3}
+        >
+          <InputBoxWrapper/>
+        </div>
+        <p
+          className={styles.divP4}
+        >
+          {`按 Enter 发送，Shift + Enter 换行`}
+        </p>
+        <p
+          className={styles.divP5}
+        >
+          {`或选择以下示例快速开始`}
+        </p>
+        <div
+          className={styles.divDiv6}
+        >
+          <div
+            className={styles.divDiv6Div0}
+          >
+            <Image
+              className={styles.divDiv6Div0Image0}
+              src="https://beta.horsecoder.com/remote-storage/api/sys/storage/file/preview?fileName=MkE3QzdDQkMxRkExQTc4NjU0MTlFMkM5NTRGNUYxMkUucG5n&user=prod"
+              alt=""
+            />
+            <div
+              className={styles.divDiv6Div0Div1}
+            >
+              <h4
+                className={styles.divDiv6Div0Div1H40}
+              >
+                {`客户管理系统`}
+              </h4>
+              <p
+                className={styles.divDiv6Div0Div1P1}
+              >
+                {`我想做一个客户管理系统`}
+              </p>
+            </div>
+          </div>
+          <div
+            className={styles.divDiv6Div1}
+          >
+            <Image
+              className={styles.divDiv6Div1Image0}
+              src="https://beta.horsecoder.com/remote-storage/api/sys/storage/file/preview?fileName=MkE3QzdDQkMxRkExQTc4NjU0MTlFMkM5NTRGNUYxMkUucG5n&user=prod"
+              alt=""
+            />
+            <div
+              className={styles.divDiv6Div1Div1}
+            >
+              <h4
+                className={styles.divDiv6Div1Div1H40}
+              >
+                {`报销审批流程`}
+              </h4>
+              <p
+                className={styles.divDiv6Div1Div1P1}
+              >
+                {`报销审批工作流系统`}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          className={styles.divDiv7}
+        >
+          <div
+            className={styles.divDiv7Div0}
+          >
+            <Image
+              className={styles.divDiv7Div0Image0}
+              src="https://beta.horsecoder.com/remote-storage/api/sys/storage/file/preview?fileName=MkE3QzdDQkMxRkExQTc4NjU0MTlFMkM5NTRGNUYxMkUucG5n&user=prod"
+              alt=""
+            />
+            <div
+              className={styles.divDiv7Div0Div1}
+            >
+              <h4
+                className={styles.divDiv7Div0Div1H40}
+              >
+                {`员工考勤系统`}
+              </h4>
+              <p
+                className={styles.divDiv7Div0Div1P1}
+              >
+                {`需要对员工进行考勤打卡`}
+              </p>
+            </div>
+          </div>
+          <div
+            className={styles.divDiv7Div1}
+          >
+            <Image
+              className={styles.divDiv7Div1Image0}
+              src="https://beta.horsecoder.com/remote-storage/api/sys/storage/file/preview?fileName=MkE3QzdDQkMxRkExQTc4NjU0MTlFMkM5NTRGNUYxMkUucG5n&user=prod"
+              alt=""
+            />
+            <div
+              className={styles.divDiv7Div1Div1}
+            >
+              <h4
+                className={styles.divDiv7Div1Div1H40}
+              >
+                {`电商订单后台`}
+              </h4>
+              <p
+                className={styles.divDiv7Div1Div1P1}
+              >
+                {`创建要给电商订单管理后台`}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default NewConversationComponent;

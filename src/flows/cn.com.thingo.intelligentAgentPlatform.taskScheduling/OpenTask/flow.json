@@ -1,0 +1,34 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_OPEN_TASK",
+  "name":"FLOW_OPEN_TASK",
+  "type":"flow",
+  "title":"开启任务",
+  "params":[
+    { "title":"开启任务", "name":"openTask", "type":"cn.com.thingo.taskScheduling.flow.OpenTask.model.OpenTask", "notnull":true },
+    { "title":"任务", "name":"task", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"任务ID", "name":"taskId", "type":"String", "notnull":true },
+    { "title":"任务开始时间", "name":"taskStartTime", "type":"Date", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_OPEN_TASK",
+      "type":"event",
+      "title":"开启任务",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_OPEN_TASK",
+      "params":[
+        { "title":"开启任务", "name":"openTask", "type":"cn.com.thingo.taskScheduling.flow.OpenTask.model.OpenTask", "notnull":true },
+        { "title":"任务", "name":"task", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"任务ID", "name":"taskId", "type":"String", "notnull":true },
+        { "title":"任务开始时间", "name":"taskStartTime", "type":"Date", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_OPEN_TASK", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_OPEN_TASK", "target":"end", "condition":"true" }
+  ]
+}

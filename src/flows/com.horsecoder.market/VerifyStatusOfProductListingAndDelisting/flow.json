@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.market/FLOW_VERIFY_STATUS_OF_PRODUCT_LISTING_AND_DELISTING",
+  "name":"FLOW_VERIFY_STATUS_OF_PRODUCT_LISTING_AND_DELISTING",
+  "type":"flow",
+  "title":"校验产品上架下架状态",
+  "params":[
+    { "title":"产品ID列表", "name":"productIdList", "type":"List(String)", "notnull":true },
+    { "title":"上架下架状态", "name":"ifListed", "type":"Integer", "notnull":false, "defaultValue":1 }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_VERIFY_STATUS_OF_PRODUCT_LISTING_AND_DELISTING",
+      "type":"event",
+      "title":"校验产品上架下架状态",
+      "reference":"@com.horsecoder.market/FLOW_CODE_VERIFY_STATUS_OF_PRODUCT_LISTING_AND_DELISTING",
+      "params":[
+        { "title":"产品ID列表", "name":"productIdList", "type":"List(String)", "notnull":true },
+        { "title":"上架下架状态", "name":"ifListed", "type":"Integer", "notnull":false, "defaultValue":1 }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_VERIFY_STATUS_OF_PRODUCT_LISTING_AND_DELISTING", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_VERIFY_STATUS_OF_PRODUCT_LISTING_AND_DELISTING", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_OBTAIN_POSITIVE_AND_NEGATIVE_PERMISSIONS_FOR_ACCOUNT",
+  "name":"FLOW_OBTAIN_POSITIVE_AND_NEGATIVE_PERMISSIONS_FOR_ACCOUNT",
+  "type":"flow",
+  "title":"获取账户正负权限",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"正权限列表", "name":"positivePermissionList", "type":"List(com.horsecoder.platform.permission.flow.ObtainPositiveAndNegativePermissionsForAccount.model.PositiveNegativePermission)", "notnull":true, "defaultValue":{} },
+    { "title":"负权限列表", "name":"negativePermissionList", "type":"List(com.horsecoder.platform.permission.flow.ObtainPositiveAndNegativePermissionsForAccount.model.PositiveNegativePermission)", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_POSITIVE_AND_NEGATIVE_PERMISSIONS_FOR_ACCOUNT",
+      "type":"event",
+      "title":"获取账户正负权限",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_OBTAIN_POSITIVE_AND_NEGATIVE_PERMISSIONS_FOR_ACCOUNT",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"正权限列表", "name":"positivePermissionList", "type":"List(com.horsecoder.platform.permission.flow.ObtainPositiveAndNegativePermissionsForAccount.model.PositiveNegativePermission)", "notnull":true, "defaultValue":{} },
+        { "title":"负权限列表", "name":"negativePermissionList", "type":"List(com.horsecoder.platform.permission.flow.ObtainPositiveAndNegativePermissionsForAccount.model.PositiveNegativePermission)", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_POSITIVE_AND_NEGATIVE_PERMISSIONS_FOR_ACCOUNT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_POSITIVE_AND_NEGATIVE_PERMISSIONS_FOR_ACCOUNT", "target":"end", "condition":"true" }
+  ]
+}

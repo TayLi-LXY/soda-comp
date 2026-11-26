@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_CREATE_SUBORDINATE_ORGANIZE_WITH_ADMINISTRATOR",
+  "name":"FLOW_CREATE_SUBORDINATE_ORGANIZE_WITH_ADMINISTRATOR",
+  "type":"flow",
+  "title":"新建下级组织并指定管理员",
+  "params":[
+    { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} },
+    { "title":"分配人账户ID", "name":"assignPersonAccountId", "type":"String", "notnull":true },
+    { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true },
+    { "title":"模板参数字典", "name":"templateParameterMap", "type":"Map(String$String)", "notnull":false }
+  ],
+  "results":[
+    { "title":"新组织ID", "name":"newOrganizeId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_CREATE_SUBORDINATE_ORGANIZE_WITH_ADMINISTRATOR",
+      "type":"event",
+      "title":"新建下级组织并指定管理员",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_CREATE_SUBORDINATE_ORGANIZE_WITH_ADMINISTRATOR",
+      "params":[
+        { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} },
+        { "title":"分配人账户ID", "name":"assignPersonAccountId", "type":"String", "notnull":true },
+        { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true },
+        { "title":"模板参数字典", "name":"templateParameterMap", "type":"Map(String$String)", "notnull":false }
+      ],
+      "results":[
+        { "title":"新组织ID", "name":"newOrganizeId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_CREATE_SUBORDINATE_ORGANIZE_WITH_ADMINISTRATOR", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_CREATE_SUBORDINATE_ORGANIZE_WITH_ADMINISTRATOR", "target":"end", "condition":"true" }
+  ]
+}

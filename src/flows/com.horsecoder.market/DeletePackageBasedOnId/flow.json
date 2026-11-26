@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.market/FLOW_DELETE_PACKAGE_BASED_ON_ID",
+  "name":"FLOW_DELETE_PACKAGE_BASED_ON_ID",
+  "type":"flow",
+  "title":"根据Id删除套餐",
+  "params":[
+    { "title":"套餐ID", "name":"packageId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_DELETE_PACKAGE_BASED_ON_ID",
+      "type":"event",
+      "title":"根据Id删除套餐",
+      "reference":"@com.horsecoder.market/FLOW_CODE_DELETE_PACKAGE_BASED_ON_ID",
+      "params":[
+        { "title":"套餐ID", "name":"packageId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_DELETE_PACKAGE_BASED_ON_ID", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_DELETE_PACKAGE_BASED_ON_ID", "target":"end", "condition":"true" }
+  ]
+}

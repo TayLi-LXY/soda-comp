@@ -1,0 +1,83 @@
+.div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divDiv0 {
+  align-self: stretch;
+  padding: 8px 0 32px;
+}
+
+.divDiv0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.88);
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.divDiv0P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 16px;
+  font-weight: 400;
+  color: #999;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.divDiv1 {
+  background: #fff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  margin-bottom: 32px;
+}
+
+.divDiv2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.divDiv2P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.88);
+  margin: 0 0 16px;
+}
+
+.divDiv2P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 15px;
+  color: #999;
+  margin: 0 0 32px;
+}
+
+.divDiv3 {
+}
+
+.returnAccountLoginButton {
+  padding: 5px;
+}
+
+.returnAccountLoginButtonP0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 15px;
+  color: #999;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+

@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.model/FLOW_FILTER_MODEL_DETAILS",
+  "name":"FLOW_FILTER_MODEL_DETAILS",
+  "type":"flow",
+  "title":"筛选模型详情",
+  "params":[
+    { "title":"模型筛选", "name":"modelSelection", "type":"com.horsecoder.model.flow.FilterModelDetails.model.ModelSelection", "notnull":true }
+  ],
+  "results":[
+    { "title":"模型列表", "name":"modelList", "type":"List(com.horsecoder.model.flow.FilterModelDetails.model.ModelModel)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_FILTER_MODEL_DETAILS",
+      "type":"event",
+      "title":"筛选模型详情",
+      "reference":"@com.horsecoder.model/FLOW_CODE_FILTER_MODEL_DETAILS",
+      "params":[
+        { "title":"模型筛选", "name":"modelSelection", "type":"com.horsecoder.model.flow.FilterModelDetails.model.ModelSelection", "notnull":true }
+      ],
+      "results":[
+        { "title":"模型列表", "name":"modelList", "type":"List(com.horsecoder.model.flow.FilterModelDetails.model.ModelModel)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_FILTER_MODEL_DETAILS", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_FILTER_MODEL_DETAILS", "target":"end", "condition":"true" }
+  ]
+}

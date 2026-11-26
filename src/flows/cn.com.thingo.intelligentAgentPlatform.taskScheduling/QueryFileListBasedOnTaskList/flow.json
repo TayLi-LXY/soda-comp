@@ -1,0 +1,30 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_QUERY_FILE_LIST_BASED_ON_TASK_LIST",
+  "name":"FLOW_QUERY_FILE_LIST_BASED_ON_TASK_LIST",
+  "type":"flow",
+  "title":"根据任务列表查询文件列表",
+  "params":[
+    { "title":"任务Id", "name":"taskIdList", "type":"String", "notnull":false, "defaultValue":"" }
+  ],
+  "results":[
+    { "title":"任务文件实体列表", "name":"taskFileEntityList", "type":"List(cn.com.thingo.taskScheduling.flow.QueryFileListBasedOnTaskList.model.TaskFileEntity)", "notnull":false, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_FILE_LIST_BASED_ON_TASK_LIST",
+      "type":"event",
+      "title":"根据任务列表查询文件列表",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_QUERY_FILE_LIST_BASED_ON_TASK_LIST",
+      "params":[
+        { "title":"任务Id", "name":"taskIdList", "type":"String", "notnull":false, "defaultValue":"" }
+      ],
+      "results":[
+        { "title":"任务文件实体列表", "name":"taskFileEntityList", "type":"List(cn.com.thingo.taskScheduling.flow.QueryFileListBasedOnTaskList.model.TaskFileEntity)", "notnull":false, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_FILE_LIST_BASED_ON_TASK_LIST", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_FILE_LIST_BASED_ON_TASK_LIST", "target":"end", "condition":"true" }
+  ]
+}

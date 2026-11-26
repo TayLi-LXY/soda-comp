@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.demand/FLOW_OPEN_GIT_REPOSITORY_PERMISSIONS_FOR_ALL_PROJECTS_IN_SPACE",
+  "name":"FLOW_OPEN_GIT_REPOSITORY_PERMISSIONS_FOR_ALL_PROJECTS_IN_SPACE",
+  "type":"flow",
+  "title":"开通空间所有项目的git仓库权限",
+  "params":[
+    { "title":"空间ID", "name":"spaceId", "type":"String", "notnull":true },
+    { "title":"用户id", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.demand/FLOW_NODE_OPEN_GIT_REPOSITORY_PERMISSIONS_FOR_ALL_PROJECTS_IN_SPACE",
+      "type":"event",
+      "title":"开通空间所有项目的git仓库权限",
+      "reference":"@com.horsecoder.demand/FLOW_CODE_OPEN_GIT_REPOSITORY_PERMISSIONS_FOR_ALL_PROJECTS_IN_SPACE",
+      "params":[
+        { "title":"空间ID", "name":"spaceId", "type":"String", "notnull":true },
+        { "title":"用户id", "name":"userId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.demand/FLOW_NODE_OPEN_GIT_REPOSITORY_PERMISSIONS_FOR_ALL_PROJECTS_IN_SPACE", "condition":"true" },
+    { "source":"@com.horsecoder.demand/FLOW_NODE_OPEN_GIT_REPOSITORY_PERMISSIONS_FOR_ALL_PROJECTS_IN_SPACE", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.market/FLOW_VERIFY_PRODUCT_LIST_HAS_BEEN_SETTLED",
+  "name":"FLOW_VERIFY_PRODUCT_LIST_HAS_BEEN_SETTLED",
+  "type":"flow",
+  "title":"校验产品列表是否结算完成",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"产品带数量列表", "name":"productWithQuantityList", "type":"List(com.horsecoder.market.flow.VerifyProductListHasBeenSettled.model.ProductWithQuantity)", "notnull":true }
+  ],
+  "results":[
+    { "title":"是否结算完成", "name":"ifSettlementCompleted", "type":"Boolean", "notnull":true },
+    { "title":"未结算产品带数量列表", "name":"listOfUnsettledProductsWithQuantity", "type":"List(com.horsecoder.market.flow.VerifyProductListHasBeenSettled.model.ProductWithQuantity)", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_VERIFY_PRODUCT_LIST_HAS_BEEN_SETTLED",
+      "type":"event",
+      "title":"校验产品列表是否结算完成",
+      "reference":"@com.horsecoder.market/FLOW_CODE_VERIFY_PRODUCT_LIST_HAS_BEEN_SETTLED",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"产品带数量列表", "name":"productWithQuantityList", "type":"List(com.horsecoder.market.flow.VerifyProductListHasBeenSettled.model.ProductWithQuantity)", "notnull":true }
+      ],
+      "results":[
+        { "title":"是否结算完成", "name":"ifSettlementCompleted", "type":"Boolean", "notnull":true },
+        { "title":"未结算产品带数量列表", "name":"listOfUnsettledProductsWithQuantity", "type":"List(com.horsecoder.market.flow.VerifyProductListHasBeenSettled.model.ProductWithQuantity)", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_VERIFY_PRODUCT_LIST_HAS_BEEN_SETTLED", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_VERIFY_PRODUCT_LIST_HAS_BEEN_SETTLED", "target":"end", "condition":"true" }
+  ]
+}

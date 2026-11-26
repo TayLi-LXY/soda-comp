@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_SEARCH_FOR_REQUIREMENT_ANALYSIS_DOCUMENT_BASED_ON_DIALOGUE_MODEL_ID",
+  "name":"FLOW_SEARCH_FOR_REQUIREMENT_ANALYSIS_DOCUMENT_BASED_ON_DIALOGUE_MODEL_ID",
+  "type":"flow",
+  "title":"根据对话模型ID查找需求分析文档",
+  "params":[
+    { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"需求分析报告", "name":"requirementReportUrl", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_SEARCH_FOR_REQUIREMENT_ANALYSIS_DOCUMENT_BASED_ON_DIALOGUE_MODEL_ID",
+      "type":"event",
+      "title":"根据对话模型ID查找需求分析文档",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_SEARCH_FOR_REQUIREMENT_ANALYSIS_DOCUMENT_BASED_ON_DIALOGUE_MODEL_ID",
+      "params":[
+        { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"需求分析报告", "name":"requirementReportUrl", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_SEARCH_FOR_REQUIREMENT_ANALYSIS_DOCUMENT_BASED_ON_DIALOGUE_MODEL_ID", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_SEARCH_FOR_REQUIREMENT_ANALYSIS_DOCUMENT_BASED_ON_DIALOGUE_MODEL_ID", "target":"end", "condition":"true" }
+  ]
+}

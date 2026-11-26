@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_DIALOGUE_ACCOUNT_REGISTRATION",
+  "name":"FLOW_DIALOGUE_ACCOUNT_REGISTRATION",
+  "type":"flow",
+  "title":"对话账户注册",
+  "params":[
+    { "title":"创建对话账户实体", "name":"createADialogueAccountEntity", "type":"com.horsecoder.platform.aiMarketing.flow.DialogueAccountRegistration.model.CreateADialogueAccountEntity", "notnull":false }
+  ],
+  "results":[
+    { "title":"注册结果", "name":"result", "type":"Boolean", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DIALOGUE_ACCOUNT_REGISTRATION",
+      "type":"event",
+      "title":"对话账户注册",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_DIALOGUE_ACCOUNT_REGISTRATION",
+      "params":[
+        { "title":"创建对话账户实体", "name":"createADialogueAccountEntity", "type":"com.horsecoder.platform.aiMarketing.flow.DialogueAccountRegistration.model.CreateADialogueAccountEntity", "notnull":false }
+      ],
+      "results":[
+        { "title":"注册结果", "name":"result", "type":"Boolean", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DIALOGUE_ACCOUNT_REGISTRATION", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DIALOGUE_ACCOUNT_REGISTRATION", "target":"end", "condition":"true" }
+  ]
+}

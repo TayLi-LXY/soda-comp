@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_BATCH_BIND_ORGANIZE_ACCOUNTS",
+  "name":"FLOW_BATCH_BIND_ORGANIZE_ACCOUNTS",
+  "type":"flow",
+  "title":"批量绑定组织账户",
+  "params":[
+    { "title":"绑定组织模型列表", "name":"bindOrganizeModelList", "type":"List(com.horsecoder.platform.permission.flow.BatchBindOrganizeAccounts.model.BindOrganizeModel)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_BIND_ORGANIZE_ACCOUNTS",
+      "type":"event",
+      "title":"批量绑定组织账户",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_BATCH_BIND_ORGANIZE_ACCOUNTS",
+      "params":[
+        { "title":"绑定组织模型列表", "name":"bindOrganizeModelList", "type":"List(com.horsecoder.platform.permission.flow.BatchBindOrganizeAccounts.model.BindOrganizeModel)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_BIND_ORGANIZE_ACCOUNTS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_BIND_ORGANIZE_ACCOUNTS", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/main/FLOW_ON_CLICK_EXPAND_SIDEBAR",
+  "name":"FLOW_ON_CLICK_EXPAND_SIDEBAR",
+  "type":"flow",
+  "title":"点击展开侧边栏",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_DISABLE_FOLDING_UP_VISIBLE_CONTROLS_ON_LEFT_SIDEBAR",
+      "type":"event",
+      "title":"设置左侧边栏收起可见控制不可见",
+      "reference":"Main/OnClickExpandSidebar/FLOW_CODE_DISABLE_FOLDING_UP_VISIBLE_CONTROLS_ON_LEFT_SIDEBAR",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_ENABLE_EXPAND_VISIBLE_CONTROLS_ON_LEFT_SIDEBAR",
+      "type":"event",
+      "title":"设置左侧边栏展开可见控制可见",
+      "reference":"Main/OnClickExpandSidebar/FLOW_CODE_ENABLE_EXPAND_VISIBLE_CONTROLS_ON_LEFT_SIDEBAR",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_DISABLE_FOLDING_UP_VISIBLE_CONTROLS_ON_LEFT_SIDEBAR", "condition":"true" },
+    { "source":"FLOW_NODE_DISABLE_FOLDING_UP_VISIBLE_CONTROLS_ON_LEFT_SIDEBAR", "target":"FLOW_NODE_ENABLE_EXPAND_VISIBLE_CONTROLS_ON_LEFT_SIDEBAR", "condition":"true" },
+    { "source":"FLOW_NODE_ENABLE_EXPAND_VISIBLE_CONTROLS_ON_LEFT_SIDEBAR", "target":"end", "condition":"true" }
+  ]
+}

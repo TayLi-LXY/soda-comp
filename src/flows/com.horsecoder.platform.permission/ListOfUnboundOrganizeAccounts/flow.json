@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_LIST_OF_UNBOUND_ORGANIZE_ACCOUNTS",
+  "name":"FLOW_LIST_OF_UNBOUND_ORGANIZE_ACCOUNTS",
+  "type":"flow",
+  "title":"未绑定组织的账户列表",
+  "params":[
+    { "title":"page", "name":"page", "type":"Integer", "notnull":true },
+    { "title":"rows", "name":"rows", "type":"Integer", "notnull":true }
+  ],
+  "results":[
+    { "title":"组织账户实体列表", "name":"accountEntityList", "type":"List(com.horsecoder.platform.permission.flow.FilterAccountsListCanBoundToOrganize.model.AccountEntity)", "notnull":true, "defaultValue":{} },
+    { "title":"未绑定账户列表总数", "name":"totalNumberOfUnboundAccountLists", "type":"Integer", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_LIST_OF_UNBOUND_ORGANIZE_ACCOUNTS",
+      "type":"event",
+      "title":"未绑定组织的账户列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_LIST_OF_UNBOUND_ORGANIZE_ACCOUNTS",
+      "params":[
+        { "title":"page", "name":"page", "type":"Integer", "notnull":true },
+        { "title":"rows", "name":"rows", "type":"Integer", "notnull":true }
+      ],
+      "results":[
+        { "title":"组织账户实体列表", "name":"accountEntityList", "type":"List(com.horsecoder.platform.permission.flow.FilterAccountsListCanBoundToOrganize.model.AccountEntity)", "notnull":true, "defaultValue":{} },
+        { "title":"未绑定账户列表总数", "name":"totalNumberOfUnboundAccountLists", "type":"Integer", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_LIST_OF_UNBOUND_ORGANIZE_ACCOUNTS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_LIST_OF_UNBOUND_ORGANIZE_ACCOUNTS", "target":"end", "condition":"true" }
+  ]
+}

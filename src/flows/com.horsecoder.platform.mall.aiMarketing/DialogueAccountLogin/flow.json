@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_DIALOGUE_ACCOUNT_LOGIN",
+  "name":"FLOW_DIALOGUE_ACCOUNT_LOGIN",
+  "type":"flow",
+  "title":"对话账户登录",
+  "params":[
+    { "title":"手机号", "name":"cellphoneNumber", "type":"String", "notnull":true },
+    { "title":"密码", "name":"password", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"用户信息", "name":"userInfo", "type":"com.horsecoder.identity.flow.domain.FacadeLogin.model.UserLoginResult", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DIALOGUE_ACCOUNT_LOGIN",
+      "type":"event",
+      "title":"对话账户登录",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_DIALOGUE_ACCOUNT_LOGIN",
+      "params":[
+        { "title":"手机号", "name":"cellphoneNumber", "type":"String", "notnull":true },
+        { "title":"密码", "name":"password", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户信息", "name":"userInfo", "type":"com.horsecoder.identity.flow.domain.FacadeLogin.model.UserLoginResult", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DIALOGUE_ACCOUNT_LOGIN", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DIALOGUE_ACCOUNT_LOGIN", "target":"end", "condition":"true" }
+  ]
+}

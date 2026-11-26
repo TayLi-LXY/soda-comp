@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_NEW_SUBORDINATE_ORGANIZE",
+  "name":"FLOW_NEW_SUBORDINATE_ORGANIZE",
+  "type":"flow",
+  "title":"新建下级组织",
+  "params":[
+    { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} },
+    { "title":"模板参数字典", "name":"templateParameterMap", "type":"Map(String$String)", "notnull":false }
+  ],
+  "results":[
+    { "title":"新组织ID", "name":"newOrganizeId", "type":"String", "notnull":false },
+    { "title":"新组织", "name":"newOrganize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_NEW_SUBORDINATE_ORGANIZE",
+      "type":"event",
+      "title":"新建下级组织",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_NEW_SUBORDINATE_ORGANIZE",
+      "params":[
+        { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} },
+        { "title":"模板参数字典", "name":"templateParameterMap", "type":"Map(String$String)", "notnull":false }
+      ],
+      "results":[
+        { "title":"新组织ID", "name":"newOrganizeId", "type":"String", "notnull":false },
+        { "title":"新组织", "name":"newOrganize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_NEW_SUBORDINATE_ORGANIZE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_NEW_SUBORDINATE_ORGANIZE", "target":"end", "condition":"true" }
+  ]
+}

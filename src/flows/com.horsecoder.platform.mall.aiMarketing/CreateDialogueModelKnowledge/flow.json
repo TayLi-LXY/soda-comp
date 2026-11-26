@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CREATE_DIALOGUE_MODEL_KNOWLEDGE",
+  "name":"FLOW_CREATE_DIALOGUE_MODEL_KNOWLEDGE",
+  "type":"flow",
+  "title":"创建对话模型知识",
+  "params":[
+    { "title":"创建对话模型知识实体", "name":"createDialogueModelKnowledgeEntity", "type":"com.horsecoder.platform.aiMarketing.flow.CreateDialogueModelKnowledge.model.CreateDialogueModelKnowledgeEntity", "notnull":false }
+  ],
+  "results":[
+    { "title":"对话模型知识ID", "name":"dialogueModelKnowledgeId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_CREATE_DIALOGUE_MODEL_KNOWLEDGE",
+      "type":"event",
+      "title":"创建对话模型知识",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_CREATE_DIALOGUE_MODEL_KNOWLEDGE",
+      "params":[
+        { "title":"创建对话模型知识实体", "name":"createDialogueModelKnowledgeEntity", "type":"com.horsecoder.platform.aiMarketing.flow.CreateDialogueModelKnowledge.model.CreateDialogueModelKnowledgeEntity", "notnull":false }
+      ],
+      "results":[
+        { "title":"对话模型知识ID", "name":"dialogueModelKnowledgeId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_CREATE_DIALOGUE_MODEL_KNOWLEDGE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_CREATE_DIALOGUE_MODEL_KNOWLEDGE", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_UPDATE_TASK_STATUS_AND_OUTPUT",
+  "name":"FLOW_UPDATE_TASK_STATUS_AND_OUTPUT",
+  "type":"flow",
+  "title":"更新任务状态和输出",
+  "params":[
+    { "title":"对话任务ID", "name":"dialogueTaskId", "type":"String", "notnull":true },
+    { "title":"输出", "name":"output", "type":"String", "notnull":true },
+    { "title":"状态", "name":"state", "type":"Integer", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_UPDATE_TASK_STATUS_AND_OUTPUT",
+      "type":"event",
+      "title":"更新任务状态和输出",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_UPDATE_TASK_STATUS_AND_OUTPUT",
+      "params":[
+        { "title":"对话任务ID", "name":"dialogueTaskId", "type":"String", "notnull":true },
+        { "title":"输出", "name":"output", "type":"String", "notnull":true },
+        { "title":"状态", "name":"state", "type":"Integer", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_UPDATE_TASK_STATUS_AND_OUTPUT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_UPDATE_TASK_STATUS_AND_OUTPUT", "target":"end", "condition":"true" }
+  ]
+}

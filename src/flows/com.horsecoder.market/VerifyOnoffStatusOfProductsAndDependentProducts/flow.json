@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.market/FLOW_VERIFY_ONOFF_STATUS_OF_PRODUCTS_AND_DEPENDENT_PRODUCTS",
+  "name":"FLOW_VERIFY_ONOFF_STATUS_OF_PRODUCTS_AND_DEPENDENT_PRODUCTS",
+  "type":"flow",
+  "title":"校验产品及依赖产品的上架下架状态",
+  "params":[
+    { "title":"产品ID列表", "name":"productIdList", "type":"List(String)", "notnull":true },
+    { "title":"上架下架状态", "name":"ifListed", "type":"Integer", "notnull":false, "defaultValue":1 }
+  ],
+  "results":[
+    { "title":"产品上下架列表", "name":"listOfProductsIfListed", "type":"List(com.horsecoder.market.flow.VerifyOnoffStatusOfProductsAndDependentProducts.model.ListingAndDelistingOfProductsWithDependentProducts)", "notnull":true },
+    { "title":"校验结果", "name":"verificationResult", "type":"Boolean", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_VERIFY_ONOFF_STATUS_OF_PRODUCTS_AND_DEPENDENT_PRODUCTS",
+      "type":"event",
+      "title":"校验产品及依赖产品的上架下架状态",
+      "reference":"@com.horsecoder.market/FLOW_CODE_VERIFY_ONOFF_STATUS_OF_PRODUCTS_AND_DEPENDENT_PRODUCTS",
+      "params":[
+        { "title":"产品ID列表", "name":"productIdList", "type":"List(String)", "notnull":true },
+        { "title":"上架下架状态", "name":"ifListed", "type":"Integer", "notnull":false, "defaultValue":1 }
+      ],
+      "results":[
+        { "title":"产品上下架列表", "name":"listOfProductsIfListed", "type":"List(com.horsecoder.market.flow.VerifyOnoffStatusOfProductsAndDependentProducts.model.ListingAndDelistingOfProductsWithDependentProducts)", "notnull":true },
+        { "title":"校验结果", "name":"verificationResult", "type":"Boolean", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_VERIFY_ONOFF_STATUS_OF_PRODUCTS_AND_DEPENDENT_PRODUCTS", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_VERIFY_ONOFF_STATUS_OF_PRODUCTS_AND_DEPENDENT_PRODUCTS", "target":"end", "condition":"true" }
+  ]
+}

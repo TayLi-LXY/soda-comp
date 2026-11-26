@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_OBTAIN_ACCOUNT_ORGANIZATION_PERMISSIONS",
+  "name":"FLOW_OBTAIN_ACCOUNT_ORGANIZATION_PERMISSIONS",
+  "type":"flow",
+  "title":"获取账户组织权限",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"权限列表", "name":"permissionList", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ACCOUNT_ORGANIZATION_PERMISSIONS",
+      "type":"event",
+      "title":"获取账户组织权限",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_OBTAIN_ACCOUNT_ORGANIZATION_PERMISSIONS",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"权限列表", "name":"permissionList", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ACCOUNT_ORGANIZATION_PERMISSIONS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ACCOUNT_ORGANIZATION_PERMISSIONS", "target":"end", "condition":"true" }
+  ]
+}

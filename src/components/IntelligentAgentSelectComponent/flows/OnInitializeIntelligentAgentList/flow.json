@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/intelligentAgentSelectComponent/FLOW_ON_INITIALIZE_INTELLIGENT_AGENT_LIST",
+  "name":"FLOW_ON_INITIALIZE_INTELLIGENT_AGENT_LIST",
+  "type":"flow",
+  "title":"初始化智能体列表",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_INITIALIZE_INTELLIGENT_AGENT_LIST",
+      "type":"event",
+      "title":"初始化智能体列表",
+      "reference":"IntelligentAgentSelectComponent/OnInitializeIntelligentAgentList/FLOW_CODE_ON_INITIALIZE_INTELLIGENT_AGENT_LIST",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_INITIALIZE_INTELLIGENT_AGENT_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_ON_INITIALIZE_INTELLIGENT_AGENT_LIST", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/sendASingleMessage/FLOW_ON_RETRIEVE_MESSAGE_CONTENT",
+  "name":"FLOW_ON_RETRIEVE_MESSAGE_CONTENT",
+  "type":"flow",
+  "title":"获取消息内容",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"聊天记录列表控制单项", "name":"entity", "type":"Object", "notnull":true },
+    { "title":"索引", "name":"index", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_RETRIEVE_MESSAGE_CONTENT",
+      "type":"event",
+      "title":"获取消息内容",
+      "reference":"SendASingleMessage/OnRetrieveMessageContent/FLOW_CODE_ON_RETRIEVE_MESSAGE_CONTENT",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"聊天记录列表控制单项", "name":"entity", "type":"Object", "notnull":true },
+        { "title":"索引", "name":"index", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_RETRIEVE_MESSAGE_CONTENT", "condition":"true" },
+    { "source":"FLOW_NODE_ON_RETRIEVE_MESSAGE_CONTENT", "target":"end", "condition":"true" }
+  ]
+}

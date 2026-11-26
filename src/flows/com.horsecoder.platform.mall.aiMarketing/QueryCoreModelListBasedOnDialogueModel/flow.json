@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_QUERY_CORE_MODEL_LIST_BASED_ON_DIALOGUE_MODEL",
+  "name":"FLOW_QUERY_CORE_MODEL_LIST_BASED_ON_DIALOGUE_MODEL",
+  "type":"flow",
+  "title":"根据对话模型查询核心模型列表",
+  "params":[
+    { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true },
+    { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"核心模型", "name":"coreModel", "type":"Map(String$Object)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_CORE_MODEL_LIST_BASED_ON_DIALOGUE_MODEL",
+      "type":"event",
+      "title":"根据对话模型查询核心模型列表",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_QUERY_CORE_MODEL_LIST_BASED_ON_DIALOGUE_MODEL",
+      "params":[
+        { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true },
+        { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"核心模型", "name":"coreModel", "type":"Map(String$Object)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_CORE_MODEL_LIST_BASED_ON_DIALOGUE_MODEL", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_CORE_MODEL_LIST_BASED_ON_DIALOGUE_MODEL", "target":"end", "condition":"true" }
+  ]
+}

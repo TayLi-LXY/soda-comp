@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CORE_MODEL_GENERATION",
+  "name":"FLOW_CORE_MODEL_GENERATION",
+  "type":"flow",
+  "title":"核心模型生成",
+  "params":[
+    { "title":"需求分析报告", "name":"requirementReportUrl", "type":"String", "notnull":true },
+    { "title":"目标业务模块", "name":"targetModuleName", "type":"String", "notnull":false },
+    { "title":"历史模型JSON链接", "name":"existingModelsJsonUrl", "type":"String", "notnull":false },
+    { "title":"用户修正意见", "name":"userFeedback", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"核心模型JSON结果", "name":"coreModelJsonUrlResult", "type":"com.horsecoder.platform.aiMarketing.flow.CoreModelGeneration.model.CoreModelJsonUrl", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_CORE_MODEL_GENERATION",
+      "type":"event",
+      "title":"核心模型生成",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_CORE_MODEL_GENERATION",
+      "params":[
+        { "title":"需求分析报告", "name":"requirementReportUrl", "type":"String", "notnull":true },
+        { "title":"目标业务模块", "name":"targetModuleName", "type":"String", "notnull":false },
+        { "title":"历史模型JSON链接", "name":"existingModelsJsonUrl", "type":"String", "notnull":false },
+        { "title":"用户修正意见", "name":"userFeedback", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"核心模型JSON结果", "name":"coreModelJsonUrlResult", "type":"com.horsecoder.platform.aiMarketing.flow.CoreModelGeneration.model.CoreModelJsonUrl", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_CORE_MODEL_GENERATION", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_CORE_MODEL_GENERATION", "target":"end", "condition":"true" }
+  ]
+}

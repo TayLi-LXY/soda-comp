@@ -1,0 +1,25 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/queryResultDisplayComponent/FLOW_ON_CLICK_OPEN_AND_CLOSE_S_Q_L_COMPONENT",
+  "name":"FLOW_ON_CLICK_OPEN_AND_CLOSE_S_Q_L_COMPONENT",
+  "type":"flow",
+  "title":"点击打开和关闭sql组件",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_OPEN_AND_CLOSE_S_Q_L_COMPONENT",
+      "type":"event",
+      "title":"点击打开和关闭sql组件",
+      "reference":"QueryResultDisplayComponent/OnClickOpenAndCloseSQLComponent/FLOW_CODE_ON_CLICK_OPEN_AND_CLOSE_S_Q_L_COMPONENT",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_OPEN_AND_CLOSE_S_Q_L_COMPONENT", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_OPEN_AND_CLOSE_S_Q_L_COMPONENT", "target":"end", "condition":"true" }
+  ]
+}

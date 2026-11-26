@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/main/FLOW_ON_CLICK_ON_ADD_DIALOGUE_ITEM",
+  "name":"FLOW_ON_CLICK_ON_ADD_DIALOGUE_ITEM",
+  "type":"flow",
+  "title":"点击新增对话项目",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"左侧对话框可见控制", "name":"leftSideDialogVisibleControl", "type":"Object", "notnull":true },
+    { "title":"顶部菜单可见控制", "name":"topMenuVisibleControls", "type":"Object", "notnull":true },
+    { "title":"新增对话可见控制", "name":"addDialogueVisibleControl", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_ON_ADD_DIALOGUE_ITEM",
+      "type":"event",
+      "title":"点击新增对话项目",
+      "reference":"Main/OnClickOnAddDialogueItem/FLOW_CODE_ON_CLICK_ON_ADD_DIALOGUE_ITEM",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"左侧对话框可见控制", "name":"leftSideDialogVisibleControl", "type":"Object", "notnull":true },
+        { "title":"顶部菜单可见控制", "name":"topMenuVisibleControls", "type":"Object", "notnull":true },
+        { "title":"新增对话可见控制", "name":"addDialogueVisibleControl", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_ON_ADD_DIALOGUE_ITEM", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_ON_ADD_DIALOGUE_ITEM", "target":"end", "condition":"true" }
+  ]
+}

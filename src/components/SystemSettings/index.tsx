@@ -1,0 +1,133 @@
+import React from 'react';
+import { SettingOutlined, DatabaseOutlined, MoneyCollectOutlined, QuestionCircleOutlined, LogoutOutlined } from '@ant-design/icons';
+import styles from './index.module.css';
+import type { SystemSettingsProps } from './types';
+
+/**
+ * 组件布局: 系统设置
+ */
+const SystemSettingsComponent: React.FC<SystemSettingsProps> = () => {
+
+  return (
+    <>
+      <div
+        className={styles.div}
+      >
+        <div
+          className={styles.divDiv0}
+        >
+          <div
+            className={styles.divDiv0Div0}
+          >
+            <p
+              className={styles.divDiv0Div0P0}
+            >
+              {`正文段落`}
+            </p>
+            <div
+              className={styles.divDiv0Div0Div1}
+            >
+              <div
+                className={styles.divDiv0Div0Div1Div0}
+              >
+                <SettingOutlined
+                  className={styles.divDiv0Div0Div1Div0SettingOutlined0}
+                />
+              </div>
+              <p
+                className={styles.divDiv0Div0Div1P1}
+              >
+                {`设置`}
+              </p>
+            </div>
+            <div
+              className={styles.divDiv0Div0Div2}
+            >
+              <div
+                className={styles.divDiv0Div0Div2Div0}
+              >
+                <div
+                  className={styles.divDiv0Div0Div2Div0Div0}
+                >
+                  <DatabaseOutlined
+                    className={styles.divDiv0Div0Div2Div0Div0DatabaseOutlined0}
+                  />
+                </div>
+                <p
+                  className={styles.divDiv0Div0Div2Div0P1}
+                >
+                  {`用量`}
+                </p>
+              </div>
+            </div>
+            <div
+              className={styles.divDiv0Div0Div3}
+            >
+              <div
+                className={styles.divDiv0Div0Div3Div0}
+              >
+                <MoneyCollectOutlined
+                  className={styles.divDiv0Div0Div3Div0MoneyCollectOutlined0}
+                />
+              </div>
+              <p
+                className={styles.divDiv0Div0Div3P1}
+              >
+                {`费用`}
+              </p>
+            </div>
+            <div
+              className={styles.divDiv0Div0Div4}
+            />
+            <div
+              className={styles.divDiv0Div0Div5}
+            >
+              <div
+                className={styles.divDiv0Div0Div5Div0}
+              >
+                <QuestionCircleOutlined
+                  className={styles.divDiv0Div0Div5Div0QuestionCircleOutlined0}
+                />
+              </div>
+              <p
+                className={styles.divDiv0Div0Div5P1}
+              >
+                {`帮助`}
+              </p>
+            </div>
+            <div
+              className={styles.divDiv0Div0Div6}
+            >
+              <div
+                className={styles.divDiv0Div0Div6Div0}
+              >
+                <LogoutOutlined
+                  className={styles.divDiv0Div0Div6Div0LogoutOutlined0}
+                />
+              </div>
+              <p
+                className={styles.divDiv0Div0Div6P1}
+              >
+                {`退出`}
+              </p>
+            </div>
+            <div
+              className={styles.divDiv0Div0Div7}
+            />
+          </div>
+          <div
+            className={styles.divDiv0Div1}
+          />
+          <div
+            className={styles.divDiv0Div2}
+          />
+        </div>
+        <div
+          className={styles.divDiv1}
+        />
+      </div>
+    </>
+  );
+};
+
+export default SystemSettingsComponent;

@@ -1,0 +1,67 @@
+.div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.divButton0 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+  color: #0a72ef !important;
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.2s ease !important;
+  background-color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.divDiv1 {
+}
+
+.divDiv1Button0 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+  color: #0a72ef !important;
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.2s ease !important;
+  background-color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.divDiv2 {
+}
+
+.divDiv2Button0 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+  color: #0a72ef !important;
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.2s ease !important;
+  background-color: #ffffff !important;
+  border: none !important;
+  outline: none !important;
+}
+

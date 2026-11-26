@@ -1,0 +1,30 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_BATCH_DOWNLOAD_EXECUTION_DIAGRAM",
+  "name":"FLOW_BATCH_DOWNLOAD_EXECUTION_DIAGRAM",
+  "type":"flow",
+  "title":"批量下载执行图",
+  "params":[
+    { "title":"执行图Id列表", "name":"executionDiagramIdList", "type":"List(String)", "notnull":true }
+  ],
+  "results":[
+    { "title":"执行图列表Map", "name":"executeMapListMap", "type":"Map(String$Object)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_BATCH_DOWNLOAD_EXECUTION_DIAGRAM",
+      "type":"event",
+      "title":"批量下载执行图",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_BATCH_DOWNLOAD_EXECUTION_DIAGRAM",
+      "params":[
+        { "title":"执行图Id列表", "name":"executionDiagramIdList", "type":"List(String)", "notnull":true }
+      ],
+      "results":[
+        { "title":"执行图列表Map", "name":"executeMapListMap", "type":"Map(String$Object)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_BATCH_DOWNLOAD_EXECUTION_DIAGRAM", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_BATCH_DOWNLOAD_EXECUTION_DIAGRAM", "target":"end", "condition":"true" }
+  ]
+}

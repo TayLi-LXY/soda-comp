@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_QUERY_ACCOUNT_BASED_ON_ACCOUNT_ID",
+  "name":"FLOW_QUERY_ACCOUNT_BASED_ON_ACCOUNT_ID",
+  "type":"flow",
+  "title":"根据账户ID查询账户",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"账户结果", "name":"accountResult", "type":"com.horsecoder.platform.permission.flow.QueryAccountBasedOnAccountId.model.AccountResult", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_QUERY_ACCOUNT_BASED_ON_ACCOUNT_ID",
+      "type":"event",
+      "title":"根据账户ID查询账户",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_QUERY_ACCOUNT_BASED_ON_ACCOUNT_ID",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"账户结果", "name":"accountResult", "type":"com.horsecoder.platform.permission.flow.QueryAccountBasedOnAccountId.model.AccountResult", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_QUERY_ACCOUNT_BASED_ON_ACCOUNT_ID", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_QUERY_ACCOUNT_BASED_ON_ACCOUNT_ID", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_LOGIN",
+  "name":"FLOW_LOGIN",
+  "type":"flow",
+  "title":"登录",
+  "params":[
+    { "title":"用户名", "name":"username", "type":"String", "notnull":true },
+    { "title":"密码", "name":"password", "type":"String", "notnull":true },
+    { "title":"验证码", "name":"captcha", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"用户信息", "name":"userInfo", "type":"com.horsecoder.identity.flow.Login.model.UserLoginResult", "notnull":true },
+    { "title":"token", "name":"token", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_LOGIN",
+      "type":"event",
+      "title":"登录",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_LOGIN",
+      "params":[
+        { "title":"用户名", "name":"username", "type":"String", "notnull":true },
+        { "title":"密码", "name":"password", "type":"String", "notnull":true },
+        { "title":"验证码", "name":"captcha", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"用户信息", "name":"userInfo", "type":"com.horsecoder.identity.flow.Login.model.UserLoginResult", "notnull":true },
+        { "title":"token", "name":"token", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_LOGIN", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_LOGIN", "target":"end", "condition":"true" }
+  ]
+}

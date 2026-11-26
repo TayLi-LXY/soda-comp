@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.im/FLOW_GET_ALL_USER_IDS_FOR_SESSION",
+  "name":"FLOW_GET_ALL_USER_IDS_FOR_SESSION",
+  "type":"flow",
+  "title":"获取会话所有用户ID",
+  "params":[
+    { "title":"会话ID", "name":"conversationId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"用户ID列表", "name":"userIdList", "type":"List(String)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_GET_ALL_USER_IDS_FOR_SESSION",
+      "type":"event",
+      "title":"获取会话所有用户ID",
+      "reference":"@com.horsecoder.im/FLOW_CODE_GET_ALL_USER_IDS_FOR_SESSION",
+      "params":[
+        { "title":"会话ID", "name":"conversationId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户ID列表", "name":"userIdList", "type":"List(String)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_GET_ALL_USER_IDS_FOR_SESSION", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_GET_ALL_USER_IDS_FOR_SESSION", "target":"end", "condition":"true" }
+  ]
+}

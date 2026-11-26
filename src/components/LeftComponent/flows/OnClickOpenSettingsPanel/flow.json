@@ -1,0 +1,23 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/leftComponent/FLOW_ON_CLICK_OPEN_SETTINGS_PANEL",
+  "name":"FLOW_ON_CLICK_OPEN_SETTINGS_PANEL",
+  "type":"flow",
+  "title":"点击打开设置面板",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"设置面板可见控制", "name":"setPanelVisibleControls", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_OPEN_SETTINGS_PANEL",
+      "type":"event",
+      "title":"点击打开设置面板",
+      "reference":"LeftComponent/OnClickOpenSettingsPanel/FLOW_CODE_ON_CLICK_OPEN_SETTINGS_PANEL"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_OPEN_SETTINGS_PANEL", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_OPEN_SETTINGS_PANEL", "target":"end", "condition":"true" }
+  ]
+}

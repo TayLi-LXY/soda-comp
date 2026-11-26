@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/orderSelect/FLOW_ON_CLICK_ON_ALL_PACKAGE_BUTTON",
+  "name":"FLOW_ON_CLICK_ON_ALL_PACKAGE_BUTTON",
+  "type":"flow",
+  "title":"点击全部套餐按钮",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_ON_ALL_PACKAGE_BUTTON",
+      "type":"event",
+      "title":"点击全部套餐按钮",
+      "reference":"OrderSelect/OnClickOnAllPackageButton/FLOW_CODE_ON_CLICK_ON_ALL_PACKAGE_BUTTON",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_ON_ALL_PACKAGE_BUTTON", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_ON_ALL_PACKAGE_BUTTON", "target":"end", "condition":"true" }
+  ]
+}

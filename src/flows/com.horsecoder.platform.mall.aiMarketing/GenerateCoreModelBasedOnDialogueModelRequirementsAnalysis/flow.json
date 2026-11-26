@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_GENERATE_CORE_MODEL_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS",
+  "name":"FLOW_GENERATE_CORE_MODEL_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS",
+  "type":"flow",
+  "title":"根据对话模型需求分析生成核心模型",
+  "params":[
+    { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true },
+    { "title":"对话详情ID", "name":"dialogueDetailsId", "type":"String", "notnull":true },
+    { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true },
+    { "title":"锁持有对象", "name":"lockedBy", "type":"String", "notnull":false },
+    { "title":"状态", "name":"status", "type":"Integer", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_GENERATE_CORE_MODEL_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS",
+      "type":"event",
+      "title":"根据对话模型需求分析生成核心模型",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_GENERATE_CORE_MODEL_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS",
+      "params":[
+        { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true },
+        { "title":"对话详情ID", "name":"dialogueDetailsId", "type":"String", "notnull":true },
+        { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true },
+        { "title":"锁持有对象", "name":"lockedBy", "type":"String", "notnull":false },
+        { "title":"状态", "name":"status", "type":"Integer", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_GENERATE_CORE_MODEL_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_GENERATE_CORE_MODEL_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS", "target":"end", "condition":"true" }
+  ]
+}

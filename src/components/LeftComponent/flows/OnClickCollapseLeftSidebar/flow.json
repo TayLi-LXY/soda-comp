@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/leftComponent/FLOW_ON_CLICK_COLLAPSE_LEFT_SIDEBAR",
+  "name":"FLOW_ON_CLICK_COLLAPSE_LEFT_SIDEBAR",
+  "type":"flow",
+  "title":"点击收起左侧边栏",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_COLLAPSE_LEFT_SIDEBAR",
+      "type":"event",
+      "title":"点击收起左侧边栏",
+      "reference":"LeftComponent/OnClickCollapseLeftSidebar/FLOW_CODE_ON_CLICK_COLLAPSE_LEFT_SIDEBAR",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_COLLAPSE_LEFT_SIDEBAR", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_COLLAPSE_LEFT_SIDEBAR", "target":"end", "condition":"true" }
+  ]
+}

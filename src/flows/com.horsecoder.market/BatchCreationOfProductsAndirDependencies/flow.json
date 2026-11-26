@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.market/FLOW_BATCH_CREATION_OF_PRODUCTS_ANDIR_DEPENDENCIES",
+  "name":"FLOW_BATCH_CREATION_OF_PRODUCTS_ANDIR_DEPENDENCIES",
+  "type":"flow",
+  "title":"批量创建产品及其依赖",
+  "params":[
+    { "title":"产品及其依赖列表的列表", "name":"productWithDependenciesList", "type":"List(com.horsecoder.market.flow.BatchCreationOfProductsAndirDependencies.model.ProductWithDependencies)", "notnull":true }
+  ],
+  "results":[
+    { "title":"产品ID列表", "name":"productIdList", "type":"List(String)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_BATCH_CREATION_OF_PRODUCTS_ANDIR_DEPENDENCIES",
+      "type":"event",
+      "title":"批量创建产品及其依赖",
+      "reference":"@com.horsecoder.market/FLOW_CODE_BATCH_CREATION_OF_PRODUCTS_ANDIR_DEPENDENCIES",
+      "params":[
+        { "title":"产品及其依赖列表的列表", "name":"productWithDependenciesList", "type":"List(com.horsecoder.market.flow.BatchCreationOfProductsAndirDependencies.model.ProductWithDependencies)", "notnull":true }
+      ],
+      "results":[
+        { "title":"产品ID列表", "name":"productIdList", "type":"List(String)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_BATCH_CREATION_OF_PRODUCTS_ANDIR_DEPENDENCIES", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_BATCH_CREATION_OF_PRODUCTS_ANDIR_DEPENDENCIES", "target":"end", "condition":"true" }
+  ]
+}

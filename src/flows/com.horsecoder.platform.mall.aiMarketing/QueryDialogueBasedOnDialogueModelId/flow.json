@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_QUERY_DIALOGUE_BASED_ON_DIALOGUE_MODEL_ID",
+  "name":"FLOW_QUERY_DIALOGUE_BASED_ON_DIALOGUE_MODEL_ID",
+  "type":"flow",
+  "title":"根据对话模型ID查询对话",
+  "params":[
+    { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"对话ID", "name":"conversationId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_DIALOGUE_BASED_ON_DIALOGUE_MODEL_ID",
+      "type":"event",
+      "title":"根据对话模型ID查询对话",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_QUERY_DIALOGUE_BASED_ON_DIALOGUE_MODEL_ID",
+      "params":[
+        { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"对话ID", "name":"conversationId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_DIALOGUE_BASED_ON_DIALOGUE_MODEL_ID", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_DIALOGUE_BASED_ON_DIALOGUE_MODEL_ID", "target":"end", "condition":"true" }
+  ]
+}

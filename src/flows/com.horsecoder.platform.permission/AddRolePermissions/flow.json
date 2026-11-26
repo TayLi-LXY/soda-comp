@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_ADD_ROLE_PERMISSIONS",
+  "name":"FLOW_ADD_ROLE_PERMISSIONS",
+  "type":"flow",
+  "title":"添加角色权限",
+  "params":[
+    { "title":"角色Id", "name":"roleId", "type":"String", "notnull":true },
+    { "title":"权限Id", "name":"permissionId", "type":"String", "notnull":true },
+    { "title":"添加/删除", "name":"type", "type":"String", "notnull":true },
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_ADD_ROLE_PERMISSIONS",
+      "type":"event",
+      "title":"添加角色权限",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_ADD_ROLE_PERMISSIONS",
+      "params":[
+        { "title":"角色Id", "name":"roleId", "type":"String", "notnull":true },
+        { "title":"权限Id", "name":"permissionId", "type":"String", "notnull":true },
+        { "title":"添加/删除", "name":"type", "type":"String", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_ADD_ROLE_PERMISSIONS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_ADD_ROLE_PERMISSIONS", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.im/FLOW_UPDATE_I_M_CALLBACK_INFORMATION",
+  "name":"FLOW_UPDATE_I_M_CALLBACK_INFORMATION",
+  "type":"flow",
+  "title":"更新IM回调信息",
+  "params":[
+    { "title":"IM消息实体", "name":"iMMessageEntity", "type":"com.horsecoder.im.flow.UpdateIMCallbackInformation.model.IMMessageEntity", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_UPDATE_I_M_CALLBACK_INFORMATION",
+      "type":"event",
+      "title":"更新IM回调信息",
+      "reference":"@com.horsecoder.im/FLOW_CODE_UPDATE_I_M_CALLBACK_INFORMATION",
+      "params":[
+        { "title":"IM消息实体", "name":"iMMessageEntity", "type":"com.horsecoder.im.flow.UpdateIMCallbackInformation.model.IMMessageEntity", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_UPDATE_I_M_CALLBACK_INFORMATION", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_UPDATE_I_M_CALLBACK_INFORMATION", "target":"end", "condition":"true" }
+  ]
+}

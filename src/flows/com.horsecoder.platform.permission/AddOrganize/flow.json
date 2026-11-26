@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_ADD_ORGANIZE",
+  "name":"FLOW_ADD_ORGANIZE",
+  "type":"flow",
+  "title":"新增组织",
+  "params":[
+    { "title":"组织新增", "name":"organizeAdd", "type":"com.horsecoder.platform.permission.flow.AddOrganize.model.OrganizeAdd", "notnull":true, "defaultValue":{} },
+    { "title":"模板参数字典", "name":"templateParameterMap", "type":"Map(String$String)", "notnull":false }
+  ],
+  "results":[
+    { "title":"组织返回", "name":"organizeReturn", "type":"com.horsecoder.platform.permission.flow.FilterOrganizeList.model.OrganizeReturn", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_ADD_ORGANIZE",
+      "type":"event",
+      "title":"新增组织",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_ADD_ORGANIZE",
+      "params":[
+        { "title":"组织新增", "name":"organizeAdd", "type":"com.horsecoder.platform.permission.flow.AddOrganize.model.OrganizeAdd", "notnull":true, "defaultValue":{} },
+        { "title":"模板参数字典", "name":"templateParameterMap", "type":"Map(String$String)", "notnull":false }
+      ],
+      "results":[
+        { "title":"组织返回", "name":"organizeReturn", "type":"com.horsecoder.platform.permission.flow.FilterOrganizeList.model.OrganizeReturn", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_ADD_ORGANIZE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_ADD_ORGANIZE", "target":"end", "condition":"true" }
+  ]
+}

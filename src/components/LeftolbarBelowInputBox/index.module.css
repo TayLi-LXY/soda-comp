@@ -1,0 +1,70 @@
+.div {
+  margin-right: 5px;
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+}
+
+.divDiv0 {
+  margin-right: 5px;
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+}
+
+.attachmentButton {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.attachmentButtonTooltip0 {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.attachmentButtonTooltip0PaperClipOutlined0 {
+}
+
+.voiceButton {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.voiceButtonTooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.voiceButtonTooltip0AudioOutlined0 {
+}
+
+.emojiButton {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.emojiButtonTooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.emojiButtonTooltip0SmileOutlined0 {
+}
+
+.aIButton {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.aIButtonTooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.aIButtonTooltip0BulbOutlined0 {
+}
+

@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.market/FLOW_QUERY_PACKAGE_BASED_ON_ID",
+  "name":"FLOW_QUERY_PACKAGE_BASED_ON_ID",
+  "type":"flow",
+  "title":"根据Id查询套餐",
+  "params":[
+    { "title":"套餐ID", "name":"packageId", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"套餐详情", "name":"packageDetails", "type":"com.horsecoder.market.flow.QueryPackageBasedOnId.model.PackageDetails", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_QUERY_PACKAGE_BASED_ON_ID",
+      "type":"event",
+      "title":"根据Id查询套餐",
+      "reference":"@com.horsecoder.market/FLOW_CODE_QUERY_PACKAGE_BASED_ON_ID",
+      "params":[
+        { "title":"套餐ID", "name":"packageId", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"套餐详情", "name":"packageDetails", "type":"com.horsecoder.market.flow.QueryPackageBasedOnId.model.PackageDetails", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_QUERY_PACKAGE_BASED_ON_ID", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_QUERY_PACKAGE_BASED_ON_ID", "target":"end", "condition":"true" }
+  ]
+}

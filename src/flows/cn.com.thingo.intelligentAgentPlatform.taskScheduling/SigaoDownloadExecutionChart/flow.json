@@ -1,0 +1,30 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_SIGAO_DOWNLOAD_EXECUTION_CHART",
+  "name":"FLOW_SIGAO_DOWNLOAD_EXECUTION_CHART",
+  "type":"flow",
+  "title":"思高下载执行图",
+  "params":[
+    { "title":"任务Id", "name":"taskIdList", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"思高执行图", "name":"sigaoExecutionChart", "type":"cn.com.thingo.taskScheduling.flow.SigaoDownloadExecutionChart.model.SigaoExecutionChart", "notnull":false, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_SIGAO_DOWNLOAD_EXECUTION_CHART",
+      "type":"event",
+      "title":"思高下载执行图",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_SIGAO_DOWNLOAD_EXECUTION_CHART",
+      "params":[
+        { "title":"任务Id", "name":"taskIdList", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"思高执行图", "name":"sigaoExecutionChart", "type":"cn.com.thingo.taskScheduling.flow.SigaoDownloadExecutionChart.model.SigaoExecutionChart", "notnull":false, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_SIGAO_DOWNLOAD_EXECUTION_CHART", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_SIGAO_DOWNLOAD_EXECUTION_CHART", "target":"end", "condition":"true" }
+  ]
+}

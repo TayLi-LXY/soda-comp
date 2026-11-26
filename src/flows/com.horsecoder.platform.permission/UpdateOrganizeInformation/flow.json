@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_UPDATE_ORGANIZE_INFORMATION",
+  "name":"FLOW_UPDATE_ORGANIZE_INFORMATION",
+  "type":"flow",
+  "title":"更新组织信息",
+  "params":[
+    { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_UPDATE_ORGANIZE_INFORMATION",
+      "type":"event",
+      "title":"更新组织信息",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_UPDATE_ORGANIZE_INFORMATION",
+      "params":[
+        { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_UPDATE_ORGANIZE_INFORMATION", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_UPDATE_ORGANIZE_INFORMATION", "target":"end", "condition":"true" }
+  ]
+}

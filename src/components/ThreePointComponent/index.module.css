@@ -1,0 +1,219 @@
+.threeOclock {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+
+.threeOclockDiv0 {
+}
+
+.threeOclockDiv0Input0 {
+  padding: 0.375rem 0.75rem;
+  font-size: 12px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: none;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.searchCount {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #888;
+}
+
+.threeOclockDiv1 {
+  padding-top: 10px;
+}
+
+.memberSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.memberSectionTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.serverSnapshot {
+  max-height: 160px;
+  overflow: auto;
+  margin: 0 0 10px;
+  padding: 8px;
+  font-size: 11px;
+  line-height: 1.4;
+  background: #f7f7f7;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.threeOclockDiv1Div0 {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-bottom: 4px;
+}
+
+.roleEditor {
+  margin: 0 0 12px;
+  padding: 10px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.roleEditorHint {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.roleEditorRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.roleSelect {
+  flex: 1;
+  min-width: 0;
+}
+
+.candidateSearch {
+  margin-bottom: 12px;
+}
+
+.candidateList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.candidateItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.candidateMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.candidateName {
+  font-size: 14px;
+  color: #222;
+}
+
+.candidateSub {
+  font-size: 12px;
+  color: #888;
+}
+
+.threeOclockDiv1Div0Div1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.threeOclockDiv1Div0Div1Div0 {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #d3d3d3;
+  font-size: 32px;
+  color: #c5c5c5;
+}
+
+.threeOclockDiv1Div0Div1Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.threeOclockDiv1Div0Div1P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 48px;
+}
+
+.threeOclockDiv1Div0Div2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.threeOclockDiv1Div0Div2Div0 {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #d3d3d3;
+  font-size: 32px;
+  color: #c5c5c5;
+}
+
+.threeOclockDiv1Div0Div2Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.threeOclockDiv1Div0Div2P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 48px;
+}
+
+.threeOclockDiv1Div1 {
+  margin-bottom: 10px;
+}
+
+.threeOclockDiv1Div2 {
+  margin-bottom: 10px;
+}
+
+.threeOclockDiv1Div2Div0 {
+}
+

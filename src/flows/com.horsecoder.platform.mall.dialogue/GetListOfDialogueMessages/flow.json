@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_LIST_OF_DIALOGUE_MESSAGES",
+  "name":"FLOW_GET_LIST_OF_DIALOGUE_MESSAGES",
+  "type":"flow",
+  "title":"获取对话消息列表",
+  "params":[
+    { "title":"查询Filter", "name":"queryFilter", "type":"com.horsecoder.im.flow.domain.FacadeSearchImChatRecordsBasedOnId.model.QueryFilter", "notnull":true, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"对话消息列表", "name":"dialogueMessageList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeGetListOfDialogueMessages.model.DialogueMessage)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_GET_LIST_OF_DIALOGUE_MESSAGES",
+      "type":"event",
+      "title":"获取对话消息列表",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_GET_LIST_OF_DIALOGUE_MESSAGES",
+      "params":[
+        { "title":"查询Filter", "name":"queryFilter", "type":"com.horsecoder.im.flow.domain.FacadeSearchImChatRecordsBasedOnId.model.QueryFilter", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"对话消息列表", "name":"dialogueMessageList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeGetListOfDialogueMessages.model.DialogueMessage)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_GET_LIST_OF_DIALOGUE_MESSAGES", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_GET_LIST_OF_DIALOGUE_MESSAGES", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_UPDATE_SPACE_WHICH_MODEL_BELONGS",
+  "name":"FLOW_UPDATE_SPACE_WHICH_MODEL_BELONGS",
+  "type":"flow",
+  "title":"更新模型所属空间",
+  "params":[
+    { "title":"空间ID", "name":"spaceId", "type":"String", "notnull":true },
+    { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_UPDATE_SPACE_WHICH_MODEL_BELONGS",
+      "type":"event",
+      "title":"更新模型所属空间",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_UPDATE_SPACE_WHICH_MODEL_BELONGS",
+      "params":[
+        { "title":"空间ID", "name":"spaceId", "type":"String", "notnull":true },
+        { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_UPDATE_SPACE_WHICH_MODEL_BELONGS", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_UPDATE_SPACE_WHICH_MODEL_BELONGS", "target":"end", "condition":"true" }
+  ]
+}

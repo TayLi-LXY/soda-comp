@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_ADD_TEMPORARY_MESSAGE",
+  "name":"FLOW_ADD_TEMPORARY_MESSAGE",
+  "type":"flow",
+  "title":"新增临时消息",
+  "params":[
+    { "title":"新增临时消息", "name":"addTemporaryMessage", "type":"com.horsecoder.platform.aiMarketing.flow.AddTemporaryMessage.model.AddTemporaryMessage", "notnull":false }
+  ],
+  "results":[
+    { "title":"临时消息ID", "name":"temporaryMessageId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_ADD_TEMPORARY_MESSAGE",
+      "type":"event",
+      "title":"新增临时消息",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_ADD_TEMPORARY_MESSAGE",
+      "params":[
+        { "title":"新增临时消息", "name":"addTemporaryMessage", "type":"com.horsecoder.platform.aiMarketing.flow.AddTemporaryMessage.model.AddTemporaryMessage", "notnull":false }
+      ],
+      "results":[
+        { "title":"临时消息ID", "name":"temporaryMessageId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_ADD_TEMPORARY_MESSAGE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_ADD_TEMPORARY_MESSAGE", "target":"end", "condition":"true" }
+  ]
+}

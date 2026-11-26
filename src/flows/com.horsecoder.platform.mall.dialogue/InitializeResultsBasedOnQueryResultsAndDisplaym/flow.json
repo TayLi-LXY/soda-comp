@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM",
+  "name":"FLOW_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM",
+  "type":"flow",
+  "title":"根据查询结果初始化结果展示",
+  "params":[
+    { "title":"文件Url", "name":"fileUrl", "type":"String", "notnull":false },
+    { "title":"总结消息", "name":"summaryMessage", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"总结内容", "name":"summarizeContent", "type":"String", "notnull":true },
+    { "title":"提示问题列表", "name":"promptQuestionList", "type":"List(com.horsecoder.platform.dialogue.flow.InitializeResultsBasedOnQueryResultsAndDisplaym.model.PromptQuestion)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM",
+      "type":"event",
+      "title":"根据查询结果初始化结果展示",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM",
+      "params":[
+        { "title":"文件Url", "name":"fileUrl", "type":"String", "notnull":false },
+        { "title":"总结消息", "name":"summaryMessage", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"总结内容", "name":"summarizeContent", "type":"String", "notnull":true },
+        { "title":"提示问题列表", "name":"promptQuestionList", "type":"List(com.horsecoder.platform.dialogue.flow.InitializeResultsBasedOnQueryResultsAndDisplaym.model.PromptQuestion)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM", "target":"end", "condition":"true" }
+  ]
+}

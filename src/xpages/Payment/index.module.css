@@ -1,0 +1,405 @@
+.theOutermostContainerOfPaymentPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.theOutermostContainerOfPaymentPageDiv0 {
+  min-width: 800px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.backButton {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+.backButtonDiv0 {
+}
+
+.backButtonDiv0LeftOutlined0 {
+}
+
+.backButtonH31 {
+  margin-bottom: 0px;
+  margin-left: 5px;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 30px;
+  border: 2px solid #eff0f5;
+  box-shadow: 0 2px 12px #eff0f5;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div0 {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.initializeOrderCard {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  background: linear-gradient(135deg, #f0f7ff, #ffffff);
+  border-radius: 20px;
+  padding: 36px 32px;
+  position: relative;
+  box-shadow: 0 0 0 1px rgba(180, 210, 255, 0.4);
+}
+
+.initializeOrderCardDiv0 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.initializeOrderCardDiv0Div0 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.initializeOrderCardDiv0Div0P0 {
+  word-break: break-all;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0px;
+  margin-right: 5px;
+}
+
+.initializeOrderCardDiv0Div0P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  margin-right: 5px;
+}
+
+.initializeOrderCardDiv0Div1 {
+  padding: 8px 16px;
+  background: rgba(40, 120, 240, 0.12);
+  color: #2478f0;
+  border-radius: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+
+.initializeOrderCardDiv0Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.initializeOrderCardDiv1 {
+}
+
+.initializeOrderCardDiv1P0 {
+  margin-bottom: 20px;
+  word-break: break-all;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 500;
+}
+
+.initializeOrderCardDiv2 {
+  margin-bottom: 10px;
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-bottom: 1px solid #eee;
+}
+
+.initializeOrderCardDiv2Div0 {
+  display: flex;
+  align-items: flex-start;
+  font-size: 12px;
+  color: #444444;
+  line-height: 1.4;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.initializeOrderCardDiv2Div0P0 {
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+}
+
+.initializeOrderCardDiv2Div0P1 {
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+}
+
+.initializeOrderCardDiv2Div0P2 {
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+}
+
+.initializeOrderCardDiv2Div0P3 {
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+}
+
+.initializeOrderCardDiv3 {
+  font-size: 12px;
+  padding: 2px;
+  gap: 6px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.initializeOrderCardDiv3Div0 {
+  display: flex;
+  color: #000000;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.initializeOrderCardDiv3Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.initializeOrderCardDiv3Div0Div1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.initializeOrderCardDiv3Div0Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.initializeOrderCardDiv3Div0Div1P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.initializeOrderCardDiv3Div1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.initializeOrderCardDiv3Div1P0 {
+  margin-bottom: 0px;
+  color: #000000;
+  word-break: break-all;
+}
+
+.initializeOrderCardDiv3Div1Div1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.initializeOrderCardDiv3Div1Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  color: red;
+}
+
+.initializeOrderCardDiv3Div1Div1P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  color: red;
+}
+
+.initializeOrderCardDiv3Div2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.initializeOrderCardDiv3Div2P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.initializeOrderCardDiv3Div2Div1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.initializeOrderCardDiv3Div2Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.initializeOrderCardDiv3Div2Div1P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.initializeOrderCardDiv4 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.initializeOrderCardDiv4P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  color: #000000;
+  font-size: 10px;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div0 {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div0P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1P1 {
+  margin-bottom: 20px;
+  word-break: break-all;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.weChatPayContainer {
+  width: 56px;
+  height: 56px;
+  border-radius: 10%;
+  background: #f5f5f6;
+  border: 1px solid #55ab47;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 0 4px #409eff,;
+}
+
+.weChatPayButton {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div2Div1 {
+  width: 56px;
+  height: 56px;
+  border-radius: 10%;
+  background: #f5f5f6;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.alipayPaymentButton {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div3 {
+  height: 300px;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div3Div0 {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  border-radius: 10%;
+  flex-direction: column;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div3Div0Div1 {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div3Div0Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.theOutermostContainerOfPaymentPageDiv0Div1Div1Div3Div0Div2 {
+  margin-top: 10px;
+}
+
+.cancelPaymentButton {
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.paymentButtonCompleted {
+  border-radius: 5px;
+  width: 100px;
+}
+

@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_DETERMINE_WHETHER_CURRENT_CONVERSATION_AND_DIALOGUE_MODEL_EXIST",
+  "name":"FLOW_DETERMINE_WHETHER_CURRENT_CONVERSATION_AND_DIALOGUE_MODEL_EXIST",
+  "type":"flow",
+  "title":"判断当前对话和对话模型是否存在",
+  "params":[
+    { "title":"对话ID", "name":"conversationId", "type":"String", "notnull":true },
+    { "title":"模型ID", "name":"modelId", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"是否存在", "name":"doesItExist", "type":"Boolean", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DETERMINE_WHETHER_CURRENT_CONVERSATION_AND_DIALOGUE_MODEL_EXIST",
+      "type":"event",
+      "title":"判断当前对话和对话模型是否存在",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_DETERMINE_WHETHER_CURRENT_CONVERSATION_AND_DIALOGUE_MODEL_EXIST",
+      "params":[
+        { "title":"对话ID", "name":"conversationId", "type":"String", "notnull":true },
+        { "title":"模型ID", "name":"modelId", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"是否存在", "name":"doesItExist", "type":"Boolean", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DETERMINE_WHETHER_CURRENT_CONVERSATION_AND_DIALOGUE_MODEL_EXIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_DETERMINE_WHETHER_CURRENT_CONVERSATION_AND_DIALOGUE_MODEL_EXIST", "target":"end", "condition":"true" }
+  ]
+}

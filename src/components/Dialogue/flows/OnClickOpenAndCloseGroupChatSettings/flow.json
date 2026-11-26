@@ -1,0 +1,27 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/dialogue/FLOW_ON_CLICK_OPEN_AND_CLOSE_GROUP_CHAT_SETTINGS",
+  "name":"FLOW_ON_CLICK_OPEN_AND_CLOSE_GROUP_CHAT_SETTINGS",
+  "type":"flow",
+  "title":"点击打开关闭群聊设置抽屉",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"群聊设置抽屉可见控制", "name":"groupChatSettingsDrawerVisible", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_SET_GROUP_CHAT_SETTINGS_DRAWER_VISIBLE",
+      "type":"event",
+      "title":"设置数据:群聊设置抽屉可见控制",
+      "reference":"Dialogue/OnClickOpenAndCloseGroupChatSettings/FLOW_CODE_SET_GROUP_CHAT_SETTINGS_DRAWER_VISIBLE",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"群聊设置抽屉可见控制", "name":"groupChatSettingsDrawerVisible", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_SET_GROUP_CHAT_SETTINGS_DRAWER_VISIBLE", "condition":"true" },
+    { "source":"FLOW_NODE_SET_GROUP_CHAT_SETTINGS_DRAWER_VISIBLE", "target":"end", "condition":"true" }
+  ]
+}

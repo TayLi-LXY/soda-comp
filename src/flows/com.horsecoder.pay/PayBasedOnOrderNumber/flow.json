@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_PAY_BASED_ON_ORDER_NUMBER",
+  "name":"FLOW_PAY_BASED_ON_ORDER_NUMBER",
+  "type":"flow",
+  "title":"根据订单号进行支付",
+  "params":[
+    { "title":"支付类型", "name":"paymentType", "type":"Integer", "notnull":true },
+    { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true },
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"订单实体", "name":"orderEntity", "type":"com.horsecoder.pay.model.exp.Order", "notnull":true },
+    { "title":"二维码链接", "name":"qRCodeLink", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_PAY_BASED_ON_ORDER_NUMBER",
+      "type":"event",
+      "title":"根据订单号进行支付",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_PAY_BASED_ON_ORDER_NUMBER",
+      "params":[
+        { "title":"支付类型", "name":"paymentType", "type":"Integer", "notnull":true },
+        { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"订单实体", "name":"orderEntity", "type":"com.horsecoder.pay.model.exp.Order", "notnull":true },
+        { "title":"二维码链接", "name":"qRCodeLink", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_PAY_BASED_ON_ORDER_NUMBER", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_PAY_BASED_ON_ORDER_NUMBER", "target":"end", "condition":"true" }
+  ]
+}

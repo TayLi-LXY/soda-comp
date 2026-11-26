@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.market/FLOW_DELETE_POINTS",
+  "name":"FLOW_DELETE_POINTS",
+  "type":"flow",
+  "title":"删除积分",
+  "params":[
+    { "title":"积分ID", "name":"integralId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_DELETE_POINTS",
+      "type":"event",
+      "title":"删除积分",
+      "reference":"@com.horsecoder.market/FLOW_CODE_DELETE_POINTS",
+      "params":[
+        { "title":"积分ID", "name":"integralId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_DELETE_POINTS", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_DELETE_POINTS", "target":"end", "condition":"true" }
+  ]
+}

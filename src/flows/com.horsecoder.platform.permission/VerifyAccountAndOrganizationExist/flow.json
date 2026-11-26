@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_VERIFY_ACCOUNT_AND_ORGANIZATION_EXIST",
+  "name":"FLOW_VERIFY_ACCOUNT_AND_ORGANIZATION_EXIST",
+  "type":"flow",
+  "title":"校验账户和组织是否存在",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"账户", "name":"account", "type":"com.horsecoder.platform.permission.model.sys.Account", "notnull":false },
+    { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.model.sys.Organize", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_VERIFY_ACCOUNT_AND_ORGANIZATION_EXIST",
+      "type":"event",
+      "title":"校验账户和组织是否存在",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_VERIFY_ACCOUNT_AND_ORGANIZATION_EXIST",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"账户", "name":"account", "type":"com.horsecoder.platform.permission.model.sys.Account", "notnull":false },
+        { "title":"组织", "name":"organize", "type":"com.horsecoder.platform.permission.model.sys.Organize", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_VERIFY_ACCOUNT_AND_ORGANIZATION_EXIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_VERIFY_ACCOUNT_AND_ORGANIZATION_EXIST", "target":"end", "condition":"true" }
+  ]
+}

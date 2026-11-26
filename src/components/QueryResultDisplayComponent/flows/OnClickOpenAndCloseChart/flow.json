@@ -1,0 +1,25 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/queryResultDisplayComponent/FLOW_ON_CLICK_OPEN_AND_CLOSE_CHART",
+  "name":"FLOW_ON_CLICK_OPEN_AND_CLOSE_CHART",
+  "type":"flow",
+  "title":"点击打开关闭图表",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ENABLE_VISIBLE_CONTROL_OF_CHART_COMPONENT",
+      "type":"event",
+      "title":"设置图表组件可见控制可见",
+      "reference":"QueryResultDisplayComponent/OnClickOpenAndCloseChart/FLOW_CODE_ENABLE_VISIBLE_CONTROL_OF_CHART_COMPONENT",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ENABLE_VISIBLE_CONTROL_OF_CHART_COMPONENT", "condition":"true" },
+    { "source":"FLOW_NODE_ENABLE_VISIBLE_CONTROL_OF_CHART_COMPONENT", "target":"end", "condition":"true" }
+  ]
+}

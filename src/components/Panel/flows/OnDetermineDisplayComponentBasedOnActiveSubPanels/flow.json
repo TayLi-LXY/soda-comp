@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/panel/FLOW_ON_DETERMINE_DISPLAY_COMPONENT_BASED_ON_ACTIVE_SUB_PANELS",
+  "name":"FLOW_ON_DETERMINE_DISPLAY_COMPONENT_BASED_ON_ACTIVE_SUB_PANELS",
+  "type":"flow",
+  "title":"根据活跃子面板决定展示组件",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"活跃子面板", "name":"activeSubpanel", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_DETERMINE_DISPLAY_COMPONENT_BASED_ON_ACTIVE_SUB_PANELS",
+      "type":"event",
+      "title":"根据活跃子面板决定展示组件",
+      "reference":"Panel/OnDetermineDisplayComponentBasedOnActiveSubPanels/FLOW_CODE_ON_DETERMINE_DISPLAY_COMPONENT_BASED_ON_ACTIVE_SUB_PANELS",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"活跃子面板", "name":"activeSubpanel", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_DETERMINE_DISPLAY_COMPONENT_BASED_ON_ACTIVE_SUB_PANELS", "condition":"true" },
+    { "source":"FLOW_NODE_ON_DETERMINE_DISPLAY_COMPONENT_BASED_ON_ACTIVE_SUB_PANELS", "target":"end", "condition":"true" }
+  ]
+}

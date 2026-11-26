@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_QUERY_ORDER_DETAILS_BASED_ON_ORDER_ID",
+  "name":"FLOW_QUERY_ORDER_DETAILS_BASED_ON_ORDER_ID",
+  "type":"flow",
+  "title":"根据订单ID查询订单详情",
+  "params":[
+    { "title":"订单号", "name":"orderNumber", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"套餐名称", "name":"comboName", "type":"String", "notnull":true },
+    { "title":"套餐简介", "name":"packageIntroduction", "type":"String", "notnull":true },
+    { "title":"套餐权益", "name":"packageBenefits", "type":"String", "notnull":true },
+    { "title":"套餐套餐价格", "name":"packagePrice", "type":"BigDecimal", "notnull":true },
+    { "title":"促销金额", "name":"promotionAmount", "type":"BigDecimal", "notnull":true },
+    { "title":"应付金额", "name":"amountPayable", "type":"BigDecimal", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_QUERY_ORDER_DETAILS_BASED_ON_ORDER_ID",
+      "type":"event",
+      "title":"根据订单ID查询订单详情",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_QUERY_ORDER_DETAILS_BASED_ON_ORDER_ID",
+      "params":[
+        { "title":"订单号", "name":"orderNumber", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"套餐名称", "name":"comboName", "type":"String", "notnull":true },
+        { "title":"套餐简介", "name":"packageIntroduction", "type":"String", "notnull":true },
+        { "title":"套餐权益", "name":"packageBenefits", "type":"String", "notnull":true },
+        { "title":"套餐套餐价格", "name":"packagePrice", "type":"BigDecimal", "notnull":true },
+        { "title":"促销金额", "name":"promotionAmount", "type":"BigDecimal", "notnull":true },
+        { "title":"应付金额", "name":"amountPayable", "type":"BigDecimal", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_QUERY_ORDER_DETAILS_BASED_ON_ORDER_ID", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_QUERY_ORDER_DETAILS_BASED_ON_ORDER_ID", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_UPDATE_CURRENT_CONVERSATION_ACCOUNT_TYPE",
+  "name":"FLOW_UPDATE_CURRENT_CONVERSATION_ACCOUNT_TYPE",
+  "type":"flow",
+  "title":"更新当前对话账户类型",
+  "params":[
+    { "title":"对话账户ID", "name":"dialogueAccountId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_UPDATE_CURRENT_CONVERSATION_ACCOUNT_TYPE",
+      "type":"event",
+      "title":"更新当前对话账户类型",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_UPDATE_CURRENT_CONVERSATION_ACCOUNT_TYPE",
+      "params":[
+        { "title":"对话账户ID", "name":"dialogueAccountId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_UPDATE_CURRENT_CONVERSATION_ACCOUNT_TYPE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_UPDATE_CURRENT_CONVERSATION_ACCOUNT_TYPE", "target":"end", "condition":"true" }
+  ]
+}

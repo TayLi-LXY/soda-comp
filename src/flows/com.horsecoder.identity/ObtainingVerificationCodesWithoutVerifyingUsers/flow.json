@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS",
+  "name":"FLOW_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS",
+  "type":"flow",
+  "title":"获取验证码不校验用户",
+  "params":[
+    { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+    { "title":"用途", "name":"usage", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS",
+      "type":"event",
+      "title":"获取验证码不校验用户",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS",
+      "params":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+        { "title":"用途", "name":"usage", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS", "target":"end", "condition":"true" }
+  ]
+}

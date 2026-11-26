@@ -1,0 +1,42 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_UNIFIED_SCHEDULING_OF_INTELLIGENT_AGENT",
+  "name":"FLOW_UNIFIED_SCHEDULING_OF_INTELLIGENT_AGENT",
+  "type":"flow",
+  "title":"智能体统一调度",
+  "params":[
+    { "title":"任务", "name":"task", "type":"String", "notnull":true },
+    { "title":"智能体节点", "name":"vertex", "type":"String", "notnull":true },
+    { "title":"智能体服务", "name":"agentService", "type":"String", "notnull":true },
+    { "title":"参数列表", "name":"parameterList", "type":"List(cn.com.thingo.taskScheduling.flow.UnifiedSchedulingOfIntelligentAgent.model.SchedulingParameters)", "notnull":false, "defaultValue":[] },
+    { "title":"json返回结构", "name":"jsonReturn", "type":"String", "notnull":false },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"智能体执行结果", "name":"results", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_UNIFIED_SCHEDULING_OF_INTELLIGENT_AGENT",
+      "type":"event",
+      "title":"智能体统一调度",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_UNIFIED_SCHEDULING_OF_INTELLIGENT_AGENT",
+      "params":[
+        { "title":"任务", "name":"task", "type":"String", "notnull":true },
+        { "title":"智能体节点", "name":"vertex", "type":"String", "notnull":true },
+        { "title":"智能体服务", "name":"agentService", "type":"String", "notnull":true },
+        { "title":"参数列表", "name":"parameterList", "type":"List(cn.com.thingo.taskScheduling.flow.UnifiedSchedulingOfIntelligentAgent.model.SchedulingParameters)", "notnull":false, "defaultValue":[] },
+        { "title":"json返回结构", "name":"jsonReturn", "type":"String", "notnull":false },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"智能体执行结果", "name":"results", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_UNIFIED_SCHEDULING_OF_INTELLIGENT_AGENT", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_UNIFIED_SCHEDULING_OF_INTELLIGENT_AGENT", "target":"end", "condition":"true" }
+  ]
+}

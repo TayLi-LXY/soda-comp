@@ -1,0 +1,94 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/main/FLOW_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID",
+  "name":"FLOW_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID",
+  "type":"flow",
+  "title":"根据对话ID获取历史聊天记录",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true },
+    { "title":"发送人昵称字典", "name":"senderNicknameDictionary", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID",
+      "type":"event",
+      "title":"根据对话ID获取历史聊天记录",
+      "reference":"Main/OnRetrieveHistoricalChatRecordsBasedOnConversationId/FLOW_CODE_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID",
+      "params":[
+        { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"查询Filter", "name":"queryFilter", "type":"com.horsecoder.im.flow.domain.FacadeSearchImChatRecordsBasedOnId.model.QueryFilter", "notnull":true, "defaultValue":{} }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.im/FLOW_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID",
+      "type":"flow",
+      "title":"根据ID查询聊天记录",
+      "reference":"@com.horsecoder.im/FLOW_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID",
+      "params":[
+        { "title":"查询Filter", "name":"queryFilter", "type":"com.horsecoder.im.flow.domain.FacadeSearchImChatRecordsBasedOnId.model.QueryFilter", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"消息管理实体", "name":"messageManagementEntity", "type":"List(com.horsecoder.im.flow.domain.FacadeSearchImChatRecordsBasedOnId.model.MessageManagementEntity)", "notnull":true, "defaultValue":[] }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_SENDER_ID_LIST",
+      "type":"event",
+      "title":"设置发送人ID列表",
+      "reference":"Main/OnRetrieveHistoricalChatRecordsBasedOnConversationId/FLOW_CODE_SET_SENDER_ID_LIST",
+      "params":[
+        { "title":"消息管理实体", "name":"messageManagementEntity", "type":"List(com.horsecoder.im.flow.domain.FacadeSearchImChatRecordsBasedOnId.model.MessageManagementEntity)", "notnull":true, "defaultValue":[] }
+      ],
+      "results":[
+        { "title":"发送人id列表", "name":"senderIdList", "type":"List", "notnull":false, "defaultValue":[] }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.im/FLOW_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST",
+      "type":"flow",
+      "title":"根据发送人ID列表更新昵称字典",
+      "reference":"@com.horsecoder.im/FLOW_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST",
+      "params":[
+        { "title":"发送人id列表", "name":"senderIdList", "type":"List", "notnull":false, "defaultValue":[] }
+      ],
+      "results":[
+        { "title":"昵称字典Map", "name":"nicknameDictionaryMap", "type":"Map", "notnull":false }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_SENDER_NICKNAME_DICTIONARY",
+      "type":"event",
+      "title":"设置发送人昵称字典",
+      "reference":"Main/OnRetrieveHistoricalChatRecordsBasedOnConversationId/FLOW_CODE_SET_SENDER_NICKNAME_DICTIONARY",
+      "params":[
+        { "title":"昵称字典Map", "name":"nicknameDictionaryMap", "type":"Map", "notnull":false },
+        { "title":"发送人昵称字典", "name":"senderNicknameDictionary", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_CHAT_CONVERSATION_LIST_CONTROL",
+      "type":"event",
+      "title":"设置聊天对话列表控制",
+      "reference":"Main/OnRetrieveHistoricalChatRecordsBasedOnConversationId/FLOW_CODE_SET_CHAT_CONVERSATION_LIST_CONTROL",
+      "params":[
+        { "title":"消息管理实体", "name":"messageManagementEntity", "type":"List(com.horsecoder.im.flow.domain.FacadeSearchImChatRecordsBasedOnId.model.MessageManagementEntity)", "notnull":true, "defaultValue":[] },
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID", "condition":"true" },
+    { "source":"FLOW_NODE_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID", "target":"@com.horsecoder.im/FLOW_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID", "target":"FLOW_NODE_SET_SENDER_ID_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_SET_SENDER_ID_LIST", "target":"@com.horsecoder.im/FLOW_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST", "target":"FLOW_NODE_SET_SENDER_NICKNAME_DICTIONARY", "condition":"true" },
+    { "source":"FLOW_NODE_SET_SENDER_NICKNAME_DICTIONARY", "target":"FLOW_NODE_SET_CHAT_CONVERSATION_LIST_CONTROL", "condition":"true" },
+    { "source":"FLOW_NODE_SET_CHAT_CONVERSATION_LIST_CONTROL", "target":"end", "condition":"true" }
+  ]
+}

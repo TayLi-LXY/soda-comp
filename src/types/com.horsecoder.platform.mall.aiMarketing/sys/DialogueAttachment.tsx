@@ -1,0 +1,37 @@
+
+/**
+ * 对话附件
+ */
+export type DialogueAttachment = {
+
+  /**
+   * 对话附件ID
+   */
+  readonly id: string;
+
+  /**
+   * 附件类型
+   */
+  attachmentType: string;
+
+  /**
+   * 附件Url
+   */
+  attachmentUrl: string;
+
+  /**
+   * 对话ID
+   */
+  dialogueId: string;
+
+  /**
+   * 更新时间
+   */
+  readonly gmtUpdate: number;
+
+  /**
+   * 创建时间
+   */
+  readonly gmtCreate: number;
+
+}

@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.storage/FLOW_DOWNLOAD_FILE",
+  "name":"FLOW_DOWNLOAD_FILE",
+  "type":"flow",
+  "title":"文件下载流程",
+  "params":[
+    { "title":"文件用户", "name":"user", "type":"String", "notnull":true },
+    { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+    { "title":"文件名", "name":"fileName", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.storage/FLOW_NODE_DOWNLOAD_FILE",
+      "type":"event",
+      "title":"文件下载流程",
+      "reference":"@com.horsecoder.storage/FLOW_CODE_DOWNLOAD_FILE",
+      "params":[
+        { "title":"文件用户", "name":"user", "type":"String", "notnull":true },
+        { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+        { "title":"文件名", "name":"fileName", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.storage/FLOW_NODE_DOWNLOAD_FILE", "condition":"true" },
+    { "source":"@com.horsecoder.storage/FLOW_NODE_DOWNLOAD_FILE", "target":"end", "condition":"true" }
+  ]
+}

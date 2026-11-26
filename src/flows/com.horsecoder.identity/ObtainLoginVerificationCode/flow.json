@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_OBTAIN_LOGIN_VERIFICATION_CODE",
+  "name":"FLOW_OBTAIN_LOGIN_VERIFICATION_CODE",
+  "type":"flow",
+  "title":"获取登录验证码",
+  "params":[
+    { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+    { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_LOGIN_VERIFICATION_CODE",
+      "type":"event",
+      "title":"获取登录验证码",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_OBTAIN_LOGIN_VERIFICATION_CODE",
+      "params":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+        { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_LOGIN_VERIFICATION_CODE", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_LOGIN_VERIFICATION_CODE", "target":"end", "condition":"true" }
+  ]
+}

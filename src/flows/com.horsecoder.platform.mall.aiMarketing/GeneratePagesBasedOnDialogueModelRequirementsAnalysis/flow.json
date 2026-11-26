@@ -1,0 +1,38 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_GENERATE_PAGES_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS",
+  "name":"FLOW_GENERATE_PAGES_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS",
+  "type":"flow",
+  "title":"根据对话模型需求分析生成页面",
+  "params":[
+    { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true },
+    { "title":"对话详情ID", "name":"dialogueDetailsId", "type":"String", "notnull":true },
+    { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true },
+    { "title":"锁持有对象", "name":"lockedBy", "type":"String", "notnull":false },
+    { "title":"目标产品", "name":"targetProduct", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"模型文件模型列表", "name":"modelJsonModelList", "type":"List(com.horsecoder.model.flow.domain.FacadeBatchCreationOfModelFiles.model.ModelJsonModel)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_GENERATE_PAGES_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS",
+      "type":"event",
+      "title":"根据对话模型需求分析生成页面",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_GENERATE_PAGES_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS",
+      "params":[
+        { "title":"对话模型ID", "name":"dialogueModelId", "type":"String", "notnull":true },
+        { "title":"对话详情ID", "name":"dialogueDetailsId", "type":"String", "notnull":true },
+        { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true },
+        { "title":"锁持有对象", "name":"lockedBy", "type":"String", "notnull":false },
+        { "title":"目标产品", "name":"targetProduct", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"模型文件模型列表", "name":"modelJsonModelList", "type":"List(com.horsecoder.model.flow.domain.FacadeBatchCreationOfModelFiles.model.ModelJsonModel)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_GENERATE_PAGES_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_GENERATE_PAGES_BASED_ON_DIALOGUE_MODEL_REQUIREMENTS_ANALYSIS", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_DELETE_ORGANIZE_INTERFACE",
+  "name":"FLOW_DELETE_ORGANIZE_INTERFACE",
+  "type":"flow",
+  "title":"删除组织接口",
+  "params":[
+    { "title":"组织Id", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ORGANIZE_INTERFACE",
+      "type":"event",
+      "title":"删除组织接口",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_DELETE_ORGANIZE_INTERFACE",
+      "params":[
+        { "title":"组织Id", "name":"organizeId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ORGANIZE_INTERFACE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ORGANIZE_INTERFACE", "target":"end", "condition":"true" }
+  ]
+}

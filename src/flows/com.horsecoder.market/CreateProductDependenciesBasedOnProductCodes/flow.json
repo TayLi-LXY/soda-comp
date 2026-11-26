@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.market/FLOW_CREATE_PRODUCT_DEPENDENCIES_BASED_ON_PRODUCT_CODES",
+  "name":"FLOW_CREATE_PRODUCT_DEPENDENCIES_BASED_ON_PRODUCT_CODES",
+  "type":"flow",
+  "title":"根据产品编号创建产品依赖",
+  "params":[
+    { "title":"依赖的产品编号列表", "name":"listOfDependentProductNumbers", "type":"List(String)", "notnull":true },
+    { "title":"产品编号", "name":"productCode", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_CREATE_PRODUCT_DEPENDENCIES_BASED_ON_PRODUCT_CODES",
+      "type":"event",
+      "title":"根据产品编号创建产品依赖",
+      "reference":"@com.horsecoder.market/FLOW_CODE_CREATE_PRODUCT_DEPENDENCIES_BASED_ON_PRODUCT_CODES",
+      "params":[
+        { "title":"依赖的产品编号列表", "name":"listOfDependentProductNumbers", "type":"List(String)", "notnull":true },
+        { "title":"产品编号", "name":"productCode", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_CREATE_PRODUCT_DEPENDENCIES_BASED_ON_PRODUCT_CODES", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_CREATE_PRODUCT_DEPENDENCIES_BASED_ON_PRODUCT_CODES", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CALL_O_C_R_INTELLIGENT_AGENT",
+  "name":"FLOW_CALL_O_C_R_INTELLIGENT_AGENT",
+  "type":"flow",
+  "title":"调用OCR智能体",
+  "params":[
+    { "title":"提示词", "name":"cueWord", "type":"String", "notnull":true },
+    { "title":"图片链接", "name":"picturesLinking", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"结果json", "name":"resultJSON", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_CALL_O_C_R_INTELLIGENT_AGENT",
+      "type":"event",
+      "title":"调用OCR智能体",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_CALL_O_C_R_INTELLIGENT_AGENT",
+      "params":[
+        { "title":"提示词", "name":"cueWord", "type":"String", "notnull":true },
+        { "title":"图片链接", "name":"picturesLinking", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"结果json", "name":"resultJSON", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_CALL_O_C_R_INTELLIGENT_AGENT", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_CALL_O_C_R_INTELLIGENT_AGENT", "target":"end", "condition":"true" }
+  ]
+}

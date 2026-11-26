@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_CREATE_ROLE",
+  "name":"FLOW_CREATE_ROLE",
+  "type":"flow",
+  "title":"创建角色流程",
+  "params":[
+    { "title":"创建角色实体", "name":"createCharacterEntity", "type":"com.horsecoder.platform.permission.flow.CreateRole.model.CreateCharacterEntity", "notnull":true, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"新角色id", "name":"newRoleId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_CREATE_ROLE",
+      "type":"event",
+      "title":"创建角色流程",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_CREATE_ROLE",
+      "params":[
+        { "title":"创建角色实体", "name":"createCharacterEntity", "type":"com.horsecoder.platform.permission.flow.CreateRole.model.CreateCharacterEntity", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"新角色id", "name":"newRoleId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_CREATE_ROLE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_CREATE_ROLE", "target":"end", "condition":"true" }
+  ]
+}

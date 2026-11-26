@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.demand/FLOW_BATCH_OBTAIN_USER_GIT_STATUS",
+  "name":"FLOW_BATCH_OBTAIN_USER_GIT_STATUS",
+  "type":"flow",
+  "title":"批量获取用户git状态",
+  "params":[
+    { "title":"用户ID列表", "name":"userIdList", "type":"List(String)", "notnull":true }
+  ],
+  "results":[
+    { "title":"用户IDgit状态字典", "name":"userIdGitStatusMap", "type":"Map(String$String)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.demand/FLOW_NODE_BATCH_OBTAIN_USER_GIT_STATUS",
+      "type":"event",
+      "title":"批量获取用户git状态",
+      "reference":"@com.horsecoder.demand/FLOW_CODE_BATCH_OBTAIN_USER_GIT_STATUS",
+      "params":[
+        { "title":"用户ID列表", "name":"userIdList", "type":"List(String)", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户IDgit状态字典", "name":"userIdGitStatusMap", "type":"Map(String$String)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.demand/FLOW_NODE_BATCH_OBTAIN_USER_GIT_STATUS", "condition":"true" },
+    { "source":"@com.horsecoder.demand/FLOW_NODE_BATCH_OBTAIN_USER_GIT_STATUS", "target":"end", "condition":"true" }
+  ]
+}

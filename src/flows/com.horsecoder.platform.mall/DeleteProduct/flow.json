@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.mall/FLOW_DELETE_PRODUCT",
+  "name":"FLOW_DELETE_PRODUCT",
+  "type":"flow",
+  "title":"删除商品",
+  "params":[
+    { "title":"商品编号", "name":"productNumber", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall/FLOW_NODE_DELETE_PRODUCT",
+      "type":"event",
+      "title":"删除商品",
+      "reference":"@com.horsecoder.platform.mall/FLOW_CODE_DELETE_PRODUCT",
+      "params":[
+        { "title":"商品编号", "name":"productNumber", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall/FLOW_NODE_DELETE_PRODUCT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall/FLOW_NODE_DELETE_PRODUCT", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.market/FLOW_CALCULATE_ORDER_PRICE",
+  "name":"FLOW_CALCULATE_ORDER_PRICE",
+  "type":"flow",
+  "title":"计算订单价格",
+  "params":[
+    { "title":"订单产品列表", "name":"orderProductList", "type":"List(com.horsecoder.market.flow.CalculateOrderPrice.model.OrderProductWithProductInfo)", "notnull":true },
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"计算后订单产品列表", "name":"calculatedOrderProductList", "type":"List(com.horsecoder.market.flow.CalculateOrderPrice.model.CalculatedOrderProduct)", "notnull":true },
+    { "title":"总优惠金额", "name":"totalDiscountAmount", "type":"BigDecimal", "notnull":true },
+    { "title":"原始总金额", "name":"originalTotalAmount", "type":"BigDecimal", "notnull":true },
+    { "title":"实付总金额", "name":"actualTotalAmount", "type":"BigDecimal", "notnull":true },
+    { "title":"使用过的优惠券优惠券模板列表", "name":"usedCouponCouponTemplateList", "type":"List(CouponCouponTemplate)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_CALCULATE_ORDER_PRICE",
+      "type":"event",
+      "title":"计算订单价格",
+      "reference":"@com.horsecoder.market/FLOW_CODE_CALCULATE_ORDER_PRICE",
+      "params":[
+        { "title":"订单产品列表", "name":"orderProductList", "type":"List(com.horsecoder.market.flow.CalculateOrderPrice.model.OrderProductWithProductInfo)", "notnull":true },
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"计算后订单产品列表", "name":"calculatedOrderProductList", "type":"List(com.horsecoder.market.flow.CalculateOrderPrice.model.CalculatedOrderProduct)", "notnull":true },
+        { "title":"总优惠金额", "name":"totalDiscountAmount", "type":"BigDecimal", "notnull":true },
+        { "title":"原始总金额", "name":"originalTotalAmount", "type":"BigDecimal", "notnull":true },
+        { "title":"实付总金额", "name":"actualTotalAmount", "type":"BigDecimal", "notnull":true },
+        { "title":"使用过的优惠券优惠券模板列表", "name":"usedCouponCouponTemplateList", "type":"List(CouponCouponTemplate)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_CALCULATE_ORDER_PRICE", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_CALCULATE_ORDER_PRICE", "target":"end", "condition":"true" }
+  ]
+}

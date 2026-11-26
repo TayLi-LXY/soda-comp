@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.market/FLOW_QUERY_POINT_DETAILS_BASED_ON_POINT_ID",
+  "name":"FLOW_QUERY_POINT_DETAILS_BASED_ON_POINT_ID",
+  "type":"flow",
+  "title":"根据积分ID查询积分详情",
+  "params":[
+    { "title":"积分ID", "name":"integralId", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"积分详情", "name":"pointsDetails", "type":"com.horsecoder.market.flow.AddAndModifyPoints.model.AddIntegralEntity", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_QUERY_POINT_DETAILS_BASED_ON_POINT_ID",
+      "type":"event",
+      "title":"根据积分ID查询积分详情",
+      "reference":"@com.horsecoder.market/FLOW_CODE_QUERY_POINT_DETAILS_BASED_ON_POINT_ID",
+      "params":[
+        { "title":"积分ID", "name":"integralId", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"积分详情", "name":"pointsDetails", "type":"com.horsecoder.market.flow.AddAndModifyPoints.model.AddIntegralEntity", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_QUERY_POINT_DETAILS_BASED_ON_POINT_ID", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_QUERY_POINT_DETAILS_BASED_ON_POINT_ID", "target":"end", "condition":"true" }
+  ]
+}

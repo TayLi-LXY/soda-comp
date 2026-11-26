@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.model/FLOW_OBTAIN_MODEL_ID_BASED_ON_PROJECT_ID",
+  "name":"FLOW_OBTAIN_MODEL_ID_BASED_ON_PROJECT_ID",
+  "type":"flow",
+  "title":"根据项目ID获取模型ID",
+  "params":[
+    { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_OBTAIN_MODEL_ID_BASED_ON_PROJECT_ID",
+      "type":"event",
+      "title":"根据项目ID获取模型ID",
+      "reference":"@com.horsecoder.model/FLOW_CODE_OBTAIN_MODEL_ID_BASED_ON_PROJECT_ID",
+      "params":[
+        { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_OBTAIN_MODEL_ID_BASED_ON_PROJECT_ID", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_OBTAIN_MODEL_ID_BASED_ON_PROJECT_ID", "target":"end", "condition":"true" }
+  ]
+}

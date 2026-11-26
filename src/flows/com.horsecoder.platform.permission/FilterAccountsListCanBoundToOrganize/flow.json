@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_FILTER_ACCOUNTS_LIST_CAN_BOUND_TO_ORGANIZE",
+  "name":"FLOW_FILTER_ACCOUNTS_LIST_CAN_BOUND_TO_ORGANIZE",
+  "type":"flow",
+  "title":"筛选可绑定到指定组织的账户列表",
+  "params":[
+    { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"账户实体列表", "name":"accountEntityList", "type":"List(com.horsecoder.platform.permission.flow.FilterAccountsListCanBoundToOrganize.model.AccountEntity)", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_FILTER_ACCOUNTS_LIST_CAN_BOUND_TO_ORGANIZE",
+      "type":"event",
+      "title":"筛选可绑定到指定组织的账户列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_FILTER_ACCOUNTS_LIST_CAN_BOUND_TO_ORGANIZE",
+      "params":[
+        { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"账户实体列表", "name":"accountEntityList", "type":"List(com.horsecoder.platform.permission.flow.FilterAccountsListCanBoundToOrganize.model.AccountEntity)", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_FILTER_ACCOUNTS_LIST_CAN_BOUND_TO_ORGANIZE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_FILTER_ACCOUNTS_LIST_CAN_BOUND_TO_ORGANIZE", "target":"end", "condition":"true" }
+  ]
+}

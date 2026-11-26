@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.market/FLOW_QUERY_LIST_OF_USER_POINTS_CHANGE_LOGS",
+  "name":"FLOW_QUERY_LIST_OF_USER_POINTS_CHANGE_LOGS",
+  "type":"flow",
+  "title":"查询用户积分变化日志列表",
+  "params":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":false },
+    { "title":"积分ID", "name":"integralId", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"积分变化实体列表", "name":"listOfEntityChangesInPoints", "type":"List(com.horsecoder.market.flow.QueryListOfUserPointsChangeLogs.model.IntegralChangeEntity)", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_QUERY_LIST_OF_USER_POINTS_CHANGE_LOGS",
+      "type":"event",
+      "title":"查询用户积分变化日志列表",
+      "reference":"@com.horsecoder.market/FLOW_CODE_QUERY_LIST_OF_USER_POINTS_CHANGE_LOGS",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":false },
+        { "title":"积分ID", "name":"integralId", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"积分变化实体列表", "name":"listOfEntityChangesInPoints", "type":"List(com.horsecoder.market.flow.QueryListOfUserPointsChangeLogs.model.IntegralChangeEntity)", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_QUERY_LIST_OF_USER_POINTS_CHANGE_LOGS", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_QUERY_LIST_OF_USER_POINTS_CHANGE_LOGS", "target":"end", "condition":"true" }
+  ]
+}

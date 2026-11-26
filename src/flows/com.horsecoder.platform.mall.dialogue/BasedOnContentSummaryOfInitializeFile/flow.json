@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_BASED_ON_CONTENT_SUMMARY_OF_INITIALIZE_FILE",
+  "name":"FLOW_BASED_ON_CONTENT_SUMMARY_OF_INITIALIZE_FILE",
+  "type":"flow",
+  "title":"根据文件初始化内容摘要",
+  "params":[
+    { "title":"对话任务文件", "name":"dialogueTaskFile", "type":"com.horsecoder.platform.dialogue.model.sys.DialogueTaskFile", "notnull":true }
+  ],
+  "results":[
+    { "title":"摘要内容", "name":"summaryContent", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_BASED_ON_CONTENT_SUMMARY_OF_INITIALIZE_FILE",
+      "type":"event",
+      "title":"根据文件初始化内容摘要",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_BASED_ON_CONTENT_SUMMARY_OF_INITIALIZE_FILE",
+      "params":[
+        { "title":"对话任务文件", "name":"dialogueTaskFile", "type":"com.horsecoder.platform.dialogue.model.sys.DialogueTaskFile", "notnull":true }
+      ],
+      "results":[
+        { "title":"摘要内容", "name":"summaryContent", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_BASED_ON_CONTENT_SUMMARY_OF_INITIALIZE_FILE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_BASED_ON_CONTENT_SUMMARY_OF_INITIALIZE_FILE", "target":"end", "condition":"true" }
+  ]
+}

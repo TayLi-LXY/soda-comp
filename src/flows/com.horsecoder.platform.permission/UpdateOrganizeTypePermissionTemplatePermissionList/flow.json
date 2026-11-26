@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_UPDATE_ORGANIZE_TYPE_PERMISSION_TEMPLATE_PERMISSION_LIST",
+  "name":"FLOW_UPDATE_ORGANIZE_TYPE_PERMISSION_TEMPLATE_PERMISSION_LIST",
+  "type":"flow",
+  "title":"更新组织类型权限模板权限列表",
+  "params":[
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+    { "title":"模板参数字典", "name":"templateParameterMap", "type":"Map(String$String)", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_UPDATE_ORGANIZE_TYPE_PERMISSION_TEMPLATE_PERMISSION_LIST",
+      "type":"event",
+      "title":"更新组织类型权限模板权限列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_UPDATE_ORGANIZE_TYPE_PERMISSION_TEMPLATE_PERMISSION_LIST",
+      "params":[
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+        { "title":"模板参数字典", "name":"templateParameterMap", "type":"Map(String$String)", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_UPDATE_ORGANIZE_TYPE_PERMISSION_TEMPLATE_PERMISSION_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_UPDATE_ORGANIZE_TYPE_PERMISSION_TEMPLATE_PERMISSION_LIST", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.im/FLOW_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST",
+  "name":"FLOW_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST",
+  "type":"flow",
+  "title":"根据发送人ID列表更新昵称字典",
+  "params":[
+    { "title":"发送人id列表", "name":"senderIdList", "type":"List", "notnull":false, "defaultValue":[] }
+  ],
+  "results":[
+    { "title":"昵称字典Map", "name":"nicknameDictionaryMap", "type":"Map", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST",
+      "type":"event",
+      "title":"根据发送人ID列表更新昵称字典",
+      "reference":"@com.horsecoder.im/FLOW_CODE_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST",
+      "params":[
+        { "title":"发送人id列表", "name":"senderIdList", "type":"List", "notnull":false, "defaultValue":[] }
+      ],
+      "results":[
+        { "title":"昵称字典Map", "name":"nicknameDictionaryMap", "type":"Map", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_UPDATE_NICKNAME_DICTIONARY_BASED_ON_SENDER_ID_LIST", "target":"end", "condition":"true" }
+  ]
+}

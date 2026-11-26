@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.market/FLOW_PACKAGE_PAGINATION_QUERY",
+  "name":"FLOW_PACKAGE_PAGINATION_QUERY",
+  "type":"flow",
+  "title":"套餐分页查询",
+  "params":[
+    { "title":"套餐分页Filter", "name":"packagePaginationFilter", "type":"com.horsecoder.market.flow.PackagePaginationQuery.model.PackagePaginationFilter", "notnull":false }
+  ],
+  "results":[
+    { "title":"套餐分页元素数量", "name":"numberOfPageElementsInPackage", "type":"Long", "notnull":false, "defaultValue":0 },
+    { "title":"套餐分页实体列表", "name":"packagePaginationEntityList", "type":"List(com.horsecoder.market.flow.PackagePaginationQuery.model.PackagePaginationEntity)", "notnull":false, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_PACKAGE_PAGINATION_QUERY",
+      "type":"event",
+      "title":"套餐分页查询",
+      "reference":"@com.horsecoder.market/FLOW_CODE_PACKAGE_PAGINATION_QUERY",
+      "params":[
+        { "title":"套餐分页Filter", "name":"packagePaginationFilter", "type":"com.horsecoder.market.flow.PackagePaginationQuery.model.PackagePaginationFilter", "notnull":false }
+      ],
+      "results":[
+        { "title":"套餐分页元素数量", "name":"numberOfPageElementsInPackage", "type":"Long", "notnull":false, "defaultValue":0 },
+        { "title":"套餐分页实体列表", "name":"packagePaginationEntityList", "type":"List(com.horsecoder.market.flow.PackagePaginationQuery.model.PackagePaginationEntity)", "notnull":false, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_PACKAGE_PAGINATION_QUERY", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_PACKAGE_PAGINATION_QUERY", "target":"end", "condition":"true" }
+  ]
+}

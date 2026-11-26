@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_REQUIREMENT_ANALYSIS",
+  "name":"FLOW_REQUIREMENT_ANALYSIS",
+  "type":"flow",
+  "title":"需求分析",
+  "params":[
+    { "title":"需求描述", "name":"requirementDescription", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"需求分析报告结果", "name":"requirementAnalysisReportResult", "type":"com.horsecoder.platform.aiMarketing.flow.RequirementAnalysis.model.RequirementAnalysisReport", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_REQUIREMENT_ANALYSIS",
+      "type":"event",
+      "title":"需求分析",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_REQUIREMENT_ANALYSIS",
+      "params":[
+        { "title":"需求描述", "name":"requirementDescription", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"需求分析报告结果", "name":"requirementAnalysisReportResult", "type":"com.horsecoder.platform.aiMarketing.flow.RequirementAnalysis.model.RequirementAnalysisReport", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_REQUIREMENT_ANALYSIS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_REQUIREMENT_ANALYSIS", "target":"end", "condition":"true" }
+  ]
+}

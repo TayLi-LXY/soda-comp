@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_BATCH_ADD_ORGANIZE_AND_SPECIFY_ADMINISTRATOR",
+  "name":"FLOW_BATCH_ADD_ORGANIZE_AND_SPECIFY_ADMINISTRATOR",
+  "type":"flow",
+  "title":"批量新增组织并指定管理员",
+  "params":[
+    { "title":"新增组织实体列表", "name":"addOrganizeEntityList", "type":"List(com.horsecoder.platform.permission.flow.BatchAddOrganizeAndSpecifyAdministrator.model.AddOrganizeEntity)", "notnull":true }
+  ],
+  "results":[
+    { "title":"新增组织Map", "name":"addOrganizeMap", "type":"Map(String$com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_ADD_ORGANIZE_AND_SPECIFY_ADMINISTRATOR",
+      "type":"event",
+      "title":"批量新增组织并指定管理员",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_BATCH_ADD_ORGANIZE_AND_SPECIFY_ADMINISTRATOR",
+      "params":[
+        { "title":"新增组织实体列表", "name":"addOrganizeEntityList", "type":"List(com.horsecoder.platform.permission.flow.BatchAddOrganizeAndSpecifyAdministrator.model.AddOrganizeEntity)", "notnull":true }
+      ],
+      "results":[
+        { "title":"新增组织Map", "name":"addOrganizeMap", "type":"Map(String$com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_ADD_ORGANIZE_AND_SPECIFY_ADMINISTRATOR", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_BATCH_ADD_ORGANIZE_AND_SPECIFY_ADMINISTRATOR", "target":"end", "condition":"true" }
+  ]
+}

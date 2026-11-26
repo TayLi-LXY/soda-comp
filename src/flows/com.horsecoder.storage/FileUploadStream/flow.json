@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.storage/FLOW_FILE_UPLOAD_STREAM",
+  "name":"FLOW_FILE_UPLOAD_STREAM",
+  "type":"flow",
+  "title":"文件上传流程Stream",
+  "params":[
+    { "title":"文件名", "name":"fileName", "type":"String", "notnull":false },
+    { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+    { "title":"文件用户", "name":"user", "type":"String", "notnull":true },
+    { "title":"文件", "name":"file", "type":"InputStream", "notnull":true }
+  ],
+  "results":[
+    { "title":"文件url", "name":"url", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.storage/FLOW_NODE_FILE_UPLOAD_STREAM",
+      "type":"event",
+      "title":"文件上传流程Stream",
+      "reference":"@com.horsecoder.storage/FLOW_CODE_FILE_UPLOAD_STREAM",
+      "params":[
+        { "title":"文件名", "name":"fileName", "type":"String", "notnull":false },
+        { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+        { "title":"文件用户", "name":"user", "type":"String", "notnull":true },
+        { "title":"文件", "name":"file", "type":"InputStream", "notnull":true }
+      ],
+      "results":[
+        { "title":"文件url", "name":"url", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.storage/FLOW_NODE_FILE_UPLOAD_STREAM", "condition":"true" },
+    { "source":"@com.horsecoder.storage/FLOW_NODE_FILE_UPLOAD_STREAM", "target":"end", "condition":"true" }
+  ]
+}

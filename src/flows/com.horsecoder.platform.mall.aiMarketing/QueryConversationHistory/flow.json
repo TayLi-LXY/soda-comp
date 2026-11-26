@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_QUERY_CONVERSATION_HISTORY",
+  "name":"FLOW_QUERY_CONVERSATION_HISTORY",
+  "type":"flow",
+  "title":"查询对话历史",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"历史记录实体", "name":"historicalRecordEntity", "type":"List(com.horsecoder.platform.aiMarketing.flow.QueryConversationHistory.model.HistoricalRecordEntity)", "notnull":false, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_CONVERSATION_HISTORY",
+      "type":"event",
+      "title":"查询对话历史",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_QUERY_CONVERSATION_HISTORY",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"历史记录实体", "name":"historicalRecordEntity", "type":"List(com.horsecoder.platform.aiMarketing.flow.QueryConversationHistory.model.HistoricalRecordEntity)", "notnull":false, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_CONVERSATION_HISTORY", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_CONVERSATION_HISTORY", "target":"end", "condition":"true" }
+  ]
+}

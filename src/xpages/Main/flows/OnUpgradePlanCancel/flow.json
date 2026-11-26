@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/main/FLOW_ON_UPGRADE_PLAN_CANCEL",
+  "name":"FLOW_ON_UPGRADE_PLAN_CANCEL",
+  "type":"flow",
+  "title":"关闭升级套餐",
+  "params":[
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_CLOSE_UPGRADE_PLAN_VISIBLE",
+      "type":"event",
+      "title":"关闭升级套餐",
+      "reference":"Main/OnUpgradePlanCancel/FLOW_CODE_CLOSE_UPGRADE_PLAN_VISIBLE",
+      "params":[
+        { "title":"全局设置器", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_CLOSE_UPGRADE_PLAN_VISIBLE", "condition":"true" },
+    { "source":"FLOW_NODE_CLOSE_UPGRADE_PLAN_VISIBLE", "target":"end", "condition":"true" }
+  ]
+}

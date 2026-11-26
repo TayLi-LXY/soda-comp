@@ -1,0 +1,38 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_SUBSCRIPTION_SIGN_UP",
+  "name":"FLOW_SUBSCRIPTION_SIGN_UP",
+  "type":"flow",
+  "title":"开通订阅",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"支付类型", "name":"payType", "type":"Integer", "notnull":true },
+    { "title":"价格", "name":"price", "type":"BigDecimal", "notnull":true }
+  ],
+  "results":[
+    { "title":"用户订阅ID", "name":"userSubscriptionId", "type":"String", "notnull":true },
+    { "title":"签约URL", "name":"signingURL", "type":"String", "notnull":true },
+    { "title":"到期时间", "name":"trialEnd", "type":"Date", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_SUBSCRIPTION_SIGN_UP",
+      "type":"event",
+      "title":"开通订阅",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_SUBSCRIPTION_SIGN_UP",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"支付类型", "name":"payType", "type":"Integer", "notnull":true },
+        { "title":"价格", "name":"price", "type":"BigDecimal", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户订阅ID", "name":"userSubscriptionId", "type":"String", "notnull":true },
+        { "title":"签约URL", "name":"signingURL", "type":"String", "notnull":true },
+        { "title":"到期时间", "name":"trialEnd", "type":"Date", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_SUBSCRIPTION_SIGN_UP", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_SUBSCRIPTION_SIGN_UP", "target":"end", "condition":"true" }
+  ]
+}

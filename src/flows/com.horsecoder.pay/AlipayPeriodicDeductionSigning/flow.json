@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_ALIPAY_PERIODIC_DEDUCTION_SIGNING",
+  "name":"FLOW_ALIPAY_PERIODIC_DEDUCTION_SIGNING",
+  "type":"flow",
+  "title":"支付宝周期扣款签约",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"订阅ID", "name":"subscriptionId", "type":"String", "notnull":true },
+    { "title":"返回URL", "name":"returnURL", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"签约URL", "name":"signingURL", "type":"String", "notnull":true },
+    { "title":"协议单号", "name":"agreementNumber", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_ALIPAY_PERIODIC_DEDUCTION_SIGNING",
+      "type":"event",
+      "title":"支付宝周期扣款签约",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_ALIPAY_PERIODIC_DEDUCTION_SIGNING",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"订阅ID", "name":"subscriptionId", "type":"String", "notnull":true },
+        { "title":"返回URL", "name":"returnURL", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"签约URL", "name":"signingURL", "type":"String", "notnull":true },
+        { "title":"协议单号", "name":"agreementNumber", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_ALIPAY_PERIODIC_DEDUCTION_SIGNING", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_ALIPAY_PERIODIC_DEDUCTION_SIGNING", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.model/FLOW_FILTER_LIST_OF_MODEL_FILES_BASED_ON_CRITERIA",
+  "name":"FLOW_FILTER_LIST_OF_MODEL_FILES_BASED_ON_CRITERIA",
+  "type":"flow",
+  "title":"根据条件筛选模型文件列表",
+  "params":[
+    { "title":"模型文件筛选", "name":"modelFileFiltering", "type":"com.horsecoder.model.flow.FilterListOfModelFilesBasedOnCriteria.model.ModelFileFiltering", "notnull":true }
+  ],
+  "results":[
+    { "title":"模型文件模型列表", "name":"modelJsonModelList", "type":"List(com.horsecoder.model.flow.NewModelJson.model.ModelJsonModel)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_FILTER_LIST_OF_MODEL_FILES_BASED_ON_CRITERIA",
+      "type":"event",
+      "title":"根据条件筛选模型文件列表",
+      "reference":"@com.horsecoder.model/FLOW_CODE_FILTER_LIST_OF_MODEL_FILES_BASED_ON_CRITERIA",
+      "params":[
+        { "title":"模型文件筛选", "name":"modelFileFiltering", "type":"com.horsecoder.model.flow.FilterListOfModelFilesBasedOnCriteria.model.ModelFileFiltering", "notnull":true }
+      ],
+      "results":[
+        { "title":"模型文件模型列表", "name":"modelJsonModelList", "type":"List(com.horsecoder.model.flow.NewModelJson.model.ModelJsonModel)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_FILTER_LIST_OF_MODEL_FILES_BASED_ON_CRITERIA", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_FILTER_LIST_OF_MODEL_FILES_BASED_ON_CRITERIA", "target":"end", "condition":"true" }
+  ]
+}

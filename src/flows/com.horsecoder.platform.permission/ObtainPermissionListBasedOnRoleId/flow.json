@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_OBTAIN_PERMISSION_LIST_BASED_ON_ROLE_ID",
+  "name":"FLOW_OBTAIN_PERMISSION_LIST_BASED_ON_ROLE_ID",
+  "type":"flow",
+  "title":"根据角色id获取权限列表",
+  "params":[
+    { "title":"角色id", "name":"roleId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"权限模型", "name":"permissionModel", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":false, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_PERMISSION_LIST_BASED_ON_ROLE_ID",
+      "type":"event",
+      "title":"根据角色id获取权限列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_OBTAIN_PERMISSION_LIST_BASED_ON_ROLE_ID",
+      "params":[
+        { "title":"角色id", "name":"roleId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"权限模型", "name":"permissionModel", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":false, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_PERMISSION_LIST_BASED_ON_ROLE_ID", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_PERMISSION_LIST_BASED_ON_ROLE_ID", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_GET_LATEST_NEWS_BASED_ON_CONVERSATION_ACCOUNT_ID",
+  "name":"FLOW_GET_LATEST_NEWS_BASED_ON_CONVERSATION_ACCOUNT_ID",
+  "type":"flow",
+  "title":"根据对话账户ID获取最新消息",
+  "params":[
+    { "title":"对话账户ID", "name":"dialogueAccountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"最新消息", "name":"latestNews", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_GET_LATEST_NEWS_BASED_ON_CONVERSATION_ACCOUNT_ID",
+      "type":"event",
+      "title":"根据对话账户ID获取最新消息",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_GET_LATEST_NEWS_BASED_ON_CONVERSATION_ACCOUNT_ID",
+      "params":[
+        { "title":"对话账户ID", "name":"dialogueAccountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"最新消息", "name":"latestNews", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_GET_LATEST_NEWS_BASED_ON_CONVERSATION_ACCOUNT_ID", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_GET_LATEST_NEWS_BASED_ON_CONVERSATION_ACCOUNT_ID", "target":"end", "condition":"true" }
+  ]
+}

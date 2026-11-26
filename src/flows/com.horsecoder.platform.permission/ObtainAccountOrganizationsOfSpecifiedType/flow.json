@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_OBTAIN_ACCOUNT_ORGANIZATIONS_OF_SPECIFIED_TYPE",
+  "name":"FLOW_OBTAIN_ACCOUNT_ORGANIZATIONS_OF_SPECIFIED_TYPE",
+  "type":"flow",
+  "title":"获取账户指定类型的组织列表",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"组织类型Id", "name":"organizeTypeId", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"组织列表", "name":"organizeList", "type":"List(com.horsecoder.platform.permission.flow.ObtainAccountOrganizationsOfSpecifiedType.model.OpenOrganize)", "notnull":true, "defaultValue":[] },
+    { "title":"组织ID列表", "name":"organizeIdList", "type":"List(String)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ACCOUNT_ORGANIZATIONS_OF_SPECIFIED_TYPE",
+      "type":"event",
+      "title":"获取账户指定类型的组织列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_OBTAIN_ACCOUNT_ORGANIZATIONS_OF_SPECIFIED_TYPE",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"组织类型Id", "name":"organizeTypeId", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"组织列表", "name":"organizeList", "type":"List(com.horsecoder.platform.permission.flow.ObtainAccountOrganizationsOfSpecifiedType.model.OpenOrganize)", "notnull":true, "defaultValue":[] },
+        { "title":"组织ID列表", "name":"organizeIdList", "type":"List(String)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ACCOUNT_ORGANIZATIONS_OF_SPECIFIED_TYPE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ACCOUNT_ORGANIZATIONS_OF_SPECIFIED_TYPE", "target":"end", "condition":"true" }
+  ]
+}

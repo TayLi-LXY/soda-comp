@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.model/FLOW_TRANSLATE",
+  "name":"FLOW_TRANSLATE",
+  "type":"flow",
+  "title":"翻译流程",
+  "params":[
+    { "title":"文本", "name":"text", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"翻译结果", "name":"result", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_TRANSLATE",
+      "type":"event",
+      "title":"翻译流程",
+      "reference":"@com.horsecoder.model/FLOW_CODE_TRANSLATE",
+      "params":[
+        { "title":"文本", "name":"text", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"翻译结果", "name":"result", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_TRANSLATE", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_TRANSLATE", "target":"end", "condition":"true" }
+  ]
+}

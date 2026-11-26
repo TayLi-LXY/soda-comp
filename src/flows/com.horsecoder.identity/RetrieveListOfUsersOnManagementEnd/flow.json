@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_RETRIEVE_LIST_OF_USERS_ON_MANAGEMENT_END",
+  "name":"FLOW_RETRIEVE_LIST_OF_USERS_ON_MANAGEMENT_END",
+  "type":"flow",
+  "title":"获取管理端用户列表",
+  "params":[
+    { "title":"用户筛选", "name":"userFiltering", "type":"com.horsecoder.identity.flow.RetrieveListOfUsersOnManagementEnd.model.UserFiltering", "notnull":false }
+  ],
+  "results":[
+    { "title":"管理端用户详情列表", "name":"manageUserDetailsList", "type":"List(com.horsecoder.identity.flow.RetrieveListOfUsersOnManagementEnd.model.ManageUserDetails)", "notnull":true },
+    { "title":"用户数量", "name":"userCount", "type":"Long", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_RETRIEVE_LIST_OF_USERS_ON_MANAGEMENT_END",
+      "type":"event",
+      "title":"获取管理端用户列表",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_RETRIEVE_LIST_OF_USERS_ON_MANAGEMENT_END",
+      "params":[
+        { "title":"用户筛选", "name":"userFiltering", "type":"com.horsecoder.identity.flow.RetrieveListOfUsersOnManagementEnd.model.UserFiltering", "notnull":false }
+      ],
+      "results":[
+        { "title":"管理端用户详情列表", "name":"manageUserDetailsList", "type":"List(com.horsecoder.identity.flow.RetrieveListOfUsersOnManagementEnd.model.ManageUserDetails)", "notnull":true },
+        { "title":"用户数量", "name":"userCount", "type":"Long", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_RETRIEVE_LIST_OF_USERS_ON_MANAGEMENT_END", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_RETRIEVE_LIST_OF_USERS_ON_MANAGEMENT_END", "target":"end", "condition":"true" }
+  ]
+}

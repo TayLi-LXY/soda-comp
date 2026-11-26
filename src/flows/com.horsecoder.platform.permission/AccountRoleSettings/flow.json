@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_ACCOUNT_ROLE_SETTINGS",
+  "name":"FLOW_ACCOUNT_ROLE_SETTINGS",
+  "type":"flow",
+  "title":"账户角色设置",
+  "params":[
+    { "title":"账户id", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"角色id列表", "name":"listOfRoleIds", "type":"List(String)", "notnull":true, "defaultValue":[] },
+    { "title":"组织id", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_ACCOUNT_ROLE_SETTINGS",
+      "type":"event",
+      "title":"账户角色设置",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_ACCOUNT_ROLE_SETTINGS",
+      "params":[
+        { "title":"账户id", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"角色id列表", "name":"listOfRoleIds", "type":"List(String)", "notnull":true, "defaultValue":[] },
+        { "title":"组织id", "name":"organizeId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_ACCOUNT_ROLE_SETTINGS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_ACCOUNT_ROLE_SETTINGS", "target":"end", "condition":"true" }
+  ]
+}

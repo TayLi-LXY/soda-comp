@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_QUERY_CONVERSATION_DETAILS",
+  "name":"FLOW_QUERY_CONVERSATION_DETAILS",
+  "type":"flow",
+  "title":"查询对话详情",
+  "params":[
+    { "title":"对话Filter", "name":"dialogueFilter", "type":"com.horsecoder.platform.aiMarketing.flow.QueryConversationDetails.model.DialogueFilter", "notnull":false },
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"对话详情列表", "name":"dialogueDetailsList", "type":"List(com.horsecoder.platform.aiMarketing.flow.QueryConversationDetails.model.DialogueDetail)", "notnull":false, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_CONVERSATION_DETAILS",
+      "type":"event",
+      "title":"查询对话详情",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_QUERY_CONVERSATION_DETAILS",
+      "params":[
+        { "title":"对话Filter", "name":"dialogueFilter", "type":"com.horsecoder.platform.aiMarketing.flow.QueryConversationDetails.model.DialogueFilter", "notnull":false },
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"对话详情列表", "name":"dialogueDetailsList", "type":"List(com.horsecoder.platform.aiMarketing.flow.QueryConversationDetails.model.DialogueDetail)", "notnull":false, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_CONVERSATION_DETAILS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_QUERY_CONVERSATION_DETAILS", "target":"end", "condition":"true" }
+  ]
+}

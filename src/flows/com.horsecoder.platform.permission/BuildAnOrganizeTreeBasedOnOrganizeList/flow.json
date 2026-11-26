@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_BUILD_AN_ORGANIZE_TREE_BASED_ON_ORGANIZE_LIST",
+  "name":"FLOW_BUILD_AN_ORGANIZE_TREE_BASED_ON_ORGANIZE_LIST",
+  "type":"flow",
+  "title":"根据组织列表构建组织树",
+  "params":[
+    { "title":"组织列表", "name":"organizeList", "type":"List(com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO)", "notnull":true, "defaultValue":[] }
+  ],
+  "results":[
+    { "title":"组织树列表", "name":"organizeTreeList", "type":"List(com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTree)", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_BUILD_AN_ORGANIZE_TREE_BASED_ON_ORGANIZE_LIST",
+      "type":"event",
+      "title":"根据组织列表构建组织树",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_BUILD_AN_ORGANIZE_TREE_BASED_ON_ORGANIZE_LIST",
+      "params":[
+        { "title":"组织列表", "name":"organizeList", "type":"List(com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTO)", "notnull":true, "defaultValue":[] }
+      ],
+      "results":[
+        { "title":"组织树列表", "name":"organizeTreeList", "type":"List(com.horsecoder.platform.permission.flow.BuildAnOrganizeTreeBasedOnOrganizeList.model.OrganizeTree)", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_BUILD_AN_ORGANIZE_TREE_BASED_ON_ORGANIZE_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_BUILD_AN_ORGANIZE_TREE_BASED_ON_ORGANIZE_LIST", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.market/FLOW_SUBMIT_PRODUCT_ORDERS",
+  "name":"FLOW_SUBMIT_PRODUCT_ORDERS",
+  "type":"flow",
+  "title":"提交产品订单",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"订单产品列表", "name":"orderProductList", "type":"List(com.horsecoder.market.flow.CalculateOrderPrice.model.OrderProductWithProductInfo)", "notnull":true }
+  ],
+  "results":[
+    { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true },
+    { "title":"订单开放模型", "name":"orderOpenModel", "type":"com.horsecoder.market.flow.SubmitProductOrders.model.OrderOpenModel", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_SUBMIT_PRODUCT_ORDERS",
+      "type":"event",
+      "title":"提交产品订单",
+      "reference":"@com.horsecoder.market/FLOW_CODE_SUBMIT_PRODUCT_ORDERS",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"订单产品列表", "name":"orderProductList", "type":"List(com.horsecoder.market.flow.CalculateOrderPrice.model.OrderProductWithProductInfo)", "notnull":true }
+      ],
+      "results":[
+        { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true },
+        { "title":"订单开放模型", "name":"orderOpenModel", "type":"com.horsecoder.market.flow.SubmitProductOrders.model.OrderOpenModel", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_SUBMIT_PRODUCT_ORDERS", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_SUBMIT_PRODUCT_ORDERS", "target":"end", "condition":"true" }
+  ]
+}

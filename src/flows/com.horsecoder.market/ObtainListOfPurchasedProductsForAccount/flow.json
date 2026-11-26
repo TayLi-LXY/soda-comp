@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.market/FLOW_OBTAIN_LIST_OF_PURCHASED_PRODUCTS_FOR_ACCOUNT",
+  "name":"FLOW_OBTAIN_LIST_OF_PURCHASED_PRODUCTS_FOR_ACCOUNT",
+  "type":"flow",
+  "title":"获取账户已购产品列表",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"已购产品列表", "name":"purchasedProductsList", "type":"List(com.horsecoder.market.flow.ObtainListOfPurchasedProductsForAccount.model.PurchasedProducts)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_OBTAIN_LIST_OF_PURCHASED_PRODUCTS_FOR_ACCOUNT",
+      "type":"event",
+      "title":"获取账户已购产品列表",
+      "reference":"@com.horsecoder.market/FLOW_CODE_OBTAIN_LIST_OF_PURCHASED_PRODUCTS_FOR_ACCOUNT",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"已购产品列表", "name":"purchasedProductsList", "type":"List(com.horsecoder.market.flow.ObtainListOfPurchasedProductsForAccount.model.PurchasedProducts)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_OBTAIN_LIST_OF_PURCHASED_PRODUCTS_FOR_ACCOUNT", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_OBTAIN_LIST_OF_PURCHASED_PRODUCTS_FOR_ACCOUNT", "target":"end", "condition":"true" }
+  ]
+}

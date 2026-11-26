@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.model/FLOW_BATCH_UNLOCK_ALL_LOCKED_MODELS_FOR_USERS",
+  "name":"FLOW_BATCH_UNLOCK_ALL_LOCKED_MODELS_FOR_USERS",
+  "type":"flow",
+  "title":"批量解锁用户所有锁定模型",
+  "params":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_BATCH_UNLOCK_ALL_LOCKED_MODELS_FOR_USERS",
+      "type":"event",
+      "title":"批量解锁用户所有锁定模型",
+      "reference":"@com.horsecoder.model/FLOW_CODE_BATCH_UNLOCK_ALL_LOCKED_MODELS_FOR_USERS",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_BATCH_UNLOCK_ALL_LOCKED_MODELS_FOR_USERS", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_BATCH_UNLOCK_ALL_LOCKED_MODELS_FOR_USERS", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,17 @@
+.div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.divCheckbox0 {
+  font-size: 12px;
+}
+
+.divDiv1 {
+}
+

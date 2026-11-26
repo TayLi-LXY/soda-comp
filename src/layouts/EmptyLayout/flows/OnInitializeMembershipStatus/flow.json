@@ -1,0 +1,53 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/emptyLayout/FLOW_ON_INITIALIZE_MEMBERSHIP_STATUS",
+  "name":"FLOW_ON_INITIALIZE_MEMBERSHIP_STATUS",
+  "type":"flow",
+  "title":"初始化会员状态",
+  "params":[
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_INITIALIZE_MEMBERSHIP_STATUS",
+      "type":"event",
+      "title":"初始化会员状态",
+      "reference":"EmptyLayout/OnInitializeMembershipStatus/FLOW_CODE_ON_INITIALIZE_MEMBERSHIP_STATUS",
+      "params":[
+        { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS",
+      "type":"flow",
+      "title":"根据ID查询数据智能账户状态",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"数据智能账户", "name":"dataSmartAccountMember", "type":"com.horsecoder.platform.dialogue.flow.domain.FacadeCreateDataSmartAccountMembership.model.DataSmartAccountMember", "notnull":false }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_MEMBERSHIP_TYPE_DATA",
+      "type":"event",
+      "title":"设置会员类型数据",
+      "reference":"EmptyLayout/OnInitializeMembershipStatus/FLOW_CODE_SET_MEMBERSHIP_TYPE_DATA",
+      "params":[
+        { "title":"数据智能账户", "name":"dataSmartAccountMember", "type":"com.horsecoder.platform.dialogue.flow.domain.FacadeCreateDataSmartAccountMembership.model.DataSmartAccountMember", "notnull":false },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_INITIALIZE_MEMBERSHIP_STATUS", "condition":"true" },
+    { "source":"FLOW_NODE_ON_INITIALIZE_MEMBERSHIP_STATUS", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_QUERY_STATUS_OF_SMART_ACCOUNTS_BASED_ONIR_IDS", "target":"FLOW_NODE_SET_MEMBERSHIP_TYPE_DATA", "condition":"true" },
+    { "source":"FLOW_NODE_SET_MEMBERSHIP_TYPE_DATA", "target":"end", "condition":"true" }
+  ]
+}

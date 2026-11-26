@@ -1,0 +1,38 @@
+{
+  "id":"@com.horsecoder.demand/FLOW_CREATE_PROJECT",
+  "name":"FLOW_CREATE_PROJECT",
+  "type":"flow",
+  "title":"创建项目",
+  "params":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+    { "title":"空间ID", "name":"spaceId", "type":"String", "notnull":true },
+    { "title":"名称", "name":"name", "type":"String", "notnull":true },
+    { "title":"描述", "name":"description", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true },
+    { "title":"组织返回", "name":"organizeReturn", "type":"com.horsecoder.platform.permission.flow.domain.FacadeFilterOrganizeList.model.OrganizeReturn", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.demand/FLOW_NODE_CREATE_PROJECT",
+      "type":"event",
+      "title":"创建项目",
+      "reference":"@com.horsecoder.demand/FLOW_CODE_CREATE_PROJECT",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+        { "title":"空间ID", "name":"spaceId", "type":"String", "notnull":true },
+        { "title":"名称", "name":"name", "type":"String", "notnull":true },
+        { "title":"描述", "name":"description", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true },
+        { "title":"组织返回", "name":"organizeReturn", "type":"com.horsecoder.platform.permission.flow.domain.FacadeFilterOrganizeList.model.OrganizeReturn", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.demand/FLOW_NODE_CREATE_PROJECT", "condition":"true" },
+    { "source":"@com.horsecoder.demand/FLOW_NODE_CREATE_PROJECT", "target":"end", "condition":"true" }
+  ]
+}

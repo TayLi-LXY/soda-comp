@@ -1,0 +1,30 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_REMOVE_INTELLIGENT_AGENTS_FROM_SHELVES",
+  "name":"FLOW_REMOVE_INTELLIGENT_AGENTS_FROM_SHELVES",
+  "type":"flow",
+  "title":"下架智能体",
+  "params":[
+    { "title":"智能体ID", "name":"intelligentAgentId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"返回结果", "name":"returnResult", "type":"Boolean", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_REMOVE_INTELLIGENT_AGENTS_FROM_SHELVES",
+      "type":"event",
+      "title":"下架智能体",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_REMOVE_INTELLIGENT_AGENTS_FROM_SHELVES",
+      "params":[
+        { "title":"智能体ID", "name":"intelligentAgentId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"返回结果", "name":"returnResult", "type":"Boolean", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_REMOVE_INTELLIGENT_AGENTS_FROM_SHELVES", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_REMOVE_INTELLIGENT_AGENTS_FROM_SHELVES", "target":"end", "condition":"true" }
+  ]
+}

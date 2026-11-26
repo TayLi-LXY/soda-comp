@@ -1,0 +1,42 @@
+{
+  "id":"@com.horsecoder.model/FLOW_CREATE_MODEL",
+  "name":"FLOW_CREATE_MODEL",
+  "type":"flow",
+  "title":"创建模型",
+  "params":[
+    { "title":"空间id", "name":"spaceId", "type":"String", "notnull":true },
+    { "title":"应用标题", "name":"title", "type":"String", "notnull":true },
+    { "title":"应用名", "name":"name", "type":"String", "notnull":true },
+    { "title":"应用描述", "name":"description", "type":"String", "notnull":true },
+    { "title":"应用封面", "name":"cover", "type":"String", "notnull":false },
+    { "title":"用户id", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"应用id", "name":"appId", "type":"String", "notnull":true },
+    { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_CREATE_MODEL",
+      "type":"event",
+      "title":"创建模型",
+      "reference":"@com.horsecoder.model/FLOW_CODE_CREATE_MODEL",
+      "params":[
+        { "title":"空间id", "name":"spaceId", "type":"String", "notnull":true },
+        { "title":"应用标题", "name":"title", "type":"String", "notnull":true },
+        { "title":"应用名", "name":"name", "type":"String", "notnull":true },
+        { "title":"应用描述", "name":"description", "type":"String", "notnull":true },
+        { "title":"应用封面", "name":"cover", "type":"String", "notnull":false },
+        { "title":"用户id", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"应用id", "name":"appId", "type":"String", "notnull":true },
+        { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_CREATE_MODEL", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_CREATE_MODEL", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_OBTAIN_ACCOUNT_ORGANIZATION_CONFIGURATION",
+  "name":"FLOW_OBTAIN_ACCOUNT_ORGANIZATION_CONFIGURATION",
+  "type":"flow",
+  "title":"获取账户组织配置",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"配置列表", "name":"configurationList", "type":"List(com.horsecoder.platform.permission.model.sys.OrganizeAccountConfig)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ACCOUNT_ORGANIZATION_CONFIGURATION",
+      "type":"event",
+      "title":"获取账户组织配置",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_OBTAIN_ACCOUNT_ORGANIZATION_CONFIGURATION",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"配置列表", "name":"configurationList", "type":"List(com.horsecoder.platform.permission.model.sys.OrganizeAccountConfig)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ACCOUNT_ORGANIZATION_CONFIGURATION", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_ACCOUNT_ORGANIZATION_CONFIGURATION", "target":"end", "condition":"true" }
+  ]
+}

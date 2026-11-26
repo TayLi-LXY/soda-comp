@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/rightComponent/FLOW_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID",
+  "name":"FLOW_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID",
+  "type":"flow",
+  "title":"根据对话ID获取历史聊天记录",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true },
+    { "title":"发送人昵称字典引用", "name":"senderNicknameDictionaryRef", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID",
+      "type":"event",
+      "title":"根据对话ID获取历史聊天记录",
+      "reference":"RightComponent/OnRetrieveHistoricalChatRecordsBasedOnConversationId/FLOW_CODE_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID", "condition":"true" },
+    { "source":"FLOW_NODE_ON_RETRIEVE_HISTORICAL_CHAT_RECORDS_BASED_ON_CONVERSATION_ID", "target":"end", "condition":"true" }
+  ]
+}

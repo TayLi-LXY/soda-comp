@@ -1,0 +1,67 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/dialogue/FLOW_ON_INITIALIZE_FILE_AND_SCHEMA_LIST",
+  "name":"FLOW_ON_INITIALIZE_FILE_AND_SCHEMA_LIST",
+  "type":"flow",
+  "title":"初始化文件和schema列表",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+    { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_INITIALIZE_FILE_AND_SCHEMA_LIST_PARAMETERS",
+      "type":"event",
+      "title":"初始化文件和schema列表参数",
+      "reference":"Dialogue/OnInitializeFileAndSchemaList/FLOW_CODE_INITIALIZE_FILE_AND_SCHEMA_LIST_PARAMETERS",
+      "params":[
+        { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"IM会话ID", "name":"imConversationId", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_LIST",
+      "type":"flow",
+      "title":"获取对话Schema列表",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_LIST",
+      "params":[
+        { "title":"IM会话ID", "name":"imConversationId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"Schema实体列表", "name":"schemaEntityList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeGetDialogueSchemaList.model.SchemaEntity)", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_CONVERT_DIALOGUE_DATA_PATTERNS_AND_FILES",
+      "type":"event",
+      "title":"转化对话数据模式和文件",
+      "reference":"Dialogue/OnInitializeFileAndSchemaList/FLOW_CODE_CONVERT_DIALOGUE_DATA_PATTERNS_AND_FILES",
+      "params":[
+        { "title":"Schema实体列表", "name":"schemaEntityList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeGetDialogueSchemaList.model.SchemaEntity)", "notnull":true }
+      ],
+      "results":[
+        { "title":"对话数据模式列表", "name":"dialogueDataSchemaList", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_DISPATCH_DIALOGUE_DATA_SCHEMA_LIST",
+      "type":"event",
+      "title":"设置数据:对话数据模式列表",
+      "reference":"Dialogue/OnInitializeFileAndSchemaList/FLOW_CODE_DISPATCH_DIALOGUE_DATA_SCHEMA_LIST",
+      "params":[
+        { "title":"全局设置器", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"对话数据模式列表", "name":"dialogueDataSchemaList", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_INITIALIZE_FILE_AND_SCHEMA_LIST_PARAMETERS", "condition":"true" },
+    { "source":"FLOW_NODE_INITIALIZE_FILE_AND_SCHEMA_LIST_PARAMETERS", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_LIST", "target":"FLOW_NODE_CONVERT_DIALOGUE_DATA_PATTERNS_AND_FILES", "condition":"true" },
+    { "source":"FLOW_NODE_CONVERT_DIALOGUE_DATA_PATTERNS_AND_FILES", "target":"FLOW_NODE_DISPATCH_DIALOGUE_DATA_SCHEMA_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_DISPATCH_DIALOGUE_DATA_SCHEMA_LIST", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.market/FLOW_ADD_POINTS_CHANGE_LOG",
+  "name":"FLOW_ADD_POINTS_CHANGE_LOG",
+  "type":"flow",
+  "title":"新增积分变化日志",
+  "params":[
+    { "title":"新增积分变化日志实体", "name":"addPointsChangeLogEntity", "type":"com.horsecoder.market.flow.AddPointsChangeLog.model.AddPointsChangeLogEntity", "notnull":false }
+  ],
+  "results":[
+    { "title":"积分ID", "name":"integralId", "type":"String", "notnull":false },
+    { "title":"积分变化", "name":"integralChange", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_ADD_POINTS_CHANGE_LOG",
+      "type":"event",
+      "title":"新增积分变化日志",
+      "reference":"@com.horsecoder.market/FLOW_CODE_ADD_POINTS_CHANGE_LOG",
+      "params":[
+        { "title":"新增积分变化日志实体", "name":"addPointsChangeLogEntity", "type":"com.horsecoder.market.flow.AddPointsChangeLog.model.AddPointsChangeLogEntity", "notnull":false }
+      ],
+      "results":[
+        { "title":"积分ID", "name":"integralId", "type":"String", "notnull":false },
+        { "title":"积分变化", "name":"integralChange", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_ADD_POINTS_CHANGE_LOG", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_ADD_POINTS_CHANGE_LOG", "target":"end", "condition":"true" }
+  ]
+}

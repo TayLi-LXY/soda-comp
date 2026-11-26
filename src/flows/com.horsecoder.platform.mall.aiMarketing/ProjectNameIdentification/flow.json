@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_PROJECT_NAME_IDENTIFICATION",
+  "name":"FLOW_PROJECT_NAME_IDENTIFICATION",
+  "type":"flow",
+  "title":"项目名称识别",
+  "params":[
+    { "title":"软件需求", "name":"demand", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"项目名称返回结果结果", "name":"projectNameReturnResult", "type":"com.horsecoder.platform.aiMarketing.flow.ProjectNameIdentification.model.ProjectNameReturn", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_PROJECT_NAME_IDENTIFICATION",
+      "type":"event",
+      "title":"项目名称识别",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_PROJECT_NAME_IDENTIFICATION",
+      "params":[
+        { "title":"软件需求", "name":"demand", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"项目名称返回结果结果", "name":"projectNameReturnResult", "type":"com.horsecoder.platform.aiMarketing.flow.ProjectNameIdentification.model.ProjectNameReturn", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_PROJECT_NAME_IDENTIFICATION", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_PROJECT_NAME_IDENTIFICATION", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_SEARCH_FOR_PACKAGES_BASED_ON_CODE",
+  "name":"FLOW_SEARCH_FOR_PACKAGES_BASED_ON_CODE",
+  "type":"flow",
+  "title":"根据Code查询套餐",
+  "params":[
+    { "title":"产品编码", "name":"productCode", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"订阅套餐", "name":"subscriptionPackage", "type":"com.horsecoder.platform.dialogue.flow.SearchForPackagesBasedOnCode.model.SubscriptionPackage", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_SEARCH_FOR_PACKAGES_BASED_ON_CODE",
+      "type":"event",
+      "title":"根据Code查询套餐",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_SEARCH_FOR_PACKAGES_BASED_ON_CODE",
+      "params":[
+        { "title":"产品编码", "name":"productCode", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"订阅套餐", "name":"subscriptionPackage", "type":"com.horsecoder.platform.dialogue.flow.SearchForPackagesBasedOnCode.model.SubscriptionPackage", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_SEARCH_FOR_PACKAGES_BASED_ON_CODE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_SEARCH_FOR_PACKAGES_BASED_ON_CODE", "target":"end", "condition":"true" }
+  ]
+}

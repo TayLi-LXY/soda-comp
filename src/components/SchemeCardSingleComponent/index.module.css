@@ -1,0 +1,27 @@
+.div {
+  color: #585a76;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  width: 100%;
+  padding: 10px;
+}
+
+.divDiv0 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.divDiv0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.divDiv1 {
+}
+
+.divDiv1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+

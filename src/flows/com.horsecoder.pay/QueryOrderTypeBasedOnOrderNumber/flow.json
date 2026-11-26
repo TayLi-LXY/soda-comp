@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_QUERY_ORDER_TYPE_BASED_ON_ORDER_NUMBER",
+  "name":"FLOW_QUERY_ORDER_TYPE_BASED_ON_ORDER_NUMBER",
+  "type":"flow",
+  "title":"根据订单号查询订单类型",
+  "params":[
+    { "title":"订单号", "name":"orderNumber", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"订单类型", "name":"orderType", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_QUERY_ORDER_TYPE_BASED_ON_ORDER_NUMBER",
+      "type":"event",
+      "title":"根据订单号查询订单类型",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_QUERY_ORDER_TYPE_BASED_ON_ORDER_NUMBER",
+      "params":[
+        { "title":"订单号", "name":"orderNumber", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"订单类型", "name":"orderType", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_QUERY_ORDER_TYPE_BASED_ON_ORDER_NUMBER", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_QUERY_ORDER_TYPE_BASED_ON_ORDER_NUMBER", "target":"end", "condition":"true" }
+  ]
+}

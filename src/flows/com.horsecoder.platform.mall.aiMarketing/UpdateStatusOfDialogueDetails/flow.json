@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_UPDATE_STATUS_OF_DIALOGUE_DETAILS",
+  "name":"FLOW_UPDATE_STATUS_OF_DIALOGUE_DETAILS",
+  "type":"flow",
+  "title":"更新对话详情状态",
+  "params":[
+    { "title":"对话详情ID", "name":"dialogueDetailsId", "type":"String", "notnull":true },
+    { "title":"状态", "name":"status", "type":"Integer", "notnull":true }
+  ],
+  "results":[
+    { "title":"对话详情", "name":"dialogueDetails", "type":"com.horsecoder.platform.aiMarketing.model.sys.DialogueDetails", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_UPDATE_STATUS_OF_DIALOGUE_DETAILS",
+      "type":"event",
+      "title":"更新对话详情状态",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_UPDATE_STATUS_OF_DIALOGUE_DETAILS",
+      "params":[
+        { "title":"对话详情ID", "name":"dialogueDetailsId", "type":"String", "notnull":true },
+        { "title":"状态", "name":"status", "type":"Integer", "notnull":true }
+      ],
+      "results":[
+        { "title":"对话详情", "name":"dialogueDetails", "type":"com.horsecoder.platform.aiMarketing.model.sys.DialogueDetails", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_UPDATE_STATUS_OF_DIALOGUE_DETAILS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_UPDATE_STATUS_OF_DIALOGUE_DETAILS", "target":"end", "condition":"true" }
+  ]
+}

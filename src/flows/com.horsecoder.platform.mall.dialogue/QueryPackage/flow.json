@@ -1,0 +1,18 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_QUERY_PACKAGE",
+  "name":"FLOW_QUERY_PACKAGE",
+  "type":"flow",
+  "title":"查询套餐",
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_QUERY_PACKAGE",
+      "type":"event",
+      "title":"查询套餐",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_QUERY_PACKAGE"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_QUERY_PACKAGE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_QUERY_PACKAGE", "target":"end", "condition":"true" }
+  ]
+}

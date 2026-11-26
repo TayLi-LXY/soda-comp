@@ -1,0 +1,22 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/leftComponent/FLOW_ON_DETERMINE_WHETHER_IT_AN_ADD_CONVERSATION",
+  "name":"FLOW_ON_DETERMINE_WHETHER_IT_AN_ADD_CONVERSATION",
+  "type":"flow",
+  "title":"判断是否为新增对话",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_DETERMINE_WHETHER_IT_AN_ADD_CONVERSATION",
+      "type":"event",
+      "title":"判断是否为新增对话",
+      "reference":"LeftComponent/OnDetermineWhetherItAnAddConversation/FLOW_CODE_ON_DETERMINE_WHETHER_IT_AN_ADD_CONVERSATION"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_DETERMINE_WHETHER_IT_AN_ADD_CONVERSATION", "condition":"true" },
+    { "source":"FLOW_NODE_ON_DETERMINE_WHETHER_IT_AN_ADD_CONVERSATION", "target":"end", "condition":"true" }
+  ]
+}

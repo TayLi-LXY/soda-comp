@@ -1,0 +1,59 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/orderSelect/FLOW_ON_CREATE_PAYMENT_ORDER",
+  "name":"FLOW_ON_CREATE_PAYMENT_ORDER",
+  "type":"flow",
+  "title":"创建支付订单",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+    { "title":"会员类型", "name":"memberType", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_FRONT_END_CREATES_PAYMENT_ORDERS",
+      "type":"event",
+      "title":"前端创建支付订单",
+      "reference":"OrderSelect/OnCreatePaymentOrder/FLOW_CODE_FRONT_END_CREATES_PAYMENT_ORDERS",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+        { "title":"会员类型", "name":"memberType", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"支付订单实体", "name":"paymentOrder", "type":"com.horsecoder.pay.model.exp.Order", "notnull":true },
+        { "title":"订单明细", "name":"orderDetails", "type":"List(com.horsecoder.pay.flow.domain.FacadeCreatePaymentOrder.model.OrderDetails)", "notnull":false }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.pay/FLOW_CREATE_PAYMENT_ORDER",
+      "type":"flow",
+      "title":"创建支付订单",
+      "reference":"@com.horsecoder.pay/FLOW_CREATE_PAYMENT_ORDER",
+      "params":[
+        { "title":"支付订单实体", "name":"paymentOrder", "type":"com.horsecoder.pay.model.exp.Order", "notnull":true },
+        { "title":"订单明细", "name":"orderDetails", "type":"List(com.horsecoder.pay.flow.domain.FacadeCreatePaymentOrder.model.OrderDetails)", "notnull":false }
+      ],
+      "results":[
+        { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_JUMP_DIRECT_PAYMENT_PAGE",
+      "type":"event",
+      "title":"跳转到直接支付页面",
+      "reference":"OrderSelect/OnCreatePaymentOrder/FLOW_CODE_JUMP_DIRECT_PAYMENT_PAGE",
+      "params":[
+        { "title":"支付订单号", "name":"paymentOrderNumber", "type":"String", "notnull":true },
+        { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_FRONT_END_CREATES_PAYMENT_ORDERS", "condition":"true" },
+    { "source":"FLOW_NODE_FRONT_END_CREATES_PAYMENT_ORDERS", "target":"@com.horsecoder.pay/FLOW_CREATE_PAYMENT_ORDER", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_CREATE_PAYMENT_ORDER", "target":"FLOW_NODE_JUMP_DIRECT_PAYMENT_PAGE", "condition":"true" },
+    { "source":"FLOW_NODE_JUMP_DIRECT_PAYMENT_PAGE", "target":"end", "condition":"true" }
+  ]
+}

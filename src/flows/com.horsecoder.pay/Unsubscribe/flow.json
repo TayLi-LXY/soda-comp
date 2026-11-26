@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_UNSUBSCRIBE",
+  "name":"FLOW_UNSUBSCRIBE",
+  "type":"flow",
+  "title":"取消订阅",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":false },
+    { "title":"取消原因", "name":"cancelReason", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"取消结果", "name":"cancelResult", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_UNSUBSCRIBE",
+      "type":"event",
+      "title":"取消订阅",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_UNSUBSCRIBE",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":false },
+        { "title":"取消原因", "name":"cancelReason", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"取消结果", "name":"cancelResult", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_UNSUBSCRIBE", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_UNSUBSCRIBE", "target":"end", "condition":"true" }
+  ]
+}

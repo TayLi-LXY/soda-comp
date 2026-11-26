@@ -1,0 +1,41 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/leftComponent/FLOW_ON_CLICK_OPEN_PROMOTIONAL_ACTIVITIES",
+  "name":"FLOW_ON_CLICK_OPEN_PROMOTIONAL_ACTIVITIES",
+  "type":"flow",
+  "title":"点击打开优惠活动",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+    { "title":"会员类型", "name":"memberType", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_DETERMINE_USER_MEMBERSHIP_STATUS",
+      "type":"event",
+      "title":"判断用户会员状态",
+      "reference":"LeftComponent/OnClickOpenPromotionalActivities/FLOW_CODE_DETERMINE_USER_MEMBERSHIP_STATUS",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true },
+        { "title":"会员类型", "name":"memberType", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_ON_CLICK_OPEN_PROMOTIONAL_ACTIVITIES",
+      "type":"event",
+      "title":"点击打开优惠活动",
+      "reference":"LeftComponent/OnClickOpenPromotionalActivities/FLOW_CODE_ON_CLICK_OPEN_PROMOTIONAL_ACTIVITIES",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"FLOW_NODE_ON_CLICK_OPEN_PROMOTIONAL_ACTIVITIES", "target":"end", "condition":"true" },
+    { "source":"start", "target":"FLOW_NODE_DETERMINE_USER_MEMBERSHIP_STATUS", "condition":"true" },
+    { "source":"FLOW_NODE_DETERMINE_USER_MEMBERSHIP_STATUS", "target":"FLOW_NODE_ON_CLICK_OPEN_PROMOTIONAL_ACTIVITIES", "condition":"true" }
+  ]
+}

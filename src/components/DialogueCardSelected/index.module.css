@@ -1,0 +1,99 @@
+.div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 4px 8px;
+}
+
+.divDiv0 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 5px;
+  text-align: left;
+  border-radius: 12px;
+  transition: all 0.2s;
+  background-color: #3370e7 ;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+  border: none !important;
+  height: auto;
+  color: #ffffff;
+}
+
+.divDiv0Div0 {
+}
+
+.divDiv0Div0Div0 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(10, 114, 239, 0.1);
+  color: #ffffff;
+}
+
+.divDiv0Div0Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.divDiv0Div1 {
+  display: flex;
+  flex-direction: column;
+  max-width: 140px;
+}
+
+.divDiv0Div1Div0 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.divDiv0Div1Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.divDiv0Div1Div0P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.divDiv0Div1Div1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.divDiv0Div1Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.divDiv0Div1Div1Div1 {
+  padding: 5px;
+}
+
+.divDiv0Div1Div1Div1Badge0 {
+}
+

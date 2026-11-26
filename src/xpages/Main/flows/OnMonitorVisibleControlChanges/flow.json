@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/main/FLOW_ON_MONITOR_VISIBLE_CONTROL_CHANGES",
+  "name":"FLOW_ON_MONITOR_VISIBLE_CONTROL_CHANGES",
+  "type":"flow",
+  "title":"监听可见控制变化",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"可见控制信号数据", "name":"visibleControlSignalData", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_MONITOR_VISIBLE_CONTROL_CHANGES",
+      "type":"event",
+      "title":"监听可见控制变化",
+      "reference":"Main/OnMonitorVisibleControlChanges/FLOW_CODE_ON_MONITOR_VISIBLE_CONTROL_CHANGES",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"可见控制信号数据", "name":"visibleControlSignalData", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_MONITOR_VISIBLE_CONTROL_CHANGES", "condition":"true" },
+    { "source":"FLOW_NODE_ON_MONITOR_VISIBLE_CONTROL_CHANGES", "target":"end", "condition":"true" }
+  ]
+}

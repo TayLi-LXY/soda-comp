@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.market/FLOW_CREATE_EDIT_PACKAGE",
+  "name":"FLOW_CREATE_EDIT_PACKAGE",
+  "type":"flow",
+  "title":"创建编辑套餐",
+  "params":[
+    { "title":"创建套餐实体", "name":"createPackageEntity", "type":"com.horsecoder.market.flow.CreateEditPackage.model.CreatePackageEntity", "notnull":false }
+  ],
+  "results":[
+    { "title":"套餐ID", "name":"packageId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_CREATE_EDIT_PACKAGE",
+      "type":"event",
+      "title":"创建编辑套餐",
+      "reference":"@com.horsecoder.market/FLOW_CODE_CREATE_EDIT_PACKAGE",
+      "params":[
+        { "title":"创建套餐实体", "name":"createPackageEntity", "type":"com.horsecoder.market.flow.CreateEditPackage.model.CreatePackageEntity", "notnull":false }
+      ],
+      "results":[
+        { "title":"套餐ID", "name":"packageId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_CREATE_EDIT_PACKAGE", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_CREATE_EDIT_PACKAGE", "target":"end", "condition":"true" }
+  ]
+}

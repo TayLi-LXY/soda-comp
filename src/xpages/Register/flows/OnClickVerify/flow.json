@@ -1,0 +1,25 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/register/FLOW_ON_CLICK_VERIFY",
+  "name":"FLOW_ON_CLICK_VERIFY",
+  "type":"flow",
+  "title":"点击验证",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_VERIFY",
+      "type":"event",
+      "title":"点击验证",
+      "reference":"Register/OnClickVerify/FLOW_CODE_ON_CLICK_VERIFY",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_VERIFY", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_VERIFY", "target":"end", "condition":"true" }
+  ]
+}

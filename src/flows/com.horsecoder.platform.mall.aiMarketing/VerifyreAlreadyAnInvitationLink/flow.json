@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_VERIFYRE_ALREADY_AN_INVITATION_LINK",
+  "name":"FLOW_VERIFYRE_ALREADY_AN_INVITATION_LINK",
+  "type":"flow",
+  "title":"校验是否已有邀请链接",
+  "params":[
+    { "title":"创建邀请码实体", "name":"createInvitationCodeEntity", "type":"com.horsecoder.platform.aiMarketing.flow.VerifyreAlreadyAnInvitationLink.model.CreateInvitationCodeEntity", "notnull":true }
+  ],
+  "results":[
+    { "title":"邀请链接", "name":"invitationLink", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_VERIFYRE_ALREADY_AN_INVITATION_LINK",
+      "type":"event",
+      "title":"校验是否已有邀请链接",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_VERIFYRE_ALREADY_AN_INVITATION_LINK",
+      "params":[
+        { "title":"创建邀请码实体", "name":"createInvitationCodeEntity", "type":"com.horsecoder.platform.aiMarketing.flow.VerifyreAlreadyAnInvitationLink.model.CreateInvitationCodeEntity", "notnull":true }
+      ],
+      "results":[
+        { "title":"邀请链接", "name":"invitationLink", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_VERIFYRE_ALREADY_AN_INVITATION_LINK", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_VERIFYRE_ALREADY_AN_INVITATION_LINK", "target":"end", "condition":"true" }
+  ]
+}

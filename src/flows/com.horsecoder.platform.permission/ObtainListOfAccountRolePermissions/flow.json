@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_OBTAIN_LIST_OF_ACCOUNT_ROLE_PERMISSIONS",
+  "name":"FLOW_OBTAIN_LIST_OF_ACCOUNT_ROLE_PERMISSIONS",
+  "type":"flow",
+  "title":"获取账户角色权限列表",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"角色列表", "name":"roleList", "type":"List(com.horsecoder.platform.permission.model.sys.Role)", "notnull":true, "defaultValue":{} },
+    { "title":"权限列表", "name":"permissionList", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":true, "defaultValue":{} }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_LIST_OF_ACCOUNT_ROLE_PERMISSIONS",
+      "type":"event",
+      "title":"获取账户角色权限列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_OBTAIN_LIST_OF_ACCOUNT_ROLE_PERMISSIONS",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"角色列表", "name":"roleList", "type":"List(com.horsecoder.platform.permission.model.sys.Role)", "notnull":true, "defaultValue":{} },
+        { "title":"权限列表", "name":"permissionList", "type":"List(com.horsecoder.platform.permission.flow.NewOrganizationPermissions.model.PermissionModel)", "notnull":true, "defaultValue":{} }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_LIST_OF_ACCOUNT_ROLE_PERMISSIONS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_OBTAIN_LIST_OF_ACCOUNT_ROLE_PERMISSIONS", "target":"end", "condition":"true" }
+  ]
+}

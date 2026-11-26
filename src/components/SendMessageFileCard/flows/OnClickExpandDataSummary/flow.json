@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/sendMessageFileCard/FLOW_ON_CLICK_EXPAND_DATA_SUMMARY",
+  "name":"FLOW_ON_CLICK_EXPAND_DATA_SUMMARY",
+  "type":"flow",
+  "title":"点击展开数据摘要",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"发送消息文件卡片列表单项", "name":"entity", "type":"Object", "notnull":true },
+    { "title":"索引", "name":"index", "type":"Object", "notnull":true },
+    { "title":"选中附件回调", "name":"selectAttachmentCallback", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_EXPAND_DATA_SUMMARY",
+      "type":"event",
+      "title":"点击展开数据摘要",
+      "reference":"SendMessageFileCard/OnClickExpandDataSummary/FLOW_CODE_ON_CLICK_EXPAND_DATA_SUMMARY",
+      "params":[
+        { "title":"索引", "name":"index", "type":"Object", "notnull":true },
+        { "title":"发送消息文件卡片列表单项", "name":"entity", "type":"Object", "notnull":true },
+        { "title":"选中附件回调", "name":"selectAttachmentCallback", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_EXPAND_DATA_SUMMARY", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_EXPAND_DATA_SUMMARY", "target":"end", "condition":"true" }
+  ]
+}

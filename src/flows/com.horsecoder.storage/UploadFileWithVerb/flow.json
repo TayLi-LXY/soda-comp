@@ -1,0 +1,38 @@
+{
+  "id":"@com.horsecoder.storage/FLOW_UPLOAD_FILE_WITH_VERB",
+  "name":"FLOW_UPLOAD_FILE_WITH_VERB",
+  "type":"flow",
+  "title":"文件上传流程（带缩略图）",
+  "params":[
+    { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+    { "title":"文件名", "name":"fileName", "type":"String", "notnull":false },
+    { "title":"文件用户", "name":"user", "type":"String", "notnull":true },
+    { "title":"文件", "name":"file", "type":"org.springframework.web.multipart.MultipartFile", "notnull":true }
+  ],
+  "results":[
+    { "title":"文件url", "name":"url", "type":"String", "notnull":true },
+    { "title":"缩略图url", "name":"compressUrl", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.storage/FLOW_NODE_UPLOAD_FILE_WITH_VERB",
+      "type":"event",
+      "title":"文件上传流程（带缩略图）",
+      "reference":"@com.horsecoder.storage/FLOW_CODE_UPLOAD_FILE_WITH_VERB",
+      "params":[
+        { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+        { "title":"文件名", "name":"fileName", "type":"String", "notnull":false },
+        { "title":"文件用户", "name":"user", "type":"String", "notnull":true },
+        { "title":"文件", "name":"file", "type":"org.springframework.web.multipart.MultipartFile", "notnull":true }
+      ],
+      "results":[
+        { "title":"文件url", "name":"url", "type":"String", "notnull":true },
+        { "title":"缩略图url", "name":"compressUrl", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.storage/FLOW_NODE_UPLOAD_FILE_WITH_VERB", "condition":"true" },
+    { "source":"@com.horsecoder.storage/FLOW_NODE_UPLOAD_FILE_WITH_VERB", "target":"end", "condition":"true" }
+  ]
+}

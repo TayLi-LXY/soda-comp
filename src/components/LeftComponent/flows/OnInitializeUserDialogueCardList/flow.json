@@ -1,0 +1,73 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/leftComponent/FLOW_ON_INITIALIZE_USER_DIALOGUE_CARD_LIST",
+  "name":"FLOW_ON_INITIALIZE_USER_DIALOGUE_CARD_LIST",
+  "type":"flow",
+  "title":"初始化用户对话卡片列表",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true },
+    { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_INITIALIZE_USER_DIALOGUE_CARD_LIST",
+      "type":"event",
+      "title":"初始化用户对话卡片列表",
+      "reference":"LeftComponent/OnInitializeUserDialogueCardList/FLOW_NODE_ON_INITIALIZE_USER_DIALOGUE_CARD_LIST",
+      "params":[
+        { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户ID列表", "name":"userIdList", "type":"List(String)", "notnull":true },
+        { "title":"page", "name":"page", "type":"Integer", "notnull":true },
+        { "title":"rows", "name":"rows", "type":"Integer", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.im/FLOW_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST",
+      "type":"flow",
+      "title":"根据用户ID列表查询用户对话列表",
+      "reference":"@com.horsecoder.im/FLOW_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST",
+      "params":[
+        { "title":"用户ID列表", "name":"userIdList", "type":"List(String)", "notnull":true },
+        { "title":"page", "name":"page", "type":"Integer", "notnull":true },
+        { "title":"rows", "name":"rows", "type":"Integer", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户对话详情", "name":"userConversationDetail", "type":"List(com.horsecoder.im.flow.domain.FacadeQueryUserConversationListBasedOnUserIdList.model.UserConversationDetail)", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_CONVERT_DIALOGUE_CARD_LIST",
+      "type":"event",
+      "title":"转化对话卡片列表",
+      "reference":"LeftComponent/OnInitializeUserDialogueCardList/FLOW_NODE_CONVERT_DIALOGUE_CARD_LIST",
+      "params":[
+        { "title":"用户对话详情", "name":"userConversationDetail", "type":"List(com.horsecoder.im.flow.domain.FacadeQueryUserConversationListBasedOnUserIdList.model.UserConversationDetail)", "notnull":true },
+        { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true },
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"对话卡片列表", "name":"dialogueCardList", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_DIALOGUE_CARD_LIST",
+      "type":"event",
+      "title":"设置数据:对话卡片列表",
+      "reference":"LeftComponent/OnInitializeUserDialogueCardList/FLOW_CODE_SET_DIALOGUE_CARD_LIST",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"对话卡片列表", "name":"dialogueCardList", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_INITIALIZE_USER_DIALOGUE_CARD_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_ON_INITIALIZE_USER_DIALOGUE_CARD_LIST", "target":"@com.horsecoder.im/FLOW_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_QUERY_USER_CONVERSATION_LIST_BASED_ON_USER_ID_LIST", "target":"FLOW_NODE_CONVERT_DIALOGUE_CARD_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_CONVERT_DIALOGUE_CARD_LIST", "target":"FLOW_NODE_SET_DIALOGUE_CARD_LIST", "condition":"true" },
+    { "source":"FLOW_NODE_SET_DIALOGUE_CARD_LIST", "target":"end", "condition":"true" }
+  ]
+}

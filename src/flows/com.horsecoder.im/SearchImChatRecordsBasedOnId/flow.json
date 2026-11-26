@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.im/FLOW_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID",
+  "name":"FLOW_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID",
+  "type":"flow",
+  "title":"根据ID查询聊天记录",
+  "params":[
+    { "title":"查询Filter", "name":"queryFilter", "type":"com.horsecoder.im.flow.SearchImChatRecordsBasedOnId.model.QueryFilter", "notnull":true, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"消息管理实体", "name":"messageManagementEntity", "type":"List(com.horsecoder.im.flow.SearchImChatRecordsBasedOnId.model.MessageManagementEntity)", "notnull":true, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID",
+      "type":"event",
+      "title":"根据ID查询聊天记录",
+      "reference":"@com.horsecoder.im/FLOW_CODE_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID",
+      "params":[
+        { "title":"查询Filter", "name":"queryFilter", "type":"com.horsecoder.im.flow.SearchImChatRecordsBasedOnId.model.QueryFilter", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"消息管理实体", "name":"messageManagementEntity", "type":"List(com.horsecoder.im.flow.SearchImChatRecordsBasedOnId.model.MessageManagementEntity)", "notnull":true, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_SEARCH_IM_CHAT_RECORDS_BASED_ON_ID", "target":"end", "condition":"true" }
+  ]
+}

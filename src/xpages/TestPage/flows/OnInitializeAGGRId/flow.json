@@ -1,0 +1,22 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/testPage/FLOW_ON_INITIALIZE_A_G_G_R_ID",
+  "name":"FLOW_ON_INITIALIZE_A_G_G_R_ID",
+  "type":"flow",
+  "title":"初始化AGGRID",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_INITIALIZE_A_G_G_R_ID",
+      "type":"event",
+      "title":"初始化AGGRID",
+      "reference":"TestPage/OnInitializeAGGRId/FLOW_CODE_ON_INITIALIZE_A_G_G_R_ID"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_INITIALIZE_A_G_G_R_ID", "condition":"true" },
+    { "source":"FLOW_NODE_ON_INITIALIZE_A_G_G_R_ID", "target":"end", "condition":"true" }
+  ]
+}

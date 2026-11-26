@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_FILTER_ORGANIZE_LIST",
+  "name":"FLOW_FILTER_ORGANIZE_LIST",
+  "type":"flow",
+  "title":"筛选组织列表",
+  "params":[
+    { "title":"组织筛选", "name":"organizeFiltering", "type":"com.horsecoder.platform.permission.flow.GetOrganizeViewAndOrganizeListByDepth.model.OrganizeFiltering", "notnull":true, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"组织返回列表", "name":"organizeReturnList", "type":"List(com.horsecoder.platform.permission.flow.FilterOrganizeList.model.OrganizeReturn)", "notnull":true, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_FILTER_ORGANIZE_LIST",
+      "type":"event",
+      "title":"筛选组织列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_FILTER_ORGANIZE_LIST",
+      "params":[
+        { "title":"组织筛选", "name":"organizeFiltering", "type":"com.horsecoder.platform.permission.flow.GetOrganizeViewAndOrganizeListByDepth.model.OrganizeFiltering", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"组织返回列表", "name":"organizeReturnList", "type":"List(com.horsecoder.platform.permission.flow.FilterOrganizeList.model.OrganizeReturn)", "notnull":true, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_FILTER_ORGANIZE_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_FILTER_ORGANIZE_LIST", "target":"end", "condition":"true" }
+  ]
+}

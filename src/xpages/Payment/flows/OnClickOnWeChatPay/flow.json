@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/payment/FLOW_ON_CLICK_ON_WE_CHAT_PAY",
+  "name":"FLOW_ON_CLICK_ON_WE_CHAT_PAY",
+  "type":"flow",
+  "title":"点击微信支付",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"订单号", "name":"orderNumber", "type":"Object", "notnull":true },
+    { "title":"支付账户ID", "name":"paymentAccountId", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_ON_WE_CHAT_PAY",
+      "type":"event",
+      "title":"点击微信支付",
+      "reference":"Payment/OnClickOnWeChatPay/FLOW_CODE_ON_CLICK_ON_WE_CHAT_PAY",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"订单号", "name":"orderNumber", "type":"Object", "notnull":true },
+        { "title":"支付账户ID", "name":"paymentAccountId", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_ENABLE_VISIBLE_CONTROL_OF_PAYMENT_Q_R_CODE",
+      "type":"event",
+      "title":"设置支付二维码可见控制可见",
+      "reference":"Payment/OnClickOnWeChatPay/FLOW_CODE_ENABLE_VISIBLE_CONTROL_OF_PAYMENT_Q_R_CODE",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_ON_WE_CHAT_PAY", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_ON_WE_CHAT_PAY", "target":"FLOW_NODE_ENABLE_VISIBLE_CONTROL_OF_PAYMENT_Q_R_CODE", "condition":"true" },
+    { "source":"FLOW_NODE_ENABLE_VISIBLE_CONTROL_OF_PAYMENT_Q_R_CODE", "target":"end", "condition":"true" }
+  ]
+}

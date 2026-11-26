@@ -1,0 +1,17 @@
+.div {
+  margin-bottom: 10px;
+}
+
+.divP0 {
+  margin-bottom: 0.75rem;
+  word-break: break-all;
+  font-size: 13px;
+  font-weight: 500;
+  color: #171717;
+}
+
+.divDiv1 {
+  display: flex;
+  flex-direction: column;
+}
+

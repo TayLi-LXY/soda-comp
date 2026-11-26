@@ -1,0 +1,52 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/scaned/FLOW_ON_GET_VERIFICATION_CODE",
+  "name":"FLOW_ON_GET_VERIFICATION_CODE",
+  "type":"flow",
+  "title":"获取验证码",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"注册手机验证表单", "name":"registrationMobileVerificationForm", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_VERIFY_FORM_AND_OBTAIN_PHONE_NUMBER",
+      "type":"event",
+      "title":"校验表单并且获取手机号",
+      "reference":"Scaned/OnGetVerificationCode/FLOW_CODE_VERIFY_FORM_AND_OBTAIN_PHONE_NUMBER",
+      "params":[
+        { "title":"注册手机验证表单", "name":"registrationMobileVerificationForm", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+        { "title":"用户类型", "name":"userType", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"用途", "name":"usage", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.identity/FLOW_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS",
+      "type":"flow",
+      "title":"获取验证码不校验用户",
+      "reference":"@com.horsecoder.identity/FLOW_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS",
+      "params":[
+        { "title":"手机号", "name":"mobilePhoneNumber", "type":"String", "notnull":true },
+        { "title":"用途", "name":"usage", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_TIMER_AND_BUTTON_STATUS",
+      "type":"event",
+      "title":"设置计时器和按钮状态",
+      "reference":"Scaned/OnGetVerificationCode/FLOW_CODE_SET_TIMER_AND_BUTTON_STATUS",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_VERIFY_FORM_AND_OBTAIN_PHONE_NUMBER", "condition":"true" },
+    { "source":"FLOW_NODE_VERIFY_FORM_AND_OBTAIN_PHONE_NUMBER", "target":"@com.horsecoder.identity/FLOW_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_OBTAINING_VERIFICATION_CODES_WITHOUT_VERIFYING_USERS", "target":"FLOW_NODE_SET_TIMER_AND_BUTTON_STATUS", "condition":"true" },
+    { "source":"FLOW_NODE_SET_TIMER_AND_BUTTON_STATUS", "target":"end", "condition":"true" }
+  ]
+}

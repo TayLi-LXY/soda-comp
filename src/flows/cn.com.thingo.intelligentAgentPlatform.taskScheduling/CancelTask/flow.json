@@ -1,0 +1,24 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CANCEL_TASK",
+  "name":"FLOW_CANCEL_TASK",
+  "type":"flow",
+  "title":"取消任务",
+  "params":[
+    { "title":"任务ID", "name":"taskId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_CANCEL_TASK",
+      "type":"event",
+      "title":"取消任务",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_CANCEL_TASK",
+      "params":[
+        { "title":"任务ID", "name":"taskId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_CANCEL_TASK", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_CANCEL_TASK", "target":"end", "condition":"true" }
+  ]
+}

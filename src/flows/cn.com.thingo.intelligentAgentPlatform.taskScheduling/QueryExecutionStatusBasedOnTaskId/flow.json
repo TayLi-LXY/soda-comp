@@ -1,0 +1,30 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_QUERY_EXECUTION_STATUS_BASED_ON_TASK_ID",
+  "name":"FLOW_QUERY_EXECUTION_STATUS_BASED_ON_TASK_ID",
+  "type":"flow",
+  "title":"根据任务id查询执行状态",
+  "params":[
+    { "title":"任务Id", "name":"taskId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"状态", "name":"state", "type":"Integer", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_EXECUTION_STATUS_BASED_ON_TASK_ID",
+      "type":"event",
+      "title":"根据任务id查询执行状态",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_QUERY_EXECUTION_STATUS_BASED_ON_TASK_ID",
+      "params":[
+        { "title":"任务Id", "name":"taskId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"状态", "name":"state", "type":"Integer", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_EXECUTION_STATUS_BASED_ON_TASK_ID", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_EXECUTION_STATUS_BASED_ON_TASK_ID", "target":"end", "condition":"true" }
+  ]
+}

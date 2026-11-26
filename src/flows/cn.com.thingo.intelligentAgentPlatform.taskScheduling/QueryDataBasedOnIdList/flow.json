@@ -1,0 +1,30 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_QUERY_DATA_BASED_ON_ID_LIST",
+  "name":"FLOW_QUERY_DATA_BASED_ON_ID_LIST",
+  "type":"flow",
+  "title":"根据Id列表查询数据",
+  "params":[
+    { "title":"id列表", "name":"iDList", "type":"List(String)", "notnull":true, "defaultValue":[] }
+  ],
+  "results":[
+    { "title":"任务实体", "name":"taskEntity", "type":"List(cn.com.thingo.taskScheduling.flow.QueryDataBasedOnIdList.model.TaskEntity)", "notnull":false, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_DATA_BASED_ON_ID_LIST",
+      "type":"event",
+      "title":"根据Id列表查询数据",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_QUERY_DATA_BASED_ON_ID_LIST",
+      "params":[
+        { "title":"id列表", "name":"iDList", "type":"List(String)", "notnull":true, "defaultValue":[] }
+      ],
+      "results":[
+        { "title":"任务实体", "name":"taskEntity", "type":"List(cn.com.thingo.taskScheduling.flow.QueryDataBasedOnIdList.model.TaskEntity)", "notnull":false, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_DATA_BASED_ON_ID_LIST", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_QUERY_DATA_BASED_ON_ID_LIST", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/register/FLOW_ON_CLICK_JUMP_LOGIN_PAGE",
+  "name":"FLOW_ON_CLICK_JUMP_LOGIN_PAGE",
+  "type":"flow",
+  "title":"点击跳转到登录页面",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_JUMP_LOGIN_PAGE",
+      "type":"event",
+      "title":"点击跳转到登录页面",
+      "reference":"Register/OnClickJumpLoginPage/FLOW_CODE_ON_CLICK_JUMP_LOGIN_PAGE"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_JUMP_LOGIN_PAGE", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_JUMP_LOGIN_PAGE", "target":"end", "condition":"true" }
+  ]
+}

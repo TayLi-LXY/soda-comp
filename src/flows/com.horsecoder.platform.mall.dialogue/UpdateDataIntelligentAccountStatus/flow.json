@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_UPDATE_DATA_INTELLIGENT_ACCOUNT_STATUS",
+  "name":"FLOW_UPDATE_DATA_INTELLIGENT_ACCOUNT_STATUS",
+  "type":"flow",
+  "title":"更新数据智能账户状态",
+  "params":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+    { "title":"待更新会员账户", "name":"memberAccountBeUpdated", "type":"com.horsecoder.platform.dialogue.flow.CreateDataSmartAccountMembership.model.DataSmartAccountMember", "notnull":true }
+  ],
+  "results":[
+    { "title":"会员类型", "name":"memberType", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_UPDATE_DATA_INTELLIGENT_ACCOUNT_STATUS",
+      "type":"event",
+      "title":"更新数据智能账户状态",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_UPDATE_DATA_INTELLIGENT_ACCOUNT_STATUS",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+        { "title":"待更新会员账户", "name":"memberAccountBeUpdated", "type":"com.horsecoder.platform.dialogue.flow.CreateDataSmartAccountMembership.model.DataSmartAccountMember", "notnull":true }
+      ],
+      "results":[
+        { "title":"会员类型", "name":"memberType", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_UPDATE_DATA_INTELLIGENT_ACCOUNT_STATUS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_UPDATE_DATA_INTELLIGENT_ACCOUNT_STATUS", "target":"end", "condition":"true" }
+  ]
+}

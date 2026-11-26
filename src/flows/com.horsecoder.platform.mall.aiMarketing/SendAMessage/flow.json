@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_SEND_A_MESSAGE",
+  "name":"FLOW_SEND_A_MESSAGE",
+  "type":"flow",
+  "title":"发送消息",
+  "params":[
+    { "title":"对话ID", "name":"conversationId", "type":"String", "notnull":true },
+    { "title":"对话详情实体", "name":"dialogueDetailsEntity", "type":"com.horsecoder.platform.aiMarketing.flow.SendAMessage.model.DialogueDetailsEntity", "notnull":false }
+  ],
+  "results":[
+    { "title":"需求分析报告结果", "name":"requirementAnalysisReportResult", "type":"com.horsecoder.platform.aiMarketing.flow.RequirementAnalysis.model.RequirementAnalysisReport", "notnull":true },
+    { "title":"对话详情ID", "name":"dialogueDetailsId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_SEND_A_MESSAGE",
+      "type":"event",
+      "title":"发送消息",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_SEND_A_MESSAGE",
+      "params":[
+        { "title":"对话ID", "name":"conversationId", "type":"String", "notnull":true },
+        { "title":"对话详情实体", "name":"dialogueDetailsEntity", "type":"com.horsecoder.platform.aiMarketing.flow.SendAMessage.model.DialogueDetailsEntity", "notnull":false }
+      ],
+      "results":[
+        { "title":"需求分析报告结果", "name":"requirementAnalysisReportResult", "type":"com.horsecoder.platform.aiMarketing.flow.RequirementAnalysis.model.RequirementAnalysisReport", "notnull":true },
+        { "title":"对话详情ID", "name":"dialogueDetailsId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_SEND_A_MESSAGE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_SEND_A_MESSAGE", "target":"end", "condition":"true" }
+  ]
+}

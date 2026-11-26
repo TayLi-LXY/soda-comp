@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/rightpMenu/FLOW_ON_CLICK_SWITCH_DATA_BUTTON",
+  "name":"FLOW_ON_CLICK_SWITCH_DATA_BUTTON",
+  "type":"flow",
+  "title":"点击切换到数据按钮",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_SWITCH_DATA_BUTTON",
+      "type":"event",
+      "title":"点击切换到数据按钮",
+      "reference":"RightpMenu/OnClickSwitchDataButton/FLOW_CODE_ON_CLICK_SWITCH_DATA_BUTTON",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_SWITCH_DATA_BUTTON", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_SWITCH_DATA_BUTTON", "target":"end", "condition":"true" }
+  ]
+}

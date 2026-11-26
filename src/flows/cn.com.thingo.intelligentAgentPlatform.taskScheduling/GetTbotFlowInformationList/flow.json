@@ -1,0 +1,34 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_GET_TBOT_FLOW_INFORMATION_LIST",
+  "name":"FLOW_GET_TBOT_FLOW_INFORMATION_LIST",
+  "type":"flow",
+  "title":"获取tbot流程信息列表",
+  "params":[
+    { "title":"页数", "name":"page", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"行数", "name":"rows", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"流程标准列表", "name":"flows", "type":"List(cn.com.thingo.taskScheduling.flow.GetTbotFlowInformationList.model.FlowStandard)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_GET_TBOT_FLOW_INFORMATION_LIST",
+      "type":"event",
+      "title":"获取tbot流程信息列表",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_GET_TBOT_FLOW_INFORMATION_LIST",
+      "params":[
+        { "title":"页数", "name":"page", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"行数", "name":"rows", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"流程标准列表", "name":"flows", "type":"List(cn.com.thingo.taskScheduling.flow.GetTbotFlowInformationList.model.FlowStandard)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_GET_TBOT_FLOW_INFORMATION_LIST", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_GET_TBOT_FLOW_INFORMATION_LIST", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/dialogue/FLOW_ON_UPDATE_NEW_MESSAGE_ENTITY",
+  "name":"FLOW_ON_UPDATE_NEW_MESSAGE_ENTITY",
+  "type":"flow",
+  "title":"更新新消息实体",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"最新消息记录实体", "name":"latestNewsRecordEntity", "type":"Object", "notnull":true },
+    { "title":"发送人昵称字典", "name":"senderNicknameDictionary", "type":"Object", "notnull":true },
+    { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_UPDATE_NEW_MESSAGE_ENTITY",
+      "type":"event",
+      "title":"更新新消息实体",
+      "reference":"Dialogue/OnUpdateNewMessageEntity/FLOW_CODE_ON_UPDATE_NEW_MESSAGE_ENTITY",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"最新消息记录实体", "name":"latestNewsRecordEntity", "type":"Object", "notnull":true },
+        { "title":"发送人昵称字典", "name":"senderNicknameDictionary", "type":"Object", "notnull":true },
+        { "title":"对话ID", "name":"conversationId", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_UPDATE_NEW_MESSAGE_ENTITY", "condition":"true" },
+    { "source":"FLOW_NODE_ON_UPDATE_NEW_MESSAGE_ENTITY", "target":"end", "condition":"true" }
+  ]
+}

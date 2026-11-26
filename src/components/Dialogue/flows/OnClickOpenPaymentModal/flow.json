@@ -1,0 +1,25 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/dialogue/FLOW_ON_CLICK_OPEN_PAYMENT_MODAL",
+  "name":"FLOW_ON_CLICK_OPEN_PAYMENT_MODAL",
+  "type":"flow",
+  "title":"点击打开支付弹窗",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_OPEN_UPGRADE_PLAN_VISIBLE",
+      "type":"event",
+      "title":"打开升级套餐",
+      "reference":"Dialogue/OnClickOpenPaymentModal/FLOW_CODE_OPEN_UPGRADE_PLAN_VISIBLE",
+      "params":[
+        { "title":"全局设置器", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_OPEN_UPGRADE_PLAN_VISIBLE", "condition":"true" },
+    { "source":"FLOW_NODE_OPEN_UPGRADE_PLAN_VISIBLE", "target":"end", "condition":"true" }
+  ]
+}

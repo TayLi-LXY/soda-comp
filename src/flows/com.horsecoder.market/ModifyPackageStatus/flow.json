@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.market/FLOW_MODIFY_PACKAGE_STATUS",
+  "name":"FLOW_MODIFY_PACKAGE_STATUS",
+  "type":"flow",
+  "title":"修改套餐状态",
+  "params":[
+    { "title":"套餐ID", "name":"packageId", "type":"String", "notnull":true },
+    { "title":"修改后状态", "name":"modifiedStatus", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_MODIFY_PACKAGE_STATUS",
+      "type":"event",
+      "title":"修改套餐状态",
+      "reference":"@com.horsecoder.market/FLOW_CODE_MODIFY_PACKAGE_STATUS",
+      "params":[
+        { "title":"套餐ID", "name":"packageId", "type":"String", "notnull":true },
+        { "title":"修改后状态", "name":"modifiedStatus", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_MODIFY_PACKAGE_STATUS", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_MODIFY_PACKAGE_STATUS", "target":"end", "condition":"true" }
+  ]
+}

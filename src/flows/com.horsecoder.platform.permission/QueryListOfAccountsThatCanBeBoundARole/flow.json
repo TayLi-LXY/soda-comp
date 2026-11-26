@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_QUERY_LIST_OF_ACCOUNTS_THAT_CAN_BE_BOUND_A_ROLE",
+  "name":"FLOW_QUERY_LIST_OF_ACCOUNTS_THAT_CAN_BE_BOUND_A_ROLE",
+  "type":"flow",
+  "title":"查询角色可绑定账户列表",
+  "params":[
+    { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true },
+    { "title":"上级深度", "name":"superiorDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"下级深度", "name":"lowerDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"角色Id", "name":"roleId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"账户绑定角色实体", "name":"accountBindingRoleEntity", "type":"List(com.horsecoder.platform.permission.flow.QueryListOfAccountsThatCanBeBoundARole.model.AccountBindingRoleEntity)", "notnull":true, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_QUERY_LIST_OF_ACCOUNTS_THAT_CAN_BE_BOUND_A_ROLE",
+      "type":"event",
+      "title":"查询角色可绑定账户列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_QUERY_LIST_OF_ACCOUNTS_THAT_CAN_BE_BOUND_A_ROLE",
+      "params":[
+        { "title":"目标组织ID", "name":"targetOrganizeId", "type":"String", "notnull":true },
+        { "title":"上级深度", "name":"superiorDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"下级深度", "name":"lowerDepth", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"角色Id", "name":"roleId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"账户绑定角色实体", "name":"accountBindingRoleEntity", "type":"List(com.horsecoder.platform.permission.flow.QueryListOfAccountsThatCanBeBoundARole.model.AccountBindingRoleEntity)", "notnull":true, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_QUERY_LIST_OF_ACCOUNTS_THAT_CAN_BE_BOUND_A_ROLE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_QUERY_LIST_OF_ACCOUNTS_THAT_CAN_BE_BOUND_A_ROLE", "target":"end", "condition":"true" }
+  ]
+}

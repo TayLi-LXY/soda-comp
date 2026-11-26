@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_EXECUTE_INTELLIGENT_DATA_TASKS",
+  "name":"FLOW_EXECUTE_INTELLIGENT_DATA_TASKS",
+  "type":"flow",
+  "title":"执行智能数据任务",
+  "params":[
+    { "title":"任务", "name":"task", "type":"String", "notnull":true },
+    { "title":"发送者ID", "name":"senderId", "type":"String", "notnull":true },
+    { "title":"接收者ID列表", "name":"receiverIdList", "type":"List(String)", "notnull":true },
+    { "title":"会话ID", "name":"conversationId", "type":"String", "notnull":true },
+    { "title":"用户对话ID", "name":"userConversationId", "type":"String", "notnull":false },
+    { "title":"业务sessionId", "name":"sessionId", "type":"String", "notnull":false },
+    { "title":"对话任务ID", "name":"dialogueTaskId", "type":"String", "notnull":true },
+    { "title":"状态", "name":"state", "type":"Integer", "notnull":true },
+    { "title":"文件列表", "name":"fileList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeIntelligentDataQuery.model.DataFile)", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_EXECUTE_INTELLIGENT_DATA_TASKS",
+      "type":"event",
+      "title":"执行智能数据任务",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_EXECUTE_INTELLIGENT_DATA_TASKS",
+      "params":[
+        { "title":"任务", "name":"task", "type":"String", "notnull":true },
+        { "title":"发送者ID", "name":"senderId", "type":"String", "notnull":true },
+        { "title":"接收者ID列表", "name":"receiverIdList", "type":"List(String)", "notnull":true },
+        { "title":"会话ID", "name":"conversationId", "type":"String", "notnull":true },
+        { "title":"用户对话ID", "name":"userConversationId", "type":"String", "notnull":false },
+        { "title":"业务sessionId", "name":"sessionId", "type":"String", "notnull":false },
+        { "title":"对话任务ID", "name":"dialogueTaskId", "type":"String", "notnull":true },
+        { "title":"状态", "name":"state", "type":"Integer", "notnull":true },
+        { "title":"文件列表", "name":"fileList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeIntelligentDataQuery.model.DataFile)", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_EXECUTE_INTELLIGENT_DATA_TASKS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_EXECUTE_INTELLIGENT_DATA_TASKS", "target":"end", "condition":"true" }
+  ]
+}

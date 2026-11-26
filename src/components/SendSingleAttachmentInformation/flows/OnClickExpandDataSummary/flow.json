@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/sendSingleAttachmentInformation/FLOW_ON_CLICK_EXPAND_DATA_SUMMARY",
+  "name":"FLOW_ON_CLICK_EXPAND_DATA_SUMMARY",
+  "type":"flow",
+  "title":"点击展开数据摘要",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"上传文件摘要可见控制", "name":"uploadFileSummaryVisibleControl", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_CLICK_EXPAND_DATA_SUMMARY",
+      "type":"event",
+      "title":"点击展开数据摘要",
+      "reference":"SendSingleAttachmentInformation/OnClickExpandDataSummary/FLOW_CODE_ON_CLICK_EXPAND_DATA_SUMMARY",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"上传文件摘要可见控制", "name":"uploadFileSummaryVisibleControl", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_CLICK_EXPAND_DATA_SUMMARY", "condition":"true" },
+    { "source":"FLOW_NODE_ON_CLICK_EXPAND_DATA_SUMMARY", "target":"end", "condition":"true" }
+  ]
+}

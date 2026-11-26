@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.storage/FLOW_BATCH_UPLOAD_FILES_WITH_VERB",
+  "name":"FLOW_BATCH_UPLOAD_FILES_WITH_VERB",
+  "type":"flow",
+  "title":"文件批量上传（带缩略图）",
+  "params":[
+    { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+    { "title":"文件名", "name":"fileName", "type":"String", "notnull":false },
+    { "title":"文件用户", "name":"user", "type":"String", "notnull":true },
+    { "title":"文件数组", "name":"files", "type":"List(org.springframework.web.multipart.MultipartFile)", "notnull":true }
+  ],
+  "results":[
+    { "title":"url数组", "name":"urlVerbs", "type":"List(com.horsecoder.storage.flow.customize.model.Verb)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.storage/FLOW_NODE_BATCH_UPLOAD_FILES_WITH_VERB",
+      "type":"event",
+      "title":"文件批量上传（带缩略图）",
+      "reference":"@com.horsecoder.storage/FLOW_CODE_BATCH_UPLOAD_FILES_WITH_VERB",
+      "params":[
+        { "title":"文件夹", "name":"directory", "type":"String", "notnull":false },
+        { "title":"文件名", "name":"fileName", "type":"String", "notnull":false },
+        { "title":"文件用户", "name":"user", "type":"String", "notnull":true },
+        { "title":"文件数组", "name":"files", "type":"List(org.springframework.web.multipart.MultipartFile)", "notnull":true }
+      ],
+      "results":[
+        { "title":"url数组", "name":"urlVerbs", "type":"List(com.horsecoder.storage.flow.customize.model.Verb)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.storage/FLOW_NODE_BATCH_UPLOAD_FILES_WITH_VERB", "condition":"true" },
+    { "source":"@com.horsecoder.storage/FLOW_NODE_BATCH_UPLOAD_FILES_WITH_VERB", "target":"end", "condition":"true" }
+  ]
+}

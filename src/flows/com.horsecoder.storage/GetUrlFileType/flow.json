@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.storage/FLOW_GET_URL_FILE_TYPE",
+  "name":"FLOW_GET_URL_FILE_TYPE",
+  "type":"flow",
+  "title":"获取url文件类型",
+  "params":[
+    { "title":"文件url", "name":"fileUrl", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"文件类型", "name":"fileType", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.storage/FLOW_NODE_GET_URL_FILE_TYPE",
+      "type":"event",
+      "title":"获取url文件类型",
+      "reference":"@com.horsecoder.storage/FLOW_CODE_GET_URL_FILE_TYPE",
+      "params":[
+        { "title":"文件url", "name":"fileUrl", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"文件类型", "name":"fileType", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.storage/FLOW_NODE_GET_URL_FILE_TYPE", "condition":"true" },
+    { "source":"@com.horsecoder.storage/FLOW_NODE_GET_URL_FILE_TYPE", "target":"end", "condition":"true" }
+  ]
+}

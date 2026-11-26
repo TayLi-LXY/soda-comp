@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.im/FLOW_DELETE_CONVERSATION",
+  "name":"FLOW_DELETE_CONVERSATION",
+  "type":"flow",
+  "title":"删除对话",
+  "params":[
+    { "title":"会话Id", "name":"sessionId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_DELETE_CONVERSATION",
+      "type":"event",
+      "title":"删除对话",
+      "reference":"@com.horsecoder.im/FLOW_CODE_DELETE_CONVERSATION",
+      "params":[
+        { "title":"会话Id", "name":"sessionId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_DELETE_CONVERSATION", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_DELETE_CONVERSATION", "target":"end", "condition":"true" }
+  ]
+}

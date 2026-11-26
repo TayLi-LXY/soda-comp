@@ -1,0 +1,25 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/informationOperationComponent/FLOW_ON_FEEDBACK_AND_REPORT_DIALOGUE_CANCEL",
+  "name":"FLOW_ON_FEEDBACK_AND_REPORT_DIALOGUE_CANCEL",
+  "type":"flow",
+  "title":"关闭反馈与举报对话框",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_CLOSE_FEEDBACK_AND_REPORT_DIALOGUE_VISIBLE",
+      "type":"event",
+      "title":"关闭反馈与举报对话框",
+      "reference":"InformationOperationComponent/OnFeedbackAndReportDialogueCancel/FLOW_CODE_CLOSE_FEEDBACK_AND_REPORT_DIALOGUE_VISIBLE",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_CLOSE_FEEDBACK_AND_REPORT_DIALOGUE_VISIBLE", "condition":"true" },
+    { "source":"FLOW_NODE_CLOSE_FEEDBACK_AND_REPORT_DIALOGUE_VISIBLE", "target":"end", "condition":"true" }
+  ]
+}

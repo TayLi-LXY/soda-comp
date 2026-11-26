@@ -1,0 +1,450 @@
+.leftComponent {
+  display: flex;
+  flex-direction: row;
+}
+
+.leftComponentDiv0 {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #d9d9d9;
+  padding: 5px;
+  border-top: none;
+}
+
+.leftComponentDiv0Div0 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.leftComponentDiv0Div0Div0 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.leftComponentDiv0Div0Div0Div0 {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  margin-top: 5px;
+}
+
+.leftComponentDiv0Div0Div0Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.leftComponentDiv0Div0Div1 {
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.leftComponentDiv0Div0Div1Tooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.leftComponentDiv0Div0Div1Tooltip0DoubleLeftOutlined0 {
+  transform: rotate(180deg);
+  color: #000;
+}
+
+.leftComponentDiv0Div0Div2 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.leftComponentDiv0Div0Div2Tooltip0 {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.leftComponentDiv0Div0Div2Tooltip0PlusOutlined0 {
+  color: #000;
+}
+
+.leftComponentDiv0Div0Div3 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.leftComponentDiv0Div0Div3Tooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.leftComponentDiv0Div0Div3Tooltip0PlusCircleOutlined0 {
+  color: #000;
+}
+
+.leftComponentDiv0Div0Div4 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.leftComponentDiv0Div0Div4Tooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.leftComponentDiv0Div0Div4Tooltip0UserOutlined0 {
+  color: #000;
+}
+
+.leftComponentDiv0Div1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.leftComponentDiv0Div1Div0 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.2s;
+}
+
+.leftComponentDiv0Div1Div0Tooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.leftComponentDiv0Div1Div0Tooltip0SettingOutlined0 {
+  color: #000;
+}
+
+.leftComponentDiv0Div1Div1 {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #2a5ed2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: #FFFFFF;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.leftComponentDiv0Div1Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  color: #FFFFFF;
+  font-size: 10px;
+}
+
+.leftComponentDiv1 {
+  width: 240px;
+  background-color: #FFFFFF;
+  background: linear-gradient(to bottom, #ffffff, #ffffff);
+  border: 1px solid #d9d9d9;
+  border-top: none;
+}
+
+.leftComponentDiv1Div0 {
+  height: 48px;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-left: 10px;
+  border-bottom: 1px solid #d9d9d9;
+  justify-content: space-between;
+}
+
+.leftComponentDiv1Div0Div0 {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.leftComponentDiv1Div0Div0Div0 {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  margin-right: 10px;
+}
+
+.leftComponentDiv1Div0Div0Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.leftComponentDiv1Div0Div0Div1 {}
+
+.leftComponentDiv1Div0Div0Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  color: #000000;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.leftComponentDiv1Div0Div1 {
+  gap: 5px;
+  display: flex;
+  flex-direction: row;
+  margin-right: 2px;
+}
+
+.addNewConversation {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 28px;
+}
+
+.addNewConversationTooltip0 {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.addNewConversationTooltip0PlusOutlined0 {
+  color: #000;
+}
+
+.leftComponentDiv1Div0Div1Div1 {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.leftComponentDiv1Div0Div1Div1Tooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.leftComponentDiv1Div0Div1Div1Tooltip0UserOutlined0 {
+  color: #000;
+}
+
+.collapseSidebarButton {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 28px;
+}
+
+.collapseSidebarButtonTooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.collapseSidebarButtonTooltip0DoubleLeftOutlined0 {
+  color: #000;
+}
+
+.leftComponentDiv1Div1 {
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.leftComponentDiv1Div1Div0 {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftComponentDiv1Div1Div1 {
+  flex: 1;
+}
+
+.leftComponentDiv1Div1Div1Div0 {
+  padding: 0.5rem 0.75rem;
+  flex-shrink: 0;
+}
+
+.leftComponentDiv1Div1Div1Div0Div0 {}
+
+.leftComponentDiv1Div1Div1Div0Div0Input0 {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 12px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  border: none;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.leftComponentDiv1Div1Div1Div1 {}
+
+.leftComponentDiv1Div1Div2 {
+  padding-left: 20px;
+}
+
+.setPanelBubbleCard {
+  height: auto;
+}
+
+.leftComponentDiv1Div1Div3 {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  border-top: 1px solid #e5e7eb;
+  justify-content: space-between;
+}
+
+.userInformationContainer {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  align-items: center;
+  padding: 5px;
+}
+
+.userInformationContainerDiv0 {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #2a5ed2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: #FFFFFF;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.userInformationContainerDiv0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  color: #FFFFFF;
+  font-size: 10px;
+}
+
+.userInformationContainerP1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.userInformationContainerP2 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  margin-right: 5px;
+}
+
+.userInformationContainerP3 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.discountActivityButton {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.2s;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 30px;
+  border: 1px solid #e5e7eb;
+  align-items: flex-end;
+}
+
+.discountActivityButtonTooltip0 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.discountActivityButtonTooltip0GiftTwoTone0 {
+  color: #000;
+}
+
+.discountActivityButtonP1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-left: 2px;
+}
+
+.leftComponentDiv0Div0Div2:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+.leftComponentDiv0Div0Div1Tooltip0:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+.userInformationContainer:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+.addNewConversation:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}
+
+.collapseSidebarButton:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+}

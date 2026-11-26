@@ -1,0 +1,23 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/panel/FLOW_ON_MONITOR_U_R_L",
+  "name":"FLOW_ON_MONITOR_U_R_L",
+  "type":"flow",
+  "title":"监听Url",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"选中的schema预览Url", "name":"previewUrlOfSelectedSchema", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_MONITOR_U_R_L",
+      "type":"event",
+      "title":"监听Url",
+      "reference":"Panel/OnMonitorURL/FLOW_CODE_ON_MONITOR_U_R_L"
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_MONITOR_U_R_L", "condition":"true" },
+    { "source":"FLOW_NODE_ON_MONITOR_U_R_L", "target":"end", "condition":"true" }
+  ]
+}

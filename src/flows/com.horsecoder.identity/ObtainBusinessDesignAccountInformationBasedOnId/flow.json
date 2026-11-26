@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_OBTAIN_BUSINESS_DESIGN_ACCOUNT_INFORMATION_BASED_ON_ID",
+  "name":"FLOW_OBTAIN_BUSINESS_DESIGN_ACCOUNT_INFORMATION_BASED_ON_ID",
+  "type":"flow",
+  "title":"根据ID获取业务设计账户信息",
+  "params":[
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"用户信息", "name":"userInformation", "type":"com.horsecoder.identity.flow.ObtainBusinessDesignAccountInformationBasedOnId.model.UserInformation", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_BUSINESS_DESIGN_ACCOUNT_INFORMATION_BASED_ON_ID",
+      "type":"event",
+      "title":"根据ID获取业务设计账户信息",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_OBTAIN_BUSINESS_DESIGN_ACCOUNT_INFORMATION_BASED_ON_ID",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户信息", "name":"userInformation", "type":"com.horsecoder.identity.flow.ObtainBusinessDesignAccountInformationBasedOnId.model.UserInformation", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_BUSINESS_DESIGN_ACCOUNT_INFORMATION_BASED_ON_ID", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_OBTAIN_BUSINESS_DESIGN_ACCOUNT_INFORMATION_BASED_ON_ID", "target":"end", "condition":"true" }
+  ]
+}

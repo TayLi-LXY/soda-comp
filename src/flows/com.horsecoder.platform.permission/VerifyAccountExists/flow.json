@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_VERIFY_ACCOUNT_EXISTS",
+  "name":"FLOW_VERIFY_ACCOUNT_EXISTS",
+  "type":"flow",
+  "title":"校验账户是否存在",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"账户", "name":"account", "type":"com.horsecoder.platform.permission.model.sys.Account", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_VERIFY_ACCOUNT_EXISTS",
+      "type":"event",
+      "title":"校验账户是否存在",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_VERIFY_ACCOUNT_EXISTS",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"账户", "name":"account", "type":"com.horsecoder.platform.permission.model.sys.Account", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_VERIFY_ACCOUNT_EXISTS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_VERIFY_ACCOUNT_EXISTS", "target":"end", "condition":"true" }
+  ]
+}

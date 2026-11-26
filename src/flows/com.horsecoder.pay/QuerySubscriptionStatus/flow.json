@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_QUERY_SUBSCRIPTION_STATUS",
+  "name":"FLOW_QUERY_SUBSCRIPTION_STATUS",
+  "type":"flow",
+  "title":"查询订阅状态",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"订阅信息", "name":"subscriptionInformation", "type":"com.horsecoder.pay.flow.QuerySubscriptionStatus.model.SubscriptionInformation", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_QUERY_SUBSCRIPTION_STATUS",
+      "type":"event",
+      "title":"查询订阅状态",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_QUERY_SUBSCRIPTION_STATUS",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"订阅信息", "name":"subscriptionInformation", "type":"com.horsecoder.pay.flow.QuerySubscriptionStatus.model.SubscriptionInformation", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_QUERY_SUBSCRIPTION_STATUS", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_QUERY_SUBSCRIPTION_STATUS", "target":"end", "condition":"true" }
+  ]
+}

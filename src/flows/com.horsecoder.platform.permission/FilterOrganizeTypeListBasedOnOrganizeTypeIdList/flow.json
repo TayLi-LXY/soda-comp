@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_FILTER_ORGANIZE_TYPE_LIST_BASED_ON_ORGANIZE_TYPE_ID_LIST",
+  "name":"FLOW_FILTER_ORGANIZE_TYPE_LIST_BASED_ON_ORGANIZE_TYPE_ID_LIST",
+  "type":"flow",
+  "title":"根据组织类型id列表筛选组织类型列表",
+  "params":[
+    { "title":"组织类型id列表", "name":"organizeTypeIdList", "type":"List(String)", "notnull":true }
+  ],
+  "results":[
+    { "title":"组织类型结果列表", "name":"organizeTypeResultList", "type":"List(com.horsecoder.platform.permission.flow.FilterOrganizeTypeListBasedOnOrganizeTypeIdList.model.OrganizeTypeResult)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_FILTER_ORGANIZE_TYPE_LIST_BASED_ON_ORGANIZE_TYPE_ID_LIST",
+      "type":"event",
+      "title":"根据组织类型id列表筛选组织类型列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_FILTER_ORGANIZE_TYPE_LIST_BASED_ON_ORGANIZE_TYPE_ID_LIST",
+      "params":[
+        { "title":"组织类型id列表", "name":"organizeTypeIdList", "type":"List(String)", "notnull":true }
+      ],
+      "results":[
+        { "title":"组织类型结果列表", "name":"organizeTypeResultList", "type":"List(com.horsecoder.platform.permission.flow.FilterOrganizeTypeListBasedOnOrganizeTypeIdList.model.OrganizeTypeResult)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_FILTER_ORGANIZE_TYPE_LIST_BASED_ON_ORGANIZE_TYPE_ID_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_FILTER_ORGANIZE_TYPE_LIST_BASED_ON_ORGANIZE_TYPE_ID_LIST", "target":"end", "condition":"true" }
+  ]
+}

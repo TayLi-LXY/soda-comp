@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/qASingleComponent/FLOW_ON_VISIBLE_CONTROL_FOR_SENDING_OR_REPLYING_CHAT_MESSAGES",
+  "name":"FLOW_ON_VISIBLE_CONTROL_FOR_SENDING_OR_REPLYING_CHAT_MESSAGES",
+  "type":"flow",
+  "title":"聊天消息发送或回复可见控制",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"聊天记录列表控制单项", "name":"entity", "type":"Object", "notnull":true },
+    { "title":"索引", "name":"index", "type":"Object", "notnull":true },
+    { "title":"用户分身ID", "name":"userCloneId", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_VISIBLE_CONTROL_FOR_SENDING_OR_REPLYING_CHAT_MESSAGES",
+      "type":"event",
+      "title":"聊天消息发送或回复可见控制",
+      "reference":"QASingleComponent/OnVisibleControlForSendingOrReplyingChatMessages/FLOW_CODE_ON_VISIBLE_CONTROL_FOR_SENDING_OR_REPLYING_CHAT_MESSAGES",
+      "params":[
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"聊天记录列表控制单项", "name":"entity", "type":"Object", "notnull":true },
+        { "title":"索引", "name":"index", "type":"Object", "notnull":true },
+        { "title":"用户分身ID", "name":"userCloneId", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_VISIBLE_CONTROL_FOR_SENDING_OR_REPLYING_CHAT_MESSAGES", "condition":"true" },
+    { "source":"FLOW_NODE_ON_VISIBLE_CONTROL_FOR_SENDING_OR_REPLYING_CHAT_MESSAGES", "target":"end", "condition":"true" }
+  ]
+}

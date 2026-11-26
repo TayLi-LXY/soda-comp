@@ -1,0 +1,34 @@
+{
+  "id":"@com.horsecoder.demand/FLOW_CREATE_REPOSITORY_ON_GIT",
+  "name":"FLOW_CREATE_REPOSITORY_ON_GIT",
+  "type":"flow",
+  "title":"在git上创建仓库",
+  "params":[
+    { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true },
+    { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+    { "title":"仓库信息", "name":"repositoryInformation", "type":"com.horsecoder.demand.flow.CreateRepositoryOnGit.model.RepositoryInformation", "notnull":true, "defaultValue":{} }
+  ],
+  "results":[
+    { "title":"仓库webUrl", "name":"repositoryWebUrl", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.demand/FLOW_NODE_CREATE_REPOSITORY_ON_GIT",
+      "type":"event",
+      "title":"在git上创建仓库",
+      "reference":"@com.horsecoder.demand/FLOW_CODE_CREATE_REPOSITORY_ON_GIT",
+      "params":[
+        { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true },
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+        { "title":"仓库信息", "name":"repositoryInformation", "type":"com.horsecoder.demand.flow.CreateRepositoryOnGit.model.RepositoryInformation", "notnull":true, "defaultValue":{} }
+      ],
+      "results":[
+        { "title":"仓库webUrl", "name":"repositoryWebUrl", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.demand/FLOW_NODE_CREATE_REPOSITORY_ON_GIT", "condition":"true" },
+    { "source":"@com.horsecoder.demand/FLOW_NODE_CREATE_REPOSITORY_ON_GIT", "target":"end", "condition":"true" }
+  ]
+}

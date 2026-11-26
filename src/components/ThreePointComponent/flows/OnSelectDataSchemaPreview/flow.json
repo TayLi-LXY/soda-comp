@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/threePointComponent/FLOW_ON_SELECT_DATA_SCHEMA_PREVIEW",
+  "name":"FLOW_ON_SELECT_DATA_SCHEMA_PREVIEW",
+  "type":"flow",
+  "title":"选中数据Schema预览",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"对话SchemaID", "name":"dialogueDataSchemaId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_DATA_CSV_URL",
+      "type":"flow",
+      "title":"获取对话Schema数据CSV预览链接",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_DATA_CSV_URL",
+      "params":[
+        { "title":"对话SchemaID", "name":"dialogueDataSchemaId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"url", "name":"url", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_DISPATCH_PREVIEW_URL_OF_SELECTED_SCHEMA",
+      "type":"event",
+      "title":"设置数据:选中的schema预览Url",
+      "reference":"ThreePointComponent/OnSelectDataSchemaPreview/FLOW_CODE_DISPATCH_PREVIEW_URL_OF_SELECTED_SCHEMA",
+      "params":[
+        { "title":"全局设置器", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"url", "name":"url", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_DATA_CSV_URL", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_DATA_CSV_URL", "target":"FLOW_NODE_DISPATCH_PREVIEW_URL_OF_SELECTED_SCHEMA", "condition":"true" },
+    { "source":"FLOW_NODE_DISPATCH_PREVIEW_URL_OF_SELECTED_SCHEMA", "target":"end", "condition":"true" }
+  ]
+}

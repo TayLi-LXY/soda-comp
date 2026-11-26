@@ -1,0 +1,26 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_CREATE_ORGANIZE_ACCOUNT",
+  "name":"FLOW_CREATE_ORGANIZE_ACCOUNT",
+  "type":"flow",
+  "title":"创建组织账户",
+  "params":[
+    { "title":"账户Id", "name":"accountId", "type":"String", "notnull":false },
+    { "title":"组织Id", "name":"organizeId", "type":"String", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_CREATE_ORGANIZE_ACCOUNT",
+      "type":"event",
+      "title":"创建组织账户",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_CREATE_ORGANIZE_ACCOUNT",
+      "params":[
+        { "title":"账户Id", "name":"accountId", "type":"String", "notnull":false },
+        { "title":"组织Id", "name":"organizeId", "type":"String", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_CREATE_ORGANIZE_ACCOUNT", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_CREATE_ORGANIZE_ACCOUNT", "target":"end", "condition":"true" }
+  ]
+}

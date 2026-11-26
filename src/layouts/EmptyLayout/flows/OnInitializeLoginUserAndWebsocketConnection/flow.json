@@ -1,0 +1,77 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/emptyLayout/FLOW_ON_INITIALIZE_LOGIN_USER_AND_WEBSOCKET_CONNECTION",
+  "name":"FLOW_ON_INITIALIZE_LOGIN_USER_AND_WEBSOCKET_CONNECTION",
+  "type":"flow",
+  "title":"初始化登录用户和websocket连接",
+  "params":[
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_OBTAIN_USERKEN",
+      "type":"event",
+      "title":"获取用户token",
+      "reference":"EmptyLayout/OnInitializeLoginUserAndWebsocketConnection/FLOW_CODE_OBTAIN_USERKEN",
+      "results":[
+        { "title":"token", "name":"token", "type":"String", "notnull":true },
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.identity/FLOW_USER_LOGIN_VERIFICATION",
+      "type":"flow",
+      "title":"用户登录校验",
+      "reference":"@com.horsecoder.identity/FLOW_USER_LOGIN_VERIFICATION",
+      "params":[
+        { "title":"token", "name":"token", "type":"String", "notnull":true },
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"登录状态", "name":"loginStatus", "type":"Boolean", "notnull":true },
+        { "title":"账户结果", "name":"accountResult", "type":"com.horsecoder.platform.permission.flow.domain.FacadeQueryAccountBasedOnAccountId.model.AccountResult", "notnull":true },
+        { "title":"登录用户", "name":"loggedinUser", "type":"com.horsecoder.identity.flow.domain.FacadeUserLoginVerification.model.LoggedinUser", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_GET_LOGGED_IN_USERS",
+      "type":"event",
+      "title":"获取登录用户",
+      "reference":"EmptyLayout/OnInitializeLoginUserAndWebsocketConnection/FLOW_CODE_GET_LOGGED_IN_USERS",
+      "params":[
+        { "title":"登录用户", "name":"loggedinUser", "type":"com.horsecoder.identity.flow.domain.FacadeUserLoginVerification.model.LoggedinUser", "notnull":true },
+        { "title":"登录状态", "name":"loginStatus", "type":"Boolean", "notnull":true }
+      ],
+      "results":[
+        { "title":"用户", "name":"user", "type":"com.horsecoder.identity.model.sys.User", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_INITIALIZE_WEBSOCKET_CONNECTION",
+      "type":"event",
+      "title":"初始化websocket连接",
+      "reference":"EmptyLayout/OnInitializeLoginUserAndWebsocketConnection/FLOW_CODE_INITIALIZE_WEBSOCKET_CONNECTION",
+      "params":[
+        { "title":"用户", "name":"user", "type":"com.horsecoder.identity.model.sys.User", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_MEMBERSHIP_TYPE",
+      "type":"event",
+      "title":"设置会员类型",
+      "reference":"EmptyLayout/OnInitializeLoginUserAndWebsocketConnection/FLOW_CODE_SET_MEMBERSHIP_TYPE",
+      "params":[
+        { "title":"用户ID", "name":"userId", "type":"String", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_OBTAIN_USERKEN", "condition":"true" },
+    { "source":"FLOW_NODE_OBTAIN_USERKEN", "target":"@com.horsecoder.identity/FLOW_USER_LOGIN_VERIFICATION", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_USER_LOGIN_VERIFICATION", "target":"FLOW_NODE_GET_LOGGED_IN_USERS", "condition":"true" },
+    { "source":"FLOW_NODE_GET_LOGGED_IN_USERS", "target":"FLOW_NODE_INITIALIZE_WEBSOCKET_CONNECTION", "condition":"true" },
+    { "source":"FLOW_NODE_INITIALIZE_WEBSOCKET_CONNECTION", "target":"FLOW_NODE_SET_MEMBERSHIP_TYPE", "condition":"true" },
+    { "source":"FLOW_NODE_SET_MEMBERSHIP_TYPE", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,253 @@
+.div {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #111118;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.divDiv0 {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 200;
+  height: 60px;
+  padding: 0px clamp(20px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.divDiv0Div0 {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.divDiv0Div0Image0 {
+  width: 36px;
+  height: 36px;
+  background: #eef3fe;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b76e8;
+  font-size: 18px;
+}
+
+.divDiv0Div0P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 17px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.88);
+  letter-spacing: -0.2px;
+}
+
+.divDiv0Div1 {
+}
+
+.divDiv0Div1Button0 {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.88);
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.divDiv0Div1Button1 {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.88);
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.divDiv0Div1Button2 {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.88);
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.divDiv0Div1Button3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.88);
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.divDiv0Div1Button4 {
+}
+
+.divDiv0Div1Button5 {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.88);
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.divDiv0Div1Button6 {
+  height: 38px;
+  padding: 0 22px;
+  background: #2e6ae6;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.divDiv1 {
+  padding: 80px clamp(20px, 4vw, 48px) 72px;
+  max-width: 1140px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.divDiv2 {
+  padding-left: 20%;
+  padding-right: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.divDiv2Div0 {
+  display: flex;
+  flex-direction: column;
+}
+
+.divDiv2Div0Div0 {
+}
+
+.divDiv2Div0Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: rgba(0, 0, 0, 0.92);
+  margin: 0 0 20px;
+  letter-spacing: -0.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.divDiv2Div0Div1 {
+}
+
+.divDiv2Div0Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 20px;
+  color: #2e6ae6;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.divDiv2Div0Div2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.divDiv2Div0Div2P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(0, 0, 0, 0.55);
+  margin: 0 0 32px;
+  text-align: center;
+  max-width: 520px;
+}
+
+.divDiv2Div1 {
+  width: 100%;
+  height: 200px;
+  min-height: 200px;
+  max-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.divDiv3 {
+  height: 56px;
+  border-top: 1px solid #f0f0f0;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  background: #fff;
+}
+
+.divDiv3Div0 {
+}
+
+.divDiv3Div0P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+  font-size: 13px;
+  color: #8a92a3;
+}
+
+.divDiv3Div1 {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  color: #8a92a3;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.divDiv3Div1P0 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.divDiv3Div1P1 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+
+.divDiv3Div1P2 {
+  margin-bottom: 0px;
+  word-break: break-all;
+}
+

@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_DELETE_ROLE",
+  "name":"FLOW_DELETE_ROLE",
+  "type":"flow",
+  "title":"删除角色",
+  "params":[
+    { "title":"角色Id", "name":"roleId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ROLE",
+      "type":"event",
+      "title":"删除角色",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_DELETE_ROLE",
+      "params":[
+        { "title":"角色Id", "name":"roleId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ROLE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_DELETE_ROLE", "target":"end", "condition":"true" }
+  ]
+}

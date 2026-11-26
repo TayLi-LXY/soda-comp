@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_PAGE_GENERATION",
+  "name":"FLOW_PAGE_GENERATION",
+  "type":"flow",
+  "title":"页面生成",
+  "params":[
+    { "title":"需求分析报告", "name":"requirementReportUrl", "type":"String", "notnull":true },
+    { "title":"设计重点", "name":"pageFocusDescription", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"完整配置的页面JSON结果", "name":"configuredPagesJsonResult", "type":"com.horsecoder.platform.aiMarketing.flow.PageGeneration.model.ConfiguredPagesJson", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_PAGE_GENERATION",
+      "type":"event",
+      "title":"页面生成",
+      "reference":"@com.horsecoder.platform.mall.aiMarketing/FLOW_CODE_PAGE_GENERATION",
+      "params":[
+        { "title":"需求分析报告", "name":"requirementReportUrl", "type":"String", "notnull":true },
+        { "title":"设计重点", "name":"pageFocusDescription", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"完整配置的页面JSON结果", "name":"configuredPagesJsonResult", "type":"com.horsecoder.platform.aiMarketing.flow.PageGeneration.model.ConfiguredPagesJson", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_PAGE_GENERATION", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.aiMarketing/FLOW_NODE_PAGE_GENERATION", "target":"end", "condition":"true" }
+  ]
+}

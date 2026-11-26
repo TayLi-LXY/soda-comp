@@ -1,0 +1,62 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/leftComponent/FLOW_ON_NEW_CONVERSATION",
+  "name":"FLOW_ON_NEW_CONVERSATION",
+  "type":"flow",
+  "title":"新建对话",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_PREPARE_CREATE_SESSION_PARAMETERS",
+      "type":"event",
+      "title":"准备创建会话参数",
+      "reference":"LeftComponent/OnNewConversation/FLOW_CODE_PREPARE_CREATE_SESSION_PARAMETERS",
+      "params":[
+        { "title":"登录用户", "name":"loggedinUser", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"IM发送用户ID", "name":"imUserId", "type":"String", "notnull":true },
+        { "title":"接收人ID列表", "name":"recipientIdList", "type":"List(String)", "notnull":true },
+        { "title":"名字", "name":"name", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_A_DIALOGUE",
+      "type":"flow",
+      "title":"创建对话",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_A_DIALOGUE",
+      "params":[
+        { "title":"IM发送用户ID", "name":"imUserId", "type":"String", "notnull":true },
+        { "title":"接收人ID列表", "name":"recipientIdList", "type":"List(String)", "notnull":true },
+        { "title":"对话类型", "name":"type", "type":"Integer", "notnull":false, "defaultValue":1 },
+        { "title":"状态", "name":"status", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"名字", "name":"name", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"IM用户对话ID", "name":"imUserConversationId", "type":"String", "notnull":true },
+        { "title":"IM会话Id", "name":"imConversationId", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_SESSION_U_R_L_AND_DATA",
+      "type":"event",
+      "title":"设置会话URL和数据",
+      "reference":"LeftComponent/OnNewConversation/FLOW_CODE_SET_SESSION_U_R_L_AND_DATA",
+      "params":[
+        { "title":"IM用户对话ID", "name":"imUserConversationId", "type":"String", "notnull":true },
+        { "title":"IM会话Id", "name":"imConversationId", "type":"String", "notnull":true },
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_PREPARE_CREATE_SESSION_PARAMETERS", "condition":"true" },
+    { "source":"FLOW_NODE_PREPARE_CREATE_SESSION_PARAMETERS", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_A_DIALOGUE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_A_DIALOGUE", "target":"FLOW_NODE_SET_SESSION_U_R_L_AND_DATA", "condition":"true" },
+    { "source":"FLOW_NODE_SET_SESSION_U_R_L_AND_DATA", "target":"end", "condition":"true" }
+  ]
+}

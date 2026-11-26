@@ -1,0 +1,32 @@
+{
+  "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_RUN_INTELLIGENT_AGENT_GROUP",
+  "name":"FLOW_RUN_INTELLIGENT_AGENT_GROUP",
+  "type":"flow",
+  "title":"运行智能体组",
+  "params":[
+    { "title":"智能体组ID", "name":"intelligentAgentGroupId", "type":"String", "notnull":true },
+    { "title":"智能体组名称", "name":"nameOfIntelligentAgentGroup", "type":"String", "notnull":true },
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+    { "title":"智能体列表", "name":"listOfIntelligentAgents", "type":"List(cn.com.thingo.taskScheduling.flow.RunIntelligentAgentGroup.model.IntelligentAgentInformation)", "notnull":true, "defaultValue":[] },
+    { "title":"智能体组类型", "name":"agentGroupType", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_RUN_INTELLIGENT_AGENT_GROUP",
+      "type":"event",
+      "title":"运行智能体组",
+      "reference":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_CODE_RUN_INTELLIGENT_AGENT_GROUP",
+      "params":[
+        { "title":"智能体组ID", "name":"intelligentAgentGroupId", "type":"String", "notnull":true },
+        { "title":"智能体组名称", "name":"nameOfIntelligentAgentGroup", "type":"String", "notnull":true },
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+        { "title":"智能体列表", "name":"listOfIntelligentAgents", "type":"List(cn.com.thingo.taskScheduling.flow.RunIntelligentAgentGroup.model.IntelligentAgentInformation)", "notnull":true, "defaultValue":[] },
+        { "title":"智能体组类型", "name":"agentGroupType", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_RUN_INTELLIGENT_AGENT_GROUP", "condition":"true" },
+    { "source":"@cn.com.thingo.intelligentAgentPlatform.taskScheduling/FLOW_NODE_RUN_INTELLIGENT_AGENT_GROUP", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_CREATE_A_DIALOGUE",
+  "name":"FLOW_CREATE_A_DIALOGUE",
+  "type":"flow",
+  "title":"创建对话",
+  "params":[
+    { "title":"IM发送用户ID", "name":"imUserId", "type":"String", "notnull":true },
+    { "title":"接收人ID列表", "name":"recipientIdList", "type":"List(String)", "notnull":true },
+    { "title":"对话类型", "name":"type", "type":"Integer", "notnull":false, "defaultValue":1 },
+    { "title":"状态", "name":"status", "type":"Integer", "notnull":false, "defaultValue":0 },
+    { "title":"名字", "name":"name", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"IM用户对话ID", "name":"imUserConversationId", "type":"String", "notnull":true },
+    { "title":"IM会话Id", "name":"imConversationId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_CREATE_A_DIALOGUE",
+      "type":"event",
+      "title":"创建对话",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_CREATE_A_DIALOGUE",
+      "params":[
+        { "title":"IM发送用户ID", "name":"imUserId", "type":"String", "notnull":true },
+        { "title":"接收人ID列表", "name":"recipientIdList", "type":"List(String)", "notnull":true },
+        { "title":"对话类型", "name":"type", "type":"Integer", "notnull":false, "defaultValue":1 },
+        { "title":"状态", "name":"status", "type":"Integer", "notnull":false, "defaultValue":0 },
+        { "title":"名字", "name":"name", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"IM用户对话ID", "name":"imUserConversationId", "type":"String", "notnull":true },
+        { "title":"IM会话Id", "name":"imConversationId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_CREATE_A_DIALOGUE", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_CREATE_A_DIALOGUE", "target":"end", "condition":"true" }
+  ]
+}

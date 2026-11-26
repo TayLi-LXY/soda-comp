@@ -1,0 +1,93 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/queryResultDisplayComponent/FLOW_ON_CHAT_SUMMARY_MESSAGE_INITIALIZE_RESULT_DISPLAY",
+  "name":"FLOW_ON_CHAT_SUMMARY_MESSAGE_INITIALIZE_RESULT_DISPLAY",
+  "type":"flow",
+  "title":"根据聊天总结消息初始化结果展示",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"是否流式", "name":"ifStream", "type":"Object", "notnull":true },
+    { "title":"消息ID", "name":"messageId", "type":"Object", "notnull":true },
+    { "title":"消息内容", "name":"messageContent", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_INITIALIZE_RESULT_DISPLAY_WITH_INPUT_PARAMETERS",
+      "type":"event",
+      "title":"初始化结果展示入参",
+      "reference":"QueryResultDisplayComponent/OnChatSummaryMessageInitializeResultDisplay/FLOW_CODE_INITIALIZE_RESULT_DISPLAY_WITH_INPUT_PARAMETERS",
+      "params":[
+        { "title":"消息内容", "name":"messageContent", "type":"Object", "notnull":true }
+      ],
+      "results":[
+        { "title":"文件Url", "name":"fileUrl", "type":"String", "notnull":true },
+        { "title":"总结消息", "name":"summaryMessage", "type":"String", "notnull":true }
+      ]
+    },
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM",
+      "type":"flow",
+      "title":"根据查询结果初始化结果展示",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM",
+      "params":[
+        { "title":"文件Url", "name":"fileUrl", "type":"String", "notnull":true },
+        { "title":"总结消息", "name":"summaryMessage", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"总结内容", "name":"summarizeContent", "type":"String", "notnull":true },
+        { "title":"提示问题列表", "name":"promptQuestionList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeInitializeResultsBasedOnQueryResultsAndDisplaym.model.PromptQuestion)", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_THE_CONVERSION_RESULT_DISPLAYS_PARAMETERS",
+      "type":"event",
+      "title":"转化结果展示出参",
+      "reference":"QueryResultDisplayComponent/OnChatSummaryMessageInitializeResultDisplay/FLOW_CODE_THE_CONVERSION_RESULT_DISPLAYS_PARAMETERS",
+      "params":[
+        { "title":"提示问题列表", "name":"promptQuestionList", "type":"List(com.horsecoder.platform.dialogue.flow.domain.FacadeInitializeResultsBasedOnQueryResultsAndDisplaym.model.PromptQuestion)", "notnull":true }
+      ],
+      "results":[
+        { "title":"提示词列表", "name":"items", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_SUMMARIZE_CONTENT",
+      "type":"event",
+      "title":"设置数据:总结内容",
+      "reference":"QueryResultDisplayComponent/OnChatSummaryMessageInitializeResultDisplay/FLOW_CODE_SET_SUMMARIZE_CONTENT",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"总结内容", "name":"summarizeContent", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_FILE_URL",
+      "type":"event",
+      "title":"设置数据:文件链接",
+      "reference":"QueryResultDisplayComponent/OnChatSummaryMessageInitializeResultDisplay/FLOW_CODE_SET_FILE_URL",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"文件链接", "name":"fileUrl", "type":"Object", "notnull":true }
+      ]
+    },
+    {
+      "id":"FLOW_NODE_SET_ITEMS",
+      "type":"event",
+      "title":"设置数据:提示词列表",
+      "reference":"QueryResultDisplayComponent/OnChatSummaryMessageInitializeResultDisplay/FLOW_CODE_SET_ITEMS",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"提示词列表", "name":"items", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_INITIALIZE_RESULT_DISPLAY_WITH_INPUT_PARAMETERS", "condition":"true" },
+    { "source":"FLOW_NODE_INITIALIZE_RESULT_DISPLAY_WITH_INPUT_PARAMETERS", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_INITIALIZE_RESULTS_BASED_ON_QUERY_RESULTS_AND_DISPLAYM", "target":"FLOW_NODE_THE_CONVERSION_RESULT_DISPLAYS_PARAMETERS", "condition":"true" },
+    { "source":"FLOW_NODE_THE_CONVERSION_RESULT_DISPLAYS_PARAMETERS", "target":"FLOW_NODE_SET_SUMMARIZE_CONTENT", "condition":"true" },
+    { "source":"FLOW_NODE_SET_SUMMARIZE_CONTENT", "target":"FLOW_NODE_SET_FILE_URL", "condition":"true" },
+    { "source":"FLOW_NODE_SET_FILE_URL", "target":"FLOW_NODE_SET_ITEMS", "condition":"true" },
+    { "source":"FLOW_NODE_SET_ITEMS", "target":"end", "condition":"true" }
+  ]
+}

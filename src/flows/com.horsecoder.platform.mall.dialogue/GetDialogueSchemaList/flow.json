@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_LIST",
+  "name":"FLOW_GET_DIALOGUE_SCHEMA_LIST",
+  "type":"flow",
+  "title":"获取对话Schema列表",
+  "params":[
+    { "title":"IM会话ID", "name":"imConversationId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"Schema实体列表", "name":"schemaEntityList", "type":"List(com.horsecoder.platform.dialogue.flow.GetDialogueSchemaList.model.SchemaEntity)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_GET_DIALOGUE_SCHEMA_LIST",
+      "type":"event",
+      "title":"获取对话Schema列表",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_GET_DIALOGUE_SCHEMA_LIST",
+      "params":[
+        { "title":"IM会话ID", "name":"imConversationId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"Schema实体列表", "name":"schemaEntityList", "type":"List(com.horsecoder.platform.dialogue.flow.GetDialogueSchemaList.model.SchemaEntity)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_GET_DIALOGUE_SCHEMA_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_GET_DIALOGUE_SCHEMA_LIST", "target":"end", "condition":"true" }
+  ]
+}

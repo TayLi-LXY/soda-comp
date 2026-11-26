@@ -1,0 +1,32 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_GET_ORGANIZE_ROLE_PERMISSION_LIST",
+  "name":"FLOW_GET_ORGANIZE_ROLE_PERMISSION_LIST",
+  "type":"flow",
+  "title":"获取组织角色权限列表",
+  "params":[
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+    { "title":"角色列表", "name":"roleList", "type":"List(com.horsecoder.platform.permission.flow.ObtainAllPermissionsForTheRoleList.model.CharacterEntity)", "notnull":true, "defaultValue":[] }
+  ],
+  "results":[
+    { "title":"组织角色权限实体", "name":"organizeRolePermissionEntity", "type":"List(com.horsecoder.platform.permission.flow.GetOrganizeRolePermissionList.model.OrganizeRolePermissionEntity)", "notnull":true, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_GET_ORGANIZE_ROLE_PERMISSION_LIST",
+      "type":"event",
+      "title":"获取组织角色权限列表",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_GET_ORGANIZE_ROLE_PERMISSION_LIST",
+      "params":[
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+        { "title":"角色列表", "name":"roleList", "type":"List(com.horsecoder.platform.permission.flow.ObtainAllPermissionsForTheRoleList.model.CharacterEntity)", "notnull":true, "defaultValue":[] }
+      ],
+      "results":[
+        { "title":"组织角色权限实体", "name":"organizeRolePermissionEntity", "type":"List(com.horsecoder.platform.permission.flow.GetOrganizeRolePermissionList.model.OrganizeRolePermissionEntity)", "notnull":true, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_GET_ORGANIZE_ROLE_PERMISSION_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_GET_ORGANIZE_ROLE_PERMISSION_LIST", "target":"end", "condition":"true" }
+  ]
+}

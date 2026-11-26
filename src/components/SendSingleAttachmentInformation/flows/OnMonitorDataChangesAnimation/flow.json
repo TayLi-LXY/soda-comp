@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.mall.umi.chat/sendSingleAttachmentInformation/FLOW_ON_MONITOR_DATA_CHANGES_ANIMATION",
+  "name":"FLOW_ON_MONITOR_DATA_CHANGES_ANIMATION",
+  "type":"flow",
+  "title":"监听数据变化动画",
+  "params":[
+    { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+    { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+    { "title":"上传文件摘要可见控制", "name":"uploadFileSummaryVisibleControl", "type":"Object", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"FLOW_NODE_ON_MONITOR_DATA_CHANGES_ANIMATION",
+      "type":"event",
+      "title":"监听数据变化动画",
+      "reference":"SendSingleAttachmentInformation/OnMonitorDataChangesAnimation/FLOW_CODE_ON_MONITOR_DATA_CHANGES_ANIMATION",
+      "params":[
+        { "title":"页面设置器", "name":"setter", "type":"Object", "notnull":true },
+        { "title":"WEB状态更新", "name":"dispatch", "type":"Object", "notnull":true },
+        { "title":"上传文件摘要可见控制", "name":"uploadFileSummaryVisibleControl", "type":"Object", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"FLOW_NODE_ON_MONITOR_DATA_CHANGES_ANIMATION", "condition":"true" },
+    { "source":"FLOW_NODE_ON_MONITOR_DATA_CHANGES_ANIMATION", "target":"end", "condition":"true" }
+  ]
+}

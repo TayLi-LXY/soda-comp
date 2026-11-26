@@ -1,0 +1,24 @@
+{
+  "id":"@com.horsecoder.market/FLOW_VERIFY_LISTING_STATUS_OF_DEPENDENCIES_BASED_ON_PRODUCT_CODE_LIST",
+  "name":"FLOW_VERIFY_LISTING_STATUS_OF_DEPENDENCIES_BASED_ON_PRODUCT_CODE_LIST",
+  "type":"flow",
+  "title":"根据产品编码列表校验依赖的上架状态",
+  "params":[
+    { "title":"依赖的产品编号列表", "name":"listOfDependentProductNumbers", "type":"List(String)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.market/FLOW_NODE_VERIFY_LISTING_STATUS_OF_DEPENDENCIES_BASED_ON_PRODUCT_CODE_LIST",
+      "type":"event",
+      "title":"根据产品编码列表校验依赖的上架状态",
+      "reference":"@com.horsecoder.market/FLOW_CODE_VERIFY_LISTING_STATUS_OF_DEPENDENCIES_BASED_ON_PRODUCT_CODE_LIST",
+      "params":[
+        { "title":"依赖的产品编号列表", "name":"listOfDependentProductNumbers", "type":"List(String)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.market/FLOW_NODE_VERIFY_LISTING_STATUS_OF_DEPENDENCIES_BASED_ON_PRODUCT_CODE_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.market/FLOW_NODE_VERIFY_LISTING_STATUS_OF_DEPENDENCIES_BASED_ON_PRODUCT_CODE_LIST", "target":"end", "condition":"true" }
+  ]
+}

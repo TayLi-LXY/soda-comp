@@ -1,0 +1,87 @@
+.inputBox {
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-top: auto;
+  height: 120px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2px;
+}
+
+.inputBoxDiv0 {
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+}
+
+.inputBoxDiv1 {
+  flex: 1;
+  min-height: 0;
+}
+
+.inputArea {
+  height: 100% !important;
+  padding: 2px 4px;
+  border: none;
+  color: #0f172a;
+  font-size: 14px;
+  line-height: 1.65;
+  resize: none;
+  box-shadow: none;
+}
+
+.inputArea:focus,
+.inputArea:hover {
+  border: none;
+  box-shadow: none;
+}
+
+.inputArea:focus-visible {
+  outline: none;
+}
+
+.inputBoxDiv2 {
+  display: flex;
+  padding-top: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  align-items: center;
+}
+
+.inputBoxDiv2Div0 {
+}
+
+.inputBoxDiv2Div1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.inputBoxDiv2Div1Div0 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.sendMessageButton {
+  border-radius: 999px;
+  height: 34px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #0891b2, #4f46e5);
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.24);
+  font-size: 12px;
+}
+
+.divDiv1Button0:hover,
+.divDiv1Button0:focus {
+  background: linear-gradient(135deg, #0e7490, #4338ca);
+}

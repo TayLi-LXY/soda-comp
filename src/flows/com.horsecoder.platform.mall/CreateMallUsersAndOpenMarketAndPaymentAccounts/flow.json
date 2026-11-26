@@ -1,0 +1,36 @@
+{
+  "id":"@com.horsecoder.platform.mall/FLOW_CREATE_MALL_USERS_AND_OPEN_MARKET_AND_PAYMENT_ACCOUNTS",
+  "name":"FLOW_CREATE_MALL_USERS_AND_OPEN_MARKET_AND_PAYMENT_ACCOUNTS",
+  "type":"flow",
+  "title":"创建商城用户并开通营销账户和支付账户",
+  "params":[
+    { "title":"手机号", "name":"phone", "type":"String", "notnull":true },
+    { "title":"密码", "name":"password", "type":"String", "notnull":true },
+    { "title":"名称", "name":"name", "type":"String", "notnull":false },
+    { "title":"商城账户ID", "name":"mallAccountId", "type":"String", "notnull":false }
+  ],
+  "results":[
+    { "title":"商城用户新增返回", "name":"mallUser", "type":"com.horsecoder.platform.mall.flow.domain.FacadeCreateMallUsersAndOpenMarketAndPaymentAccounts.model.MallUserAddReturned", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall/FLOW_NODE_CREATE_MALL_USERS_AND_OPEN_MARKET_AND_PAYMENT_ACCOUNTS",
+      "type":"event",
+      "title":"创建商城用户并开通营销账户和支付账户",
+      "reference":"@com.horsecoder.platform.mall/FLOW_CODE_CREATE_MALL_USERS_AND_OPEN_MARKET_AND_PAYMENT_ACCOUNTS",
+      "params":[
+        { "title":"手机号", "name":"phone", "type":"String", "notnull":true },
+        { "title":"密码", "name":"password", "type":"String", "notnull":true },
+        { "title":"名称", "name":"name", "type":"String", "notnull":false },
+        { "title":"商城账户ID", "name":"mallAccountId", "type":"String", "notnull":false }
+      ],
+      "results":[
+        { "title":"商城用户新增返回", "name":"mallUser", "type":"com.horsecoder.platform.mall.flow.domain.FacadeCreateMallUsersAndOpenMarketAndPaymentAccounts.model.MallUserAddReturned", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall/FLOW_NODE_CREATE_MALL_USERS_AND_OPEN_MARKET_AND_PAYMENT_ACCOUNTS", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall/FLOW_NODE_CREATE_MALL_USERS_AND_OPEN_MARKET_AND_PAYMENT_ACCOUNTS", "target":"end", "condition":"true" }
+  ]
+}

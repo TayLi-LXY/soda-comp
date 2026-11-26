@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.platform.mall.dialogue/FLOW_GET_DIALOGUE_SCHEMA_DATA_CSV_URL",
+  "name":"FLOW_GET_DIALOGUE_SCHEMA_DATA_CSV_URL",
+  "type":"flow",
+  "title":"获取对话Schema数据CSV预览链接",
+  "params":[
+    { "title":"对话SchemaID", "name":"dialogueDataSchemaId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"url", "name":"url", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_GET_DIALOGUE_SCHEMA_DATA_CSV_URL",
+      "type":"event",
+      "title":"获取对话Schema数据CSV预览链接",
+      "reference":"@com.horsecoder.platform.mall.dialogue/FLOW_CODE_GET_DIALOGUE_SCHEMA_DATA_CSV_URL",
+      "params":[
+        { "title":"对话SchemaID", "name":"dialogueDataSchemaId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"url", "name":"url", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_GET_DIALOGUE_SCHEMA_DATA_CSV_URL", "condition":"true" },
+    { "source":"@com.horsecoder.platform.mall.dialogue/FLOW_NODE_GET_DIALOGUE_SCHEMA_DATA_CSV_URL", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id":"@com.horsecoder.identity/FLOW_CREATE_SPACE_AND_UPDATE_MODEL_SPACE",
+  "name":"FLOW_CREATE_SPACE_AND_UPDATE_MODEL_SPACE",
+  "type":"flow",
+  "title":"创建空间并更新模型空间",
+  "params":[
+    { "title":"创建人ID", "name":"creatorId", "type":"String", "notnull":true },
+    { "title":"空间名称", "name":"name", "type":"String", "notnull":true },
+    { "title":"空间标题", "name":"title", "type":"String", "notnull":true },
+    { "title":"空间类型", "name":"type", "type":"String", "notnull":true },
+    { "title":"行业", "name":"businessType", "type":"String", "notnull":false, "defaultValue":"互联网" },
+    { "title":"业务场景", "name":"businessScenario", "type":"String", "notnull":false },
+    { "title":"业务规模", "name":"businessScale", "type":"String", "notnull":false },
+    { "title":"是否完成填写", "name":"finished", "type":"Integer", "notnull":true, "defaultValue":0 },
+    { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.identity/FLOW_NODE_CREATE_SPACE_AND_UPDATE_MODEL_SPACE",
+      "type":"event",
+      "title":"创建空间并更新模型空间",
+      "reference":"@com.horsecoder.identity/FLOW_CODE_CREATE_SPACE_AND_UPDATE_MODEL_SPACE",
+      "params":[
+        { "title":"创建人ID", "name":"creatorId", "type":"String", "notnull":true },
+        { "title":"空间名称", "name":"name", "type":"String", "notnull":true },
+        { "title":"空间标题", "name":"title", "type":"String", "notnull":true },
+        { "title":"空间类型", "name":"type", "type":"String", "notnull":true },
+        { "title":"行业", "name":"businessType", "type":"String", "notnull":false, "defaultValue":"互联网" },
+        { "title":"业务场景", "name":"businessScenario", "type":"String", "notnull":false },
+        { "title":"业务规模", "name":"businessScale", "type":"String", "notnull":false },
+        { "title":"是否完成填写", "name":"finished", "type":"Integer", "notnull":true, "defaultValue":0 },
+        { "title":"模型ID", "name":"modelId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.identity/FLOW_NODE_CREATE_SPACE_AND_UPDATE_MODEL_SPACE", "condition":"true" },
+    { "source":"@com.horsecoder.identity/FLOW_NODE_CREATE_SPACE_AND_UPDATE_MODEL_SPACE", "target":"end", "condition":"true" }
+  ]
+}

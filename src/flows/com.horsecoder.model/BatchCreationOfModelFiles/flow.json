@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.model/FLOW_BATCH_CREATION_OF_MODEL_FILES",
+  "name":"FLOW_BATCH_CREATION_OF_MODEL_FILES",
+  "type":"flow",
+  "title":"批量创建模型文件",
+  "params":[
+    { "title":"模型文件模型列表", "name":"modelJsonModelList", "type":"List(com.horsecoder.model.flow.BatchCreationOfModelFiles.model.ModelJsonModel)", "notnull":true }
+  ],
+  "results":[
+    { "title":"模型文件模型列表", "name":"modelJsonModelList", "type":"List(com.horsecoder.model.flow.BatchCreationOfModelFiles.model.ModelJsonContainsOld)", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_BATCH_CREATION_OF_MODEL_FILES",
+      "type":"event",
+      "title":"批量创建模型文件",
+      "reference":"@com.horsecoder.model/FLOW_CODE_BATCH_CREATION_OF_MODEL_FILES",
+      "params":[
+        { "title":"模型文件模型列表", "name":"modelJsonModelList", "type":"List(com.horsecoder.model.flow.BatchCreationOfModelFiles.model.ModelJsonModel)", "notnull":true }
+      ],
+      "results":[
+        { "title":"模型文件模型列表", "name":"modelJsonModelList", "type":"List(com.horsecoder.model.flow.BatchCreationOfModelFiles.model.ModelJsonContainsOld)", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_BATCH_CREATION_OF_MODEL_FILES", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_BATCH_CREATION_OF_MODEL_FILES", "target":"end", "condition":"true" }
+  ]
+}

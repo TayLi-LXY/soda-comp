@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.im/FLOW_SEARCH_FOR_GROUP_CHAT_NAMES_BASED_ON_CONVERSATION_ID_LIST",
+  "name":"FLOW_SEARCH_FOR_GROUP_CHAT_NAMES_BASED_ON_CONVERSATION_ID_LIST",
+  "type":"flow",
+  "title":"根据对话ID列表查询群聊名",
+  "params":[
+    { "title":"用户对话列表", "name":"userDialogueList", "type":"List", "notnull":false, "defaultValue":[] }
+  ],
+  "results":[
+    { "title":"群聊名列表", "name":"listOfGroupChatNames", "type":"List", "notnull":false, "defaultValue":[] }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_SEARCH_FOR_GROUP_CHAT_NAMES_BASED_ON_CONVERSATION_ID_LIST",
+      "type":"event",
+      "title":"根据对话ID列表查询群聊名",
+      "reference":"@com.horsecoder.im/FLOW_CODE_SEARCH_FOR_GROUP_CHAT_NAMES_BASED_ON_CONVERSATION_ID_LIST",
+      "params":[
+        { "title":"用户对话列表", "name":"userDialogueList", "type":"List", "notnull":false, "defaultValue":[] }
+      ],
+      "results":[
+        { "title":"群聊名列表", "name":"listOfGroupChatNames", "type":"List", "notnull":false, "defaultValue":[] }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_SEARCH_FOR_GROUP_CHAT_NAMES_BASED_ON_CONVERSATION_ID_LIST", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_SEARCH_FOR_GROUP_CHAT_NAMES_BASED_ON_CONVERSATION_ID_LIST", "target":"end", "condition":"true" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id":"@com.horsecoder.platform.permission/FLOW_TRANSFER_ORGANIZE_ADMINISTRATOR",
+  "name":"FLOW_TRANSFER_ORGANIZE_ADMINISTRATOR",
+  "type":"flow",
+  "title":"移交组织管理员",
+  "params":[
+    { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+    { "title":"操作人ID", "name":"operatorId", "type":"String", "notnull":true },
+    { "title":"移交人ID", "name":"transferorId", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.platform.permission/FLOW_NODE_TRANSFER_ORGANIZE_ADMINISTRATOR",
+      "type":"event",
+      "title":"移交组织管理员",
+      "reference":"@com.horsecoder.platform.permission/FLOW_CODE_TRANSFER_ORGANIZE_ADMINISTRATOR",
+      "params":[
+        { "title":"组织ID", "name":"organizeId", "type":"String", "notnull":true },
+        { "title":"操作人ID", "name":"operatorId", "type":"String", "notnull":true },
+        { "title":"移交人ID", "name":"transferorId", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.platform.permission/FLOW_NODE_TRANSFER_ORGANIZE_ADMINISTRATOR", "condition":"true" },
+    { "source":"@com.horsecoder.platform.permission/FLOW_NODE_TRANSFER_ORGANIZE_ADMINISTRATOR", "target":"end", "condition":"true" }
+  ]
+}

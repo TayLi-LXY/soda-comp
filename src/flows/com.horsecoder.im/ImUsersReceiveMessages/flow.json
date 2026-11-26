@@ -1,0 +1,46 @@
+{
+  "id":"@com.horsecoder.im/FLOW_IM_USERS_RECEIVE_MESSAGES",
+  "name":"FLOW_IM_USERS_RECEIVE_MESSAGES",
+  "type":"flow",
+  "title":"IM用户接收消息",
+  "params":[
+    { "title":"发送者ID", "name":"senderId", "type":"String", "notnull":true },
+    { "title":"接收者ID列表", "name":"receiverIdList", "type":"List(String)", "notnull":true },
+    { "title":"消息", "name":"message", "type":"String", "notnull":true },
+    { "title":"会话ID", "name":"conversationId", "type":"String", "notnull":true },
+    { "title":"类型", "name":"type", "type":"Integer", "notnull":true },
+    { "title":"用户对话ID", "name":"userConversationId", "type":"String", "notnull":false },
+    { "title":"下游关键词", "name":"downstreamKeyword", "type":"String", "notnull":true },
+    { "title":"传输类型", "name":"transferType", "type":"Integer", "notnull":false },
+    { "title":"业务sessionId", "name":"sessionId", "type":"String", "notnull":false },
+    { "title":"轮次", "name":"turn", "type":"Integer", "notnull":false },
+    { "title":"上下文", "name":"context", "type":"Map(String$Object)", "notnull":false },
+    { "title":"回调", "name":"callback", "type":"com.horsecoder.im.flow.ImUsersReceiveMessages.model.Callback", "notnull":false }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.im/FLOW_NODE_IM_USERS_RECEIVE_MESSAGES",
+      "type":"event",
+      "title":"IM用户接收消息",
+      "reference":"@com.horsecoder.im/FLOW_CODE_IM_USERS_RECEIVE_MESSAGES",
+      "params":[
+        { "title":"发送者ID", "name":"senderId", "type":"String", "notnull":true },
+        { "title":"接收者ID列表", "name":"receiverIdList", "type":"List(String)", "notnull":true },
+        { "title":"消息", "name":"message", "type":"String", "notnull":true },
+        { "title":"会话ID", "name":"conversationId", "type":"String", "notnull":true },
+        { "title":"类型", "name":"type", "type":"Integer", "notnull":true },
+        { "title":"用户对话ID", "name":"userConversationId", "type":"String", "notnull":false },
+        { "title":"下游关键词", "name":"downstreamKeyword", "type":"String", "notnull":true },
+        { "title":"传输类型", "name":"transferType", "type":"Integer", "notnull":false },
+        { "title":"业务sessionId", "name":"sessionId", "type":"String", "notnull":false },
+        { "title":"轮次", "name":"turn", "type":"Integer", "notnull":false },
+        { "title":"上下文", "name":"context", "type":"Map(String$Object)", "notnull":false },
+        { "title":"回调", "name":"callback", "type":"com.horsecoder.im.flow.ImUsersReceiveMessages.model.Callback", "notnull":false }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.im/FLOW_NODE_IM_USERS_RECEIVE_MESSAGES", "condition":"true" },
+    { "source":"@com.horsecoder.im/FLOW_NODE_IM_USERS_RECEIVE_MESSAGES", "target":"end", "condition":"true" }
+  ]
+}

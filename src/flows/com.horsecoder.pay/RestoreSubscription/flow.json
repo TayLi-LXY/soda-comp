@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_RESTORE_SUBSCRIPTION",
+  "name":"FLOW_RESTORE_SUBSCRIPTION",
+  "type":"flow",
+  "title":"恢复订阅",
+  "params":[
+    { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"恢复结果", "name":"recoveryResults", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_RESTORE_SUBSCRIPTION",
+      "type":"event",
+      "title":"恢复订阅",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_RESTORE_SUBSCRIPTION",
+      "params":[
+        { "title":"账户ID", "name":"accountId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"恢复结果", "name":"recoveryResults", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_RESTORE_SUBSCRIPTION", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_RESTORE_SUBSCRIPTION", "target":"end", "condition":"true" }
+  ]
+}

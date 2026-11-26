@@ -1,0 +1,30 @@
+{
+  "id":"@com.horsecoder.pay/FLOW_WE_CHAT_ENTRUSTED_WITHHOLDING_AND_TERMINATION_OF_CONTRACT",
+  "name":"FLOW_WE_CHAT_ENTRUSTED_WITHHOLDING_AND_TERMINATION_OF_CONTRACT",
+  "type":"flow",
+  "title":"微信委托代扣解约",
+  "params":[
+    { "title":"合同ID", "name":"contractId", "type":"String", "notnull":true }
+  ],
+  "results":[
+    { "title":"处理结果", "name":"processingResult", "type":"String", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.pay/FLOW_NODE_WE_CHAT_ENTRUSTED_WITHHOLDING_AND_TERMINATION_OF_CONTRACT",
+      "type":"event",
+      "title":"微信委托代扣解约",
+      "reference":"@com.horsecoder.pay/FLOW_CODE_WE_CHAT_ENTRUSTED_WITHHOLDING_AND_TERMINATION_OF_CONTRACT",
+      "params":[
+        { "title":"合同ID", "name":"contractId", "type":"String", "notnull":true }
+      ],
+      "results":[
+        { "title":"处理结果", "name":"processingResult", "type":"String", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.pay/FLOW_NODE_WE_CHAT_ENTRUSTED_WITHHOLDING_AND_TERMINATION_OF_CONTRACT", "condition":"true" },
+    { "source":"@com.horsecoder.pay/FLOW_NODE_WE_CHAT_ENTRUSTED_WITHHOLDING_AND_TERMINATION_OF_CONTRACT", "target":"end", "condition":"true" }
+  ]
+}

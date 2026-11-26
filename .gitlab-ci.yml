@@ -1,0 +1,43 @@
+variables:
+  GIT_DEPTH: 0
+
+stages:
+  - deploy
+
+build_deploy_job:
+  stage: deploy
+  cache:
+    key:
+      files:
+        - pnpm-lock.yaml
+    paths:
+      - .pnpm-store
+  before_script:
+    - pnpm config set store-dir .pnpm-store
+  script:
+    - echo "=============== 前端构建发布任务 ==============="
+    - TARGET_DIR=/home/horsecoder/frontend/ai/dist
+
+    - export PATH="/opt/node20/bin:$PATH"
+    - node --version
+    - echo "当前打包使用Node版本：$(node -v)"
+    - npm --version
+
+    - bash horsecoder-npm.sh
+    - pnpm i
+    - pnpm build
+
+    - |
+      if [ -d "$TARGET_DIR" ]; then
+        BACKUP_NAME="dist_backup_$(date +%Y%m%d_%H%M%S)"
+        cp -r "$TARGET_DIR" "/home/horsecoder/frontend/ai/$BACKUP_NAME"
+        echo "已备份旧版本到 $BACKUP_NAME"
+      fi
+
+    - rm -rf "$TARGET_DIR"
+    - cp -r out/ "$TARGET_DIR"
+    - echo "=============== 发布完成 ==============="
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+  tags:
+    - test

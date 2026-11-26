@@ -1,0 +1,50 @@
+{
+  "id":"@com.horsecoder.model/FLOW_CREATE_MODELS_AND_PRODUCTS",
+  "name":"FLOW_CREATE_MODELS_AND_PRODUCTS",
+  "type":"flow",
+  "title":"创建模型和产品",
+  "params":[
+    { "title":"空间id", "name":"spaceId", "type":"String", "notnull":true },
+    { "title":"应用标题", "name":"title", "type":"String", "notnull":true },
+    { "title":"应用名", "name":"name", "type":"String", "notnull":true },
+    { "title":"应用描述", "name":"description", "type":"String", "notnull":true },
+    { "title":"应用封面", "name":"cover", "type":"String", "notnull":false },
+    { "title":"用户id", "name":"userId", "type":"String", "notnull":true },
+    { "title":"子类型", "name":"subType", "type":"String", "notnull":false, "defaultValue":"web" }
+  ],
+  "results":[
+    { "title":"新模型文件模型", "name":"newModelJsonModel", "type":"com.horsecoder.model.flow.NewModelJson.model.ModelJsonModel", "notnull":true },
+    { "title":"应用id", "name":"appId", "type":"String", "notnull":true },
+    { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true },
+    { "title":"产品ID", "name":"productId", "type":"String", "notnull":true },
+    { "title":"目标产品", "name":"targetProduct", "type":"com.horsecoder.model.flow.CreateModelsAndProducts.model.ProductStandard", "notnull":true }
+  ],
+  "nodes":[
+    {
+      "id":"@com.horsecoder.model/FLOW_NODE_CREATE_MODELS_AND_PRODUCTS",
+      "type":"event",
+      "title":"创建模型和产品",
+      "reference":"@com.horsecoder.model/FLOW_CODE_CREATE_MODELS_AND_PRODUCTS",
+      "params":[
+        { "title":"空间id", "name":"spaceId", "type":"String", "notnull":true },
+        { "title":"应用标题", "name":"title", "type":"String", "notnull":true },
+        { "title":"应用名", "name":"name", "type":"String", "notnull":true },
+        { "title":"应用描述", "name":"description", "type":"String", "notnull":true },
+        { "title":"应用封面", "name":"cover", "type":"String", "notnull":false },
+        { "title":"用户id", "name":"userId", "type":"String", "notnull":true },
+        { "title":"子类型", "name":"subType", "type":"String", "notnull":false, "defaultValue":"web" }
+      ],
+      "results":[
+        { "title":"新模型文件模型", "name":"newModelJsonModel", "type":"com.horsecoder.model.flow.NewModelJson.model.ModelJsonModel", "notnull":true },
+        { "title":"应用id", "name":"appId", "type":"String", "notnull":true },
+        { "title":"项目ID", "name":"projectId", "type":"String", "notnull":true },
+        { "title":"产品ID", "name":"productId", "type":"String", "notnull":true },
+        { "title":"目标产品", "name":"targetProduct", "type":"com.horsecoder.model.flow.CreateModelsAndProducts.model.ProductStandard", "notnull":true }
+      ]
+    }
+  ],
+  "routes":[
+    { "source":"start", "target":"@com.horsecoder.model/FLOW_NODE_CREATE_MODELS_AND_PRODUCTS", "condition":"true" },
+    { "source":"@com.horsecoder.model/FLOW_NODE_CREATE_MODELS_AND_PRODUCTS", "target":"end", "condition":"true" }
+  ]
+}
